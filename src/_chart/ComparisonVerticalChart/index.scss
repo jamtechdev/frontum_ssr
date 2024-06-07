@@ -1,0 +1,56 @@
+.bar-chart {
+  &__bar {
+    fill: #99d1ff;
+  }
+}
+
+.rect-hover {
+  &:hover {
+    fill: rgb(67, 126, 206);
+    cursor: pointer;
+  }
+}
+
+.chartTitle {
+  color: rgba(39, 48, 78, 0.8);
+  font-size: 20px;
+  font-style: italic;
+  font-weight: 400;
+}
+
+.tick text {
+  // font-family: "Lato, sans-serif";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  fill: rgba(39, 49, 75, 0.7);
+  color: rgba(39, 49, 75, 0.7);
+  // white-space: pre-wrap;
+}
+.marginPath {
+  margin: 5px 5px 4px 4px;
+}
+.base__svg-container{
+  background-color: transparent !important;
+}
+.base__svg-container {
+  cursor: inherit !important;
+}
+.container-divs .parentBarDiv {
+  display: flex;
+  flex-direction: column;
+  // gap: 10px;
+
+  .legendBoxBarChart {
+    margin-left: -40px;
+    z-index: 9;
+    margin-top: 20px;
+    table {
+      width: 200px;
+    }
+  }
+}
+
+// .base__svg-container g:first-child{
+//   transform: translate(50px, 20px);
+// }

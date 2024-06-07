@@ -1,0 +1,9 @@
+
+.modal-dialog .confirm-modal-body p{
+    font-size: 14px;
+    font-weight: 400;
+    text-align: center;
+    color: #000;
+    /* margin-bottom: 0px; */
+    margin-bottom: 15px !important;
+}

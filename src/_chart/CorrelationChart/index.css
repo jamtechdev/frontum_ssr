@@ -1,0 +1,32 @@
+.chartTitle {
+  color: rgba(39, 48, 78, 0.8);
+  font-size: 20px;
+  font-style: italic;
+  font-weight: 400;
+}
+.axis-label {
+  fill: rgba(39, 48, 78, 0.8) !important;
+  font-size: 20px;
+  font-style: italic;
+  font-weight: 400;
+  line-height: 26px;
+}
+.tooltip {
+  display: flex;
+  position: fixed;
+  text-align: center;
+  padding: 8px;
+  background-color: rgba(255, 255, 255, 1);
+  color: rgba(0, 0, 0, 0.3);
+  border-radius: 4px;
+  pointer-events: none;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+}
+.tooltip-font {
+  font-size: 14px;
+  font-weight: 400;
+  color: rgba(39, 48, 78, 0.8);
+}
+.hover-effect {
+  cursor: pointer;
+}

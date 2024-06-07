@@ -1,0 +1,145 @@
+:root {
+    --SLICE-WIDTH: 178px;
+    --THUMB-COLOR: #437ece;
+    --THUMB-SIZE: 19px;
+  }
+  
+  .multi-range-slider-container {
+    margin-top: 10px;
+    padding-bottom: 10px;
+    position: relative;
+  }
+  
+  /* Removing the default appearance */
+  .multi-range-slider-container .thumb,
+  .multi-range-slider-container .thumb::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+  .multi-range-slider-container .thumb:focus {
+    outline: none;
+  }
+  
+  .multi-range-slider-container .thumb {
+    pointer-events: none;
+    position: absolute;
+    height: 0px;
+    width: var(--SLICE-WIDTH);
+  }
+  
+  .multi-range-slider-container .thumb--left {
+    z-index: 3;
+  }
+  
+  .multi-range-slider-container .thumb--right {
+    z-index: 4;
+  }
+  
+  /* For Chrome browsers */
+  .multi-range-slider-container .thumb::-webkit-slider-thumb {
+    /* background-color: var(--THUMB-COLOR); */
+    /* border: none; */
+    background-color:white;
+    border: 4px solid var(--THUMB-COLOR);
+    outline: none;
+    border-radius: 50%;
+  
+    cursor: pointer;
+    height: var(--THUMB-SIZE);
+    width: var(--THUMB-SIZE);
+    margin-top: 4px;
+    pointer-events: all;
+    position: relative;
+  }
+  
+  /* For Firefox browsers */
+  .multi-range-slider-container .thumb::-moz-range-thumb {
+    /* background-color: var(--THUMB-COLOR); */
+    /* border: none; */
+    background-color:white;
+    border: 4px solid var(--THUMB-COLOR);
+    outline: none;
+    border-radius: 50%;
+  
+    cursor: pointer;
+    height: var(--THUMB-SIZE);
+    width: var(--THUMB-SIZE);
+    margin-top: 4px;
+    pointer-events: all;
+    position: relative;
+  }
+  
+  .multi-range-slider-container .slider {
+    position: relative;
+    width: calc(var(--SLICE-WIDTH) - 5px);
+    margin-left: 2px;
+  }
+  
+  .multi-range-slider-container .slider__track,
+  .multi-range-slider-container .slider__range {
+    position: absolute;
+    /* bottom: -7px; */
+    bottom: -5px; /* Here you move the slice up or down only on any browser that is not firefox */
+  }
+  
+  @supports (-moz-appearance: none) {
+    /* This check if the browser is firefox */
+    .multi-range-slider-container .slider__track,
+    .multi-range-slider-container .slider__range {
+      /* bottom: -5px;*/
+      bottom: -3px; /* Here you move the slice up or down only on firefox browser */
+    }
+  }
+  
+  .multi-range-slider-container .slider__track,
+  .multi-range-slider-container .slider__range {
+    border-radius: 3px;
+    /* height: 9px; */
+    height: 4px; /* Here you define the height of the slice */
+  }
+  
+  .multi-range-slider-container .slider__track {
+    background-color: hsl(205, 25%, 75%);
+    width: 100%;
+    z-index: 1;
+  }
+  
+  .multi-range-slider-container .slider__range {
+    background-color: #65a6d6;
+    z-index: 2;
+  }
+/*   
+  .multi-range-slider-container .slider__left-value,
+  .multi-range-slider-container .slider__right-value {
+    color: cornflowerblue;
+    font-size: 12px;
+    margin-top: 20px;
+  }
+  
+  .multi-range-slider-container .slider__left-value {
+    left: 6px;
+  }
+  
+  .multi-range-slider-container .slider__right-value {
+    right: -4px;
+  }
+   */
+  .multi-range-slider-container .values {
+    padding-top: 20px;
+    width: var(--SLICE-WIDTH);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .multi-range-slider-container .values label{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 19px;
+    color: var(--heading-color);
+    opacity: 80%;
+  }

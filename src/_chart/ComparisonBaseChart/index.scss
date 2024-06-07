@@ -1,0 +1,87 @@
+
+.base {
+    &__container {
+      position: relative;
+      width: fit-content;
+      margin: 0;
+    }
+  
+    &__svg-container {
+      background-color: white;
+      cursor: pointer;
+    }
+  
+    &__gridlines {
+      color: rgba(39, 48, 78, 0.1);
+    }
+    
+    &__axis {
+      color: rgba(39, 48, 78, 0.8);
+      stroke-width: 1;
+  
+      &-label {
+        font-size: 18px;
+        font-weight: 400;
+        font-style: italic;
+        line-height: 26px;
+      }
+    }
+  
+    &__tooltip {
+      position: absolute;
+      top: 0;
+      left: 0;
+      background-color: #cdebf9;
+      color: #45b3e7;
+      border: 1px solid #45b3e7;
+      border-radius: 5px;
+      width: fit-content;
+      padding: 10px;
+      opacity: 0;
+    }
+  }
+
+  .base__axis {
+    text{
+      color: rgba(39, 49, 75, 0.70);
+      
+    }
+   path, line{
+      display:none;
+    }
+  }
+  .gridlines__x g:nth-child(2) line,
+  .gridlines__x g:last-child line {
+    display: none;
+}
+
+  .moreDigit text{ transform: translate(-30px, 10px) rotate(-20deg); }
+  .axis__x-label{transform: translate(0, 25px);}
+  .fontStyle{
+    font-size: 13px; font-weight: 400;
+    color: rgba(39, 49, 75, 0.7);
+  }
+  .base__tooltip{
+    display: flex;
+    position: fixed;
+    text-align: center;
+    padding: 8px;
+    background-color: rgba(255, 255, 255, 1);
+    color: rgba(0, 0, 0, 0.3);
+    border-radius: 4px;
+    pointer-events: none;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+  }
+  .axis-label{
+    fill: rgba(39, 48, 78, 0.80) !important;
+    font-size: 20px;
+    font-style: italic;
+    font-weight: 400;
+    line-height: 26px; 
+  }
+  .chartTitle{
+    color: rgba(39, 48, 78, 0.80);
+    font-size: 20px;
+    font-style: italic;
+    font-weight: 400;
+  }

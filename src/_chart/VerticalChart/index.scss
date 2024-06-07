@@ -1,0 +1,30 @@
+.bar-chart {
+    &__bar {
+      fill: #99D1FF;
+    }
+  }
+  
+  .rect-hover {
+    &:hover {
+      fill:rgb(67, 126, 206);
+      cursor: pointer;
+    }   
+  }
+
+  .chartTitle{
+    color: rgba(39, 48, 78, 0.80);
+    font-size: 20px;
+    font-style: italic;
+    font-weight: 400;
+  }
+
+  .tick text{
+    // font-family: 'Lato, sans-serif' ;
+    font-style: normal;   
+    font-weight:400;
+    font-size: 14px;
+    fill: rgba(39, 49, 75, 0.7);
+    color: rgba(39, 49, 75, 0.7);
+    // white-space: pre-wrap;
+   }
+  

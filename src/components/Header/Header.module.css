@@ -1,0 +1,101 @@
+.searchbar {
+  position: relative;
+  border: 1px solid rgba(82, 82, 108, 0.1);
+  border-radius: 5px;
+}
+
+.searchbar input {
+  height: 47px;
+  border: none;
+  background: none;
+  font-weight: 400;
+  font-size: 16px;
+  padding-right: 75px;
+  color: var(--nav-link);
+}
+
+.searchbar input::-webkit-search-cancel-button {
+  display: none !important;
+}
+
+.searchbar input::placeholder {
+  color: var(--nav-link);
+  opacity: 0.7;
+}
+
+.searchbar button {
+  background: var(--light-background);
+  border: none;
+  width: 47px;
+  height: 47px;
+  position: absolute;
+  right: 0;
+}
+
+.searchbar button:hover {
+  background: var(--light-background) !important;
+}
+
+.searchbar button i {
+  color: var(--nav-link);
+  opacity: 0.7;
+  font-size: 20px;
+}
+
+.navitem {
+  display: flex;
+  gap: 30px;
+  justify-content: flex-end;
+}
+
+.navitem li a {
+  font-weight: 400;
+  font-size: 16px;
+  color: var(--nav-link);
+  font-family: "Lato", sans-serif !important;
+  position: relative;
+}
+
+.navitem li{
+  position: relative;
+}
+
+.navitem li::before {
+  content: "";
+  width: 0;
+  height: 2px;
+  position: absolute;
+  bottom: -5px;
+  background: var(--secondary-color);
+  transition: 0.5s;
+}
+
+.navitem li:hover:before {
+  width: 100%;
+}
+
+.navitem li a:hover, .navitem li:hover {
+  color: var(--secondary-color);
+}
+
+.categories_nav_item {
+  background: var(--primary-color);
+  color: var(--white-color);
+}
+
+.categories_nav_item .inner_container {
+  max-width: 950px;
+  display: flex;
+  gap: 40px;
+  margin: auto;
+  position: relative;
+}
+
+@media screen and (max-width: 768px) {
+  .searchbar{
+    margin: 10px 0 0 !important;
+  }
+  .searchbar input {
+    border: 1px solid #ddd !important;
+  }
+}

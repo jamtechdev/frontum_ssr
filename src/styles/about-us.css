@@ -1,0 +1,19 @@
+.contentPara{
+    color: rgba(39, 48, 78, 0.9);
+    line-height: 1.7;
+    padding: 0px 0px;
+    font-size: 18px;
+}
+.category_name {
+    box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 400;
+    font-size: 18px;
+    text-transform: lowercase;
+    word-spacing: 1px;
+}
+.category-section{
+    margin: 0 0 50px;
+}

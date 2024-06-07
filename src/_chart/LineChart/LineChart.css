@@ -1,0 +1,13 @@
+.axis path {
+    stroke: #e6e9eb !important;
+  }
+  .axis line {
+    stroke: #e6e9eb !important;
+  }
+  .axis text {
+    fill: #556066 !important;
+  }
+  .line {
+    stroke-width: 3.5;
+  }
+    

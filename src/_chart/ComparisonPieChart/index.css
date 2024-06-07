@@ -1,0 +1,74 @@
+.pieChart {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.legendBox { 
+  display:grid;
+  gap:8px
+}
+
+.legend-item { 
+  display:flex;
+  align-items:center;
+  margin:0;
+}
+
+.legend-item > div { 
+  width:20px !important;
+  height:20px !important;
+  border-radius:100px;
+  margin-right:8px;
+}
+
+.legend-item > span { 
+  font-size:16px;
+  font-weight: 400;
+  color: rgba(39, 48, 78, 0.80);
+}
+
+.legend-avatar { 
+  min-width: 20px;
+  width:20px !important;
+  height:20px !important;
+  border-radius:100px;
+  margin-right:8px;
+}
+
+.legend-text { 
+  font-size:17px;
+   font-weight: 400;
+  color: rgba(39, 48, 78, 0.80);
+   margin-right: 10px;
+   /* white-space: nowrap; */
+}
+
+.tooltip {
+  display: flex;
+  position: fixed;
+  text-align: center;
+  padding: 8px;
+  background-color: rgba(255, 255, 255, 1);
+  color: rgba(0, 0, 0, 0.3);
+  border-radius: 4px;
+  pointer-events: none;
+  border: 1px solid rgba(0, 0, 0, 0.3); 
+}
+
+.arc:hover {
+  cursor: pointer;
+}
+
+.chartTitle {
+  color: rgba(39, 48, 78, 0.80);
+  font-size: 20px;
+  font-style: italic;
+  font-weight: 400;
+}
+
+.legendItemsDigit { 
+  max-width:54px;
+  margin-right:10px;
+}
