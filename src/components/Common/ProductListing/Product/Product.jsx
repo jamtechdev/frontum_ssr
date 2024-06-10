@@ -1107,7 +1107,7 @@ export default function Product({
                               style={{
                                 left: isMobile ? "50%" : 0,
                                 transform: isMobile
-                                  ? "translateX(-60%)"
+                                  ? "translateX(20%)"
                                   : "translateX(-10%)",
                                 width: isMobile ? "190px" : "250px",
                               }}

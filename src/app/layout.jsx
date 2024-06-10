@@ -14,6 +14,7 @@ export default async function RootLayout({ children }) {
   // (footerData);
   // (footerData?.footer_tag_code);
   // (footerData?.favicon)
+  // console.log(footerData, headerData);
 
   return (
     <html lang={footerData?.website_language?.toLowerCase()}>

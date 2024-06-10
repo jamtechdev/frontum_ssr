@@ -15,6 +15,7 @@ export default function Filter({
   guidePhraseData,
   searchParam,
   orderBy,
+  setremovedParam,
 }) {
   // (guidePhraseData);
 
@@ -156,11 +157,13 @@ export default function Filter({
   // (sliderValues);
   const deleteQueryFormURL = (key, updatedParams, currentParams, url) => {
     delete updatedParams[key];
+    setremovedParam();
     currentParams.delete([key]);
     url.searchParams.delete([key]);
   };
 
   useEffect(() => {
+    // console.log(removedParam);
     if (removedParam) {
       if (searchParam?.direct) {
         const filteredKeys = Object.keys(searchParam).filter(

@@ -9,7 +9,7 @@ const ProsConsToolTip = (props) => {
     info_not_verified,
     info_not_verified_text,
     data,
-    
+
     typeComp,
     finalvalue,
     expert_reviews,
@@ -57,10 +57,10 @@ const ProsConsToolTip = (props) => {
           className="tooltip-display-content why-tooltip"
           style={{
             left: isMobile ? "50%" : 0,
-            transform: isMobile ? "translateX(-60%)" : "translateX(-10%)",
-            width: isMobile ? "180px" : "250px", 
-             marginBottom:"3px",
-             marginTop:"3px"
+            transform: isMobile ? "translateX(20%)" : "translateX(-10%)",
+            width: isMobile ? "180px" : "250px",
+            marginBottom: "3px",
+            marginTop: "3px",
           }}
         >
           <div
