@@ -223,7 +223,7 @@ async function fetchDataBasedOnPageType(
         process.env.NEXT_PUBLIC_API_URL
       }/guide/products/${category}/${slug}?query=${JSON.stringify(
         searchParams
-      )}`;
+      )}`;  
       // (productApiUrl);
 
       if (searchParams?.page) {

@@ -102,7 +102,7 @@ export default async function PageSwitch({
       break;
     case "Compare":
       // Render Comparison component
-      const compareData = pageData[0];
+      const compareData = pageData[0]?.data;
 
       const graphComparisonProsCons = await getGraphComparisonProsCons(
         pageData,
@@ -118,7 +118,7 @@ export default async function PageSwitch({
         categorySlug,
         slug
       );
-      console.log(getProsConsforVsPage);
+      // console.log(getProsConsforVsPage);
       PageToRender = (
         <Comparison
           slug={slug}
