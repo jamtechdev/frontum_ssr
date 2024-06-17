@@ -330,11 +330,19 @@ const CompareAccordionTab = React.memo(
                                             )}
                                           </span>
                                           {/* {console.log(comparePhaseData,"neet")} */}
+                                          {item?.when_matters?.description && (
+                                            <QuestionIcon
+                                              attributes={item?.when_matters}
+                                              comparePhaseData={
+                                                comparePhaseData
+                                              }
+                                            />
+                                          )}
 
-                                          <QuestionIcon
+                                          {/* <QuestionIcon
                                             attributes={item?.when_matters}
                                             comparePhaseData={comparePhaseData}
-                                          />
+                                          /> */}
 
                                           <small className="d-block tooltip-title">
                                             {item?.hover_phase && (
@@ -354,8 +362,10 @@ const CompareAccordionTab = React.memo(
                                           </small>
                                           {/* {console.log(item?.vs)} */}
                                           <small>
-                                            {item?.difference_value === comparePhaseData?.yes ||
-                                            item?.difference_value === comparePhaseData?.no ||
+                                            {item?.difference_value ===
+                                              comparePhaseData?.yes ||
+                                            item?.difference_value ===
+                                              comparePhaseData?.no ||
                                             item?.difference_value === null ? (
                                               ""
                                             ) : (
@@ -419,10 +429,12 @@ const CompareAccordionTab = React.memo(
                                           </>
                                         )}
                                       </span>
-                                      <QuestionIcon
-                                        attributes={item?.when_matters}
-                                        comparePhaseData={comparePhaseData}
-                                      />
+                                      {item?.when_matters?.description && (
+                                        <QuestionIcon
+                                          attributes={item?.when_matters}
+                                          comparePhaseData={comparePhaseData}
+                                        />
+                                      )}
 
                                       <small className="d-block tooltip-title">
                                         {item?.hover_phase && (
@@ -441,8 +453,10 @@ const CompareAccordionTab = React.memo(
                                         )}
                                       </small>
                                       <small>
-                                        {item?.difference_value === comparePhaseData?.yes ||
-                                        item?.difference_value === comparePhaseData?.no ||
+                                        {item?.difference_value ===
+                                          comparePhaseData?.yes ||
+                                        item?.difference_value ===
+                                          comparePhaseData?.no ||
                                         item?.difference_value === null ? (
                                           ""
                                         ) : (
@@ -506,10 +520,16 @@ const CompareAccordionTab = React.memo(
                                             </div>
                                           )}
                                         </span>
-                                        <QuestionIcon
+                                        {item?.when_matters?.description && (
+                                          <QuestionIcon
+                                            attributes={item?.when_matters}
+                                            comparePhaseData={comparePhaseData}
+                                          />
+                                        )}
+                                        {/* <QuestionIcon
                                           attributes={itemx?.when_matters}
                                           comparePhaseData={comparePhaseData}
-                                        />
+                                        /> */}
                                         {itemx?.hover_phase && (
                                           <small className="d-block tooltip-title invisible">
                                             <span className="tooltip-display-content">
@@ -765,8 +785,10 @@ const CompareAccordionTab = React.memo(
                                           )}
                                         </small>
                                         <small>
-                                          {item?.difference_value === comparePhaseData?.yes ||
-                                          item?.difference_value === comparePhaseData?.no ||
+                                          {item?.difference_value ===
+                                            comparePhaseData?.yes ||
+                                          item?.difference_value ===
+                                            comparePhaseData?.no ||
                                           item?.difference_value === null ? (
                                             ""
                                           ) : (
@@ -957,8 +979,10 @@ const CompareAccordionTab = React.memo(
                                         )}
                                       </small>
                                       <small>
-                                        {item?.difference_value === comparePhaseData?.yes ||
-                                        item?.difference_value === comparePhaseData?.no ||
+                                        {item?.difference_value ===
+                                          comparePhaseData?.yes ||
+                                        item?.difference_value ===
+                                          comparePhaseData?.no ||
                                         item?.difference_value === null ? (
                                           ""
                                         ) : (
@@ -1039,8 +1063,10 @@ const CompareAccordionTab = React.memo(
                                             )}
                                           </small>
                                           <small>
-                                            {item?.difference_value === comparePhaseData?.yes ||
-                                            item?.difference_value === comparePhaseData?.no ||
+                                            {item?.difference_value ===
+                                              comparePhaseData?.yes ||
+                                            item?.difference_value ===
+                                              comparePhaseData?.no ||
                                             item?.difference_value === null ? (
                                               ""
                                             ) : (
@@ -1124,8 +1150,10 @@ const CompareAccordionTab = React.memo(
                                             )}
                                           </small>
                                           <small>
-                                            {item?.difference_value === comparePhaseData?.yes ||
-                                            item?.difference_value === comparePhaseData?.no ||
+                                            {item?.difference_value ===
+                                              comparePhaseData?.yes ||
+                                            item?.difference_value ===
+                                              comparePhaseData?.no ||
                                             item?.difference_value === null ? (
                                               ""
                                             ) : (
