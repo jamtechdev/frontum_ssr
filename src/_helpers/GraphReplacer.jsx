@@ -20,7 +20,7 @@ const GraphReplacer = () => {
       if (shortCode[idx]?.isMatch && element.nodeType === Node.ELEMENT_NODE) {
         try {
           const response = await axios.get(
-            `https://panel.mondopedia.it/api/v1/generate-graph?graph_shortcode=${shortCode[idx].matchedString}`,
+            `${process.env.NEXT_PUBLIC_API_URL}/generate-graph?graph_shortcode=${shortCode[idx].matchedString}`,
             {
               headers: {
                 Authorization: `Bearer Jf8r1Xp0rTVbdz4jIOXpkxGEmE3oVc7VlqAGyKCJksKf4SboPfOhrdPy7Wz5W3U2`,
@@ -101,9 +101,7 @@ const GraphReplacer = () => {
                 );
               }
 
-              if (
-                shortCode[idx].pattern == ChartName.HorizontalChart
-              ) {
+              if (shortCode[idx].pattern == ChartName.HorizontalChart) {
                 root.render(
                   <HorizontalChart
                     data={plotData}
@@ -118,9 +116,7 @@ const GraphReplacer = () => {
                 );
               }
 
-              if (
-                shortCode[idx].pattern == ChartName.CorrelationChart
-              ) {
+              if (shortCode[idx].pattern == ChartName.CorrelationChart) {
                 root.render(
                   <CorrelationChart
                     data={chartData?.data}
@@ -279,7 +275,7 @@ const GraphReplacer = () => {
     setTimeout(() => {
       const elementsWithNodeType =
         document.querySelectorAll("[data-shortcode]");
-      ("Observed elements:", elementsWithNodeType);
+      "Observed elements:", elementsWithNodeType;
       elementsWithNodeType.forEach((element) => {
         observer.current.observe(element);
       });
