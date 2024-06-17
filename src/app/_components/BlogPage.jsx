@@ -142,9 +142,7 @@ export default function BlogPage({ slug, blogData, categorySlug }) {
                   <i>
                     {""}
                     {blogData[0]?.data?.updated_at
-                      .split("/")
-                      .reverse()
-                      .join("-")}
+                    }
                   </i>
                 </span>
               </div>

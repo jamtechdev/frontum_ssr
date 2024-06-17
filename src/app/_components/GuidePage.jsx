@@ -339,7 +339,7 @@ export default function GuidePage({
                 )}
                 <span>
                   {guide && guide?.page_phases?.updated}
-                  <i> {guide?.updated_at.split("/").reverse().join("-")}</i>
+                  <i> {guide?.updated_at}</i>
                 </span>
               </div>
             </Col>

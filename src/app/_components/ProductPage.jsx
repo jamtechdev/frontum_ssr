@@ -144,7 +144,7 @@ function ProductPage({
 
   //   // return ""; // Return null for strings
   // };
-  console.log("hello")
+  console.log("hello");
 
   const renderValue = (item) => {
     const numericValue = parseFloat(item?.value);
@@ -380,7 +380,7 @@ function ProductPage({
                 <span>
                   {product && product?.page_phases?.updated}
                   <i>
-                    {""} {product?.updated_at.split("/").reverse().join("-")}
+                    {""} {product?.updated_at}
                   </i>
                 </span>
               </div>
