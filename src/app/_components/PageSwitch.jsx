@@ -102,12 +102,13 @@ export default async function PageSwitch({
       break;
     case "Compare":
       // Render Comparison component
-      const compareData = pageData[0]?.data;
+      const compareData = pageData[0];
 
       const graphComparisonProsCons = await getGraphComparisonProsCons(
         pageData,
         categorySlug
       );
+      // console.log(compareData)
 
       const compareDataCatAttribute = await getProductCategroyAttributes(
         compareData?.category_id
@@ -300,6 +301,7 @@ async function getProductForTable(category_url, slug) {
 }
 
 async function getProductCategroyAttributes(category_id) {
+  console.log(category_id);
   // (category_id);
   const response = await fetch(
     `${process.env.NEXT_PUBLIC_API_URL}/product/${category_id}/attributes`,

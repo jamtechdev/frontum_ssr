@@ -105,6 +105,10 @@ export default function Product({
     incomingProduct?.ratio_quality_price_points
   );
 
+  const ratioQualityColor = getColorBasedOnScore(
+    incomingProduct?.ratio_quality_price_points
+  );
+
   // filter a value which numeric or string
   const renderValue = (item) => {
     const numericValue = parseFloat(item?.value);
@@ -2221,9 +2225,9 @@ export default function Product({
                                           textUnderlineOffset: "5px",
                                         }}
                                       >
-                                        {formatValue(product.reviews)}
+                                        {formatValue(product?.ratio_quality_price_points)}
                                         <ProsConsToolTip
-                                          hover_phrase={product.reviews_phase}
+                                          hover_phrase={product?.ratio_quality_price_points_phase}
                                         />
                                       </span>
                                     </div>

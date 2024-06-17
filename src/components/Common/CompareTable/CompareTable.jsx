@@ -830,7 +830,7 @@ const CompareTable = React.memo(
                         <p className="mb-2">
                           <b>
                             {guidePhraseData &&
-                              guidePhraseData?.when_it_matters}
+                              guidePhraseData?.what_it_is}
                             :{" "}
                           </b>{" "}
                           {

@@ -83,7 +83,7 @@ async function getNoDataFound(category) {
 // Function to generate metadata for a given category
 export async function generateMetadata({ params: { category } }) {
   let meta_data = { data: {} };
-  const siteURL = "https://mondopedia.it";
+  const siteURL = process.env.NEXT_BASE_URL;
 
   try {
     const response = await getSlugMetaData(category);
@@ -98,7 +98,7 @@ export async function generateMetadata({ params: { category } }) {
   const slugType = await getSlugType(category);
   if (slugType.error === "Permalink not found") {
     const meta_data = await getNoDataFound();
-    const siteURL = "https://mondopedia.it";
+    const siteURL = process.env.NEXT_BASE_URL;
     if (meta_data && meta_data.data) {
       return {
         title: meta_data.data.title,

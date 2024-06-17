@@ -971,7 +971,7 @@ function ProductPage({
                       })}
                 </ul>
                 {/* {(showFullPrice)} */}
-                {product?.guide_ratings?.length > 5 && (
+                {product?.guide_ratings?.length >= 5 && (
                   <Button
                     className="see_all_btn"
                     onClick={handleShowAllRanking}
@@ -983,7 +983,7 @@ function ProductPage({
                     <i className="ri-arrow-down-s-line"></i>
                   </Button>
                 )}
-                {showFullRanking && product?.guide_ratings?.length > 5 && (
+                {showFullRanking && product?.guide_ratings?.length >= 5 && (
                   <Button
                     className="see_all_btn "
                     onClick={handleShowAllRanking}
@@ -1216,9 +1216,7 @@ function ProductPage({
                             {formatValue(data?.value)}
 
                             {/* {formatValue(8.125)} */}
-                            {/* {attributeValues?.final_points?.toFixed(
-                       1
-                     )} */}
+                            {/* {attributeValues?.final_points?.toFixed()} */}
                           </span>
                           <span className="attribute__title">
                             <b>{data?.title} </b>
@@ -1945,7 +1943,7 @@ function ProductPage({
                               })}
                         </ul>
 
-                        {product?.guide_ratings?.length > 5 && (
+                        {product?.guide_ratings?.length >= 5 && (
                           <Button
                             className="see_all_btn"
                             onClick={handleShowAllRanking}
@@ -1960,7 +1958,7 @@ function ProductPage({
                           </Button>
                         )}
                         {showFullRanking &&
-                          product?.guide_ratings?.length > 5 && (
+                          product?.guide_ratings?.length >= 5 && (
                             <Button
                               className="see_all_btn "
                               onClick={handleShowAllRanking}
