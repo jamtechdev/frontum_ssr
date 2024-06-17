@@ -23,7 +23,7 @@ const GraphReplacer = () => {
             `${process.env.NEXT_PUBLIC_API_URL}/generate-graph?graph_shortcode=${shortCode[idx].matchedString}`,
             {
               headers: {
-                Authorization: `Bearer Jf8r1Xp0rTVbdz4jIOXpkxGEmE3oVc7VlqAGyKCJksKf4SboPfOhrdPy7Wz5W3U2`,
+                Authorization: `Bearer ${process.env.NEXT_PUBLIC_TOKEN}`,
                 "Content-Type": "application/json",
               },
             }
