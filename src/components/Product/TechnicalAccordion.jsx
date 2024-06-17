@@ -794,12 +794,14 @@ const TechnicalAccordion = React.memo(
                                         />
                                       </div>
                                     </div>
+                                    {/* {console.log(productPhaseData?.yes)} */}
+
                                     <div className="spec-col">
                                       <div className="spec-col d-flex gap-1">
                                         {attributeValues.attribute_value !=
-                                          "yes" &&
+                                          productPhaseData?.yes &&
                                           attributeValues.attribute_value !=
-                                            "no" && (
+                                            productPhaseData?.no && (
                                             <>
                                               <div
                                                 className={`${
@@ -918,9 +920,9 @@ const TechnicalAccordion = React.memo(
 
                                         {/* newww */}
                                         {(attributeValues.attribute_value ==
-                                          "yes" ||
+                                          productPhaseData?.yes ||
                                           attributeValues.attribute_value ==
-                                            "no") && (
+                                            productPhaseData?.no) && (
                                           <div
                                             className={`${
                                               attributeValues?.hover_phase !==
@@ -931,13 +933,13 @@ const TechnicalAccordion = React.memo(
                                             style={{
                                               color:
                                                 attributeValues.attribute_value ==
-                                                  "yes" &&
+                                                  productPhaseData?.yes &&
                                                 attributeValues.attribute_is_same_as *
                                                   100 <
                                                   40
                                                   ? "#0066b2"
                                                   : attributeValues.attribute_value ==
-                                                      "no" &&
+                                                      productPhaseData?.no &&
                                                     attributeValues.attribute_is_worse_than *
                                                       100 >
                                                       60
@@ -957,14 +959,14 @@ const TechnicalAccordion = React.memo(
                                               textDecorationThickness: "1.5px",
                                               textDecorationColor:
                                                 attributeValues.attribute_value ==
-                                                  "yes" &&
+                                                  productPhaseData?.yes &&
                                                 // here I change attribute_is_better_than to attribute_is_same_as
                                                 attributeValues.attribute_is_same_as *
                                                   100 <
                                                   40
                                                   ? "#0066b2"
                                                   : attributeValues.attribute_value ==
-                                                      "no" &&
+                                                      productPhaseData?.no &&
                                                     attributeValues.attribute_is_worse_than *
                                                       100 >
                                                       60
@@ -979,13 +981,13 @@ const TechnicalAccordion = React.memo(
                                                 style={{
                                                   color:
                                                     attributeValues.attribute_value ==
-                                                      "yes" &&
+                                                      productPhaseData?.yes &&
                                                     attributeValues.attribute_is_same_as *
                                                       100 <
                                                       40
                                                       ? "#0066b2"
                                                       : attributeValues.attribute_value ==
-                                                          "no" &&
+                                                          productPhaseData?.no &&
                                                         attributeValues.attribute_is_worse_than *
                                                           100 >
                                                           60
@@ -1148,9 +1150,9 @@ const TechnicalAccordion = React.memo(
                                   <div className="spec-col ">
                                     <div className="spec-col">
                                       {attributeValues.attribute_value !=
-                                        "yes" &&
+                                        productPhaseData?.yes &&
                                         attributeValues.attribute_value !=
-                                          "no" && (
+                                          productPhaseData?.no && (
                                           <>
                                             <div
                                               className={`${
@@ -1296,9 +1298,9 @@ const TechnicalAccordion = React.memo(
 
                                       {/* newww */}
                                       {(attributeValues.attribute_value ==
-                                        "yes" ||
+                                        productPhaseData?.yes ||
                                         attributeValues.attribute_value ==
-                                          "no") && (
+                                          productPhaseData?.no) && (
                                         <div
                                           className={`${
                                             attributeValues?.hover_phase !== ""
@@ -1308,13 +1310,13 @@ const TechnicalAccordion = React.memo(
                                           style={{
                                             color:
                                               attributeValues.attribute_value ==
-                                                "yes" &&
+                                                productPhaseData?.yes &&
                                               attributeValues.attribute_is_same_as *
                                                 100 <
                                                 40
                                                 ? "#0066b2"
                                                 : attributeValues.attribute_value ==
-                                                    "no" &&
+                                                    productPhaseData?.no &&
                                                   attributeValues.attribute_is_worse_than *
                                                     100 >
                                                     60
@@ -1334,14 +1336,14 @@ const TechnicalAccordion = React.memo(
                                             textDecorationThickness: "1.5px",
                                             textDecorationColor:
                                               attributeValues.attribute_value ==
-                                                "yes" &&
+                                                productPhaseData?.yes &&
                                               // here I change attribute_is_better_than to attribute_is_same_as
                                               attributeValues.attribute_is_same_as *
                                                 100 <
                                                 40
                                                 ? "#0066b2"
                                                 : attributeValues.attribute_value ==
-                                                    "no" &&
+                                                    productPhaseData?.no &&
                                                   attributeValues.attribute_is_worse_than *
                                                     100 >
                                                     60
@@ -1356,13 +1358,13 @@ const TechnicalAccordion = React.memo(
                                               style={{
                                                 color:
                                                   attributeValues.attribute_value ==
-                                                    "yes" &&
+                                                    productPhaseData?.yes &&
                                                   attributeValues.attribute_is_same_as *
                                                     100 <
                                                     40
                                                     ? "#0066b2"
                                                     : attributeValues.attribute_value ==
-                                                        "no" &&
+                                                        productPhaseData?.no &&
                                                       attributeValues.attribute_is_worse_than *
                                                         100 >
                                                         60

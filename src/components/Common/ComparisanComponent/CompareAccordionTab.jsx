@@ -29,6 +29,7 @@ const CompareAccordionTab = React.memo(
     const [isLoading, setIsLoading] = useState(false);
     const [graphData, setGraphData] = useState(null);
     const [activeAccordionTab, setActiveAccordionTab] = useState(null);
+    // console.log(comparePhaseData?.yes);
 
     // extract the permalink from the sendProductProps
     const extractedUrls = sendProductProps.map((entry) => entry?.permalink);
@@ -353,8 +354,8 @@ const CompareAccordionTab = React.memo(
                                           </small>
                                           {/* {console.log(item?.vs)} */}
                                           <small>
-                                            {item?.difference_value === "yes" ||
-                                            item?.difference_value === "no" ||
+                                            {item?.difference_value === comparePhaseData?.yes ||
+                                            item?.difference_value === comparePhaseData?.no ||
                                             item?.difference_value === null ? (
                                               ""
                                             ) : (
@@ -440,8 +441,8 @@ const CompareAccordionTab = React.memo(
                                         )}
                                       </small>
                                       <small>
-                                        {item?.difference_value === "yes" ||
-                                        item?.difference_value === "no" ||
+                                        {item?.difference_value === comparePhaseData?.yes ||
+                                        item?.difference_value === comparePhaseData?.no ||
                                         item?.difference_value === null ? (
                                           ""
                                         ) : (
@@ -519,7 +520,7 @@ const CompareAccordionTab = React.memo(
                                           </small>
                                         )}
                                         {/* <small>
-                                        {["yes", "no", 0, null].includes(
+                                        {[comparePhaseData?.yes, comparePhaseData?.no, 0, null].includes(
                                           itemx?.difference_value
                                         ) ? (
                                           ""
@@ -596,7 +597,7 @@ const CompareAccordionTab = React.memo(
                                           </small>
                                         )}
                                         {/* <small>
-                                        {["yes", "no", 0, null].includes(
+                                        {[comparePhaseData?.yes, comparePhaseData?.no, 0, null].includes(
                                           itemx?.difference_value
                                         ) ? (
                                           ""
@@ -674,7 +675,7 @@ const CompareAccordionTab = React.memo(
                                           </small>
                                         )}
                                         {/* <small>
-                                          {["yes", "no", 0, null].includes(
+                                          {[comparePhaseData?.yes, comparePhaseData?.no, 0, null].includes(
                                             itemx?.difference_value
                                           ) ? (
                                             ""
@@ -764,8 +765,8 @@ const CompareAccordionTab = React.memo(
                                           )}
                                         </small>
                                         <small>
-                                          {item?.difference_value === "yes" ||
-                                          item?.difference_value === "no" ||
+                                          {item?.difference_value === comparePhaseData?.yes ||
+                                          item?.difference_value === comparePhaseData?.no ||
                                           item?.difference_value === null ? (
                                             ""
                                           ) : (
@@ -956,8 +957,8 @@ const CompareAccordionTab = React.memo(
                                         )}
                                       </small>
                                       <small>
-                                        {item?.difference_value === "yes" ||
-                                        item?.difference_value === "no" ||
+                                        {item?.difference_value === comparePhaseData?.yes ||
+                                        item?.difference_value === comparePhaseData?.no ||
                                         item?.difference_value === null ? (
                                           ""
                                         ) : (
@@ -1038,8 +1039,8 @@ const CompareAccordionTab = React.memo(
                                             )}
                                           </small>
                                           <small>
-                                            {item?.difference_value === "yes" ||
-                                            item?.difference_value === "no" ||
+                                            {item?.difference_value === comparePhaseData?.yes ||
+                                            item?.difference_value === comparePhaseData?.no ||
                                             item?.difference_value === null ? (
                                               ""
                                             ) : (
@@ -1123,8 +1124,8 @@ const CompareAccordionTab = React.memo(
                                             )}
                                           </small>
                                           <small>
-                                            {item?.difference_value === "yes" ||
-                                            item?.difference_value === "no" ||
+                                            {item?.difference_value === comparePhaseData?.yes ||
+                                            item?.difference_value === comparePhaseData?.no ||
                                             item?.difference_value === null ? (
                                               ""
                                             ) : (
@@ -1210,7 +1211,7 @@ const CompareAccordionTab = React.memo(
                                           </small>
                                         )}
                                         {/* <small>
-                                        {["yes", "no", 0, null].includes(
+                                        {[comparePhaseData?.yes, comparePhaseData?.no, 0, null].includes(
                                           itemx?.difference_value
                                         ) ? (
                                           ""
@@ -1287,7 +1288,7 @@ const CompareAccordionTab = React.memo(
                                           </small>
                                         )}
                                         {/* <small>
-                                        {["yes", "no", 0, null].includes(
+                                        {[comparePhaseData?.yes, comparePhaseData?.no, 0, null].includes(
                                           itemx?.difference_value
                                         ) ? (
                                           ""
@@ -1364,7 +1365,7 @@ const CompareAccordionTab = React.memo(
                                           </small>
                                         )}
                                         {/* <small>
-                                        {["yes", "no", 0, null].includes(
+                                        {[comparePhaseData?.yes, comparePhaseData?.no, 0, null].includes(
                                           itemx?.difference_value
                                         ) ? (
                                           ""

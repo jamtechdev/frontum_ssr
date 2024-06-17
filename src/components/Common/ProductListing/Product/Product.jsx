@@ -108,7 +108,7 @@ export default function Product({
   // filter a value which numeric or string
   const renderValue = (item) => {
     const numericValue = parseFloat(item?.value);
-    console.log(numericValue)
+    // console.log(numericValue)
 
     if (!isNaN(numericValue)) {
       return `(${numericValue}${item.unit ? " " + item.unit : ""})`;
@@ -413,7 +413,7 @@ export default function Product({
             <span className="best-tag-product">{product?.assigned_title}</span>
           )}
         </div>
-        {console.log(guidePhraseData?.yes)}
+        {/* {console.log(guidePhraseData?.yes)} */}
         <Row className="m-0">
           <Col
             md={12}

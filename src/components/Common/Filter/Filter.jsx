@@ -18,6 +18,7 @@ export default function Filter({
   setremovedParam,
 }) {
   // (guidePhraseData);
+  // {console.log(guidePhraseData.yes)}
 
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -257,6 +258,7 @@ export default function Filter({
             filteredArrayOfAttributeValues = [];
           }
           // (arrayToGetFilteredObject, "checkNeet");
+        
 
           let countAttribute = 1;
           if (filteredArrayOfAttributeValues?.type == "dropdown") {
@@ -264,10 +266,10 @@ export default function Filter({
             // check if values contain only yes then Toggle Switch
             if (
               filteredArrayOfAttributeValues?.values?.length == 1 &&
-              filteredArrayOfAttributeValues?.values[0] == "yes"
+              filteredArrayOfAttributeValues?.values[0] == guidePhraseData.yes
             ) {
               const value = filteredArrayOfAttributeValues?.values[0];
-              handelFilterActions("radioSwitch", removedParam, "no", false);
+              handelFilterActions("radioSwitch", removedParam, guidePhraseData.no, false);
               document.getElementById(`${removedParam}`).checked = false;
               // ("Radio switch", removedParam)
             } else {
@@ -615,7 +617,7 @@ export default function Filter({
                       // check if values contain only yes then Toggle Switch
                       if (
                         filteredArrayOfAttributeValues.values.length == 1 &&
-                        filteredArrayOfAttributeValues.values[0] == "yes"
+                        filteredArrayOfAttributeValues.values[0] == guidePhraseData.yes
                       ) {
                         const value = filteredArrayOfAttributeValues.values[0];
                         // (value);
