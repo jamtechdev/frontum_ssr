@@ -603,10 +603,12 @@ const CompareAccordionTab = React.memo(
                                             </div>
                                           )}
                                         </span>
-                                        <QuestionIcon
-                                          attributes={itemx?.when_matters}
-                                          comparePhaseData={comparePhaseData}
-                                        />
+                                        {item?.when_matters?.description && (
+                                          <QuestionIcon
+                                            attributes={item?.when_matters}
+                                            comparePhaseData={comparePhaseData}
+                                          />
+                                        )}
                                         {itemx?.hover_phase && (
                                           <small className="d-block tooltip-title invisible">
                                             <span className="tooltip-display-content">
@@ -681,10 +683,12 @@ const CompareAccordionTab = React.memo(
                                             </div>
                                           )}
                                         </span>
-                                        <QuestionIcon
-                                          attributes={itemx?.when_matters}
-                                          comparePhaseData={comparePhaseData}
-                                        />
+                                        {item?.when_matters?.description && (
+                                          <QuestionIcon
+                                            attributes={item?.when_matters}
+                                            comparePhaseData={comparePhaseData}
+                                          />
+                                        )}
                                         {itemx?.hover_phase && (
                                           <small className="d-block tooltip-title invisible">
                                             <span className="tooltip-display-content">
@@ -765,10 +769,12 @@ const CompareAccordionTab = React.memo(
                                             </>
                                           )}
                                         </span>
-                                        <QuestionIcon
-                                          attributes={item?.when_matters}
-                                          comparePhaseData={comparePhaseData}
-                                        />
+                                        {item?.when_matters?.description && (
+                                          <QuestionIcon
+                                            attributes={item?.when_matters}
+                                            comparePhaseData={comparePhaseData}
+                                          />
+                                        )}
 
                                         <small className="d-block tooltip-title invisible">
                                           {item?.hover_phase && (
@@ -957,10 +963,12 @@ const CompareAccordionTab = React.memo(
                                         )}
                                       </span>
 
-                                      <QuestionIcon
-                                        attributes={item?.when_matters}
-                                        comparePhaseData={comparePhaseData}
-                                      />
+                                      {item?.when_matters?.description && (
+                                        <QuestionIcon
+                                          attributes={item?.when_matters}
+                                          comparePhaseData={comparePhaseData}
+                                        />
+                                      )}
 
                                       <small className="d-block tooltip-title">
                                         {item?.hover_phase && (
@@ -1042,11 +1050,14 @@ const CompareAccordionTab = React.memo(
                                               </>
                                             )}
                                           </span>
-                                          <QuestionIcon
-                                            attributes={item?.when_matters}
-                                            comparePhaseData={comparePhaseData}
-                                          />
-
+                                          {item?.when_matters?.description && (
+                                            <QuestionIcon
+                                              attributes={item?.when_matters}
+                                              comparePhaseData={
+                                                comparePhaseData
+                                              }
+                                            />
+                                          )}
                                           <small className="d-block tooltip-title">
                                             {item?.hover_phase && (
                                               <>
@@ -1130,10 +1141,14 @@ const CompareAccordionTab = React.memo(
                                               </>
                                             )}
                                           </span>
-                                          <QuestionIcon
-                                            attributes={item?.when_matters}
-                                            comparePhaseData={comparePhaseData}
-                                          />
+                                          {item?.when_matters?.description && (
+                                            <QuestionIcon
+                                              attributes={item?.when_matters}
+                                              comparePhaseData={
+                                                comparePhaseData
+                                              }
+                                            />
+                                          )}
 
                                           <small className="d-block tooltip-title">
                                             {item?.hover_phase && (
@@ -1225,10 +1240,12 @@ const CompareAccordionTab = React.memo(
                                             </div>
                                           )}
                                         </span>
-                                        <QuestionIcon
-                                          attributes={itemx?.when_matters}
-                                          comparePhaseData={comparePhaseData}
-                                        />
+                                        {item?.when_matters?.description && (
+                                          <QuestionIcon
+                                            attributes={item?.when_matters}
+                                            comparePhaseData={comparePhaseData}
+                                          />
+                                        )}
                                         {itemx?.hover_phase && (
                                           <small className="d-block tooltip-title invisible">
                                             <span className="tooltip-display-content">
@@ -1302,10 +1319,12 @@ const CompareAccordionTab = React.memo(
                                             </div>
                                           )}
                                         </span>
-                                        <QuestionIcon
-                                          attributes={itemx?.when_matters}
-                                          comparePhaseData={comparePhaseData}
-                                        />
+                                        {item?.when_matters?.description && (
+                                          <QuestionIcon
+                                            attributes={item?.when_matters}
+                                            comparePhaseData={comparePhaseData}
+                                          />
+                                        )}
                                         {itemx?.hover_phase && (
                                           <small className="d-block tooltip-title invisible">
                                             <span className="tooltip-display-content">
@@ -1379,10 +1398,12 @@ const CompareAccordionTab = React.memo(
                                             </div>
                                           )}
                                         </span>
-                                        <QuestionIcon
-                                          attributes={itemx?.when_matters}
-                                          comparePhaseData={comparePhaseData}
-                                        />
+                                        {item?.when_matters?.description && (
+                                          <QuestionIcon
+                                            attributes={item?.when_matters}
+                                            comparePhaseData={comparePhaseData}
+                                          />
+                                        )}
                                         {itemx?.hover_phase && (
                                           <small className="d-block tooltip-title invisible">
                                             <span className="tooltip-display-content">

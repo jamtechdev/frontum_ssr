@@ -413,10 +413,12 @@ const WhyAccordionTab = React.memo(
                                           </div>
                                         )}
                                       </span>
-                                      <QuestionIcon
-                                        attributes={itemx?.when_matters}
-                                        product={product}
-                                      />
+                                      {item?.when_matters?.description && (
+                                        <QuestionIcon
+                                          attributes={item?.when_matters}
+                                          product={product}
+                                        />
+                                      )}
                                       {itemx?.hover_phase && (
                                         <small className="d-block tooltip-title invisible">
                                           <span className="tooltip-display-content">
@@ -487,10 +489,12 @@ const WhyAccordionTab = React.memo(
                                         </div>
                                       )}
                                     </span>
-                                    <QuestionIcon
-                                      attributes={item?.when_matters}
-                                      product={product}
-                                    />
+                                    {item?.when_matters?.description && (
+                                      <QuestionIcon
+                                        attributes={item?.when_matters}
+                                        product={product}
+                                      />
+                                    )}
                                     {item?.hover_phase && (
                                       <small className="d-block tooltip-title invisible">
                                         <span className="tooltip-display-content">
@@ -657,10 +661,12 @@ const WhyAccordionTab = React.memo(
                                           </div>
                                         )}
                                       </span>
-                                      <QuestionIcon
-                                        attributes={itemx?.when_matters}
-                                        product={product}
-                                      />
+                                      {item?.when_matters?.description && (
+                                        <QuestionIcon
+                                          attributes={item?.when_matters}
+                                          product={product}
+                                        />
+                                      )}
                                       {itemx?.hover_phase && (
                                         <small className="d-block tooltip-title invisible">
                                           <span className="tooltip-display-content">
@@ -726,10 +732,12 @@ const WhyAccordionTab = React.memo(
                                       )}
                                     </span>
 
-                                    <QuestionIcon
-                                      attributes={item?.when_matters}
-                                      product={product}
-                                    />
+                                    {item?.when_matters?.description && (
+                                      <QuestionIcon
+                                        attributes={item?.when_matters}
+                                        product={product}
+                                      />
+                                    )}
 
                                     <small className="d-block tooltip-title">
                                       {item?.hover_phase && (
@@ -803,10 +811,12 @@ const WhyAccordionTab = React.memo(
                                             </>
                                           )}
                                         </span>
-                                        <QuestionIcon
-                                          attributes={item?.when_matters}
-                                          product={product}
-                                        />
+                                        {item?.when_matters?.description && (
+                                          <QuestionIcon
+                                            attributes={item?.when_matters}
+                                            product={product}
+                                          />
+                                        )}
 
                                         <small className="d-block tooltip-title">
                                           {item?.hover_phase && (
@@ -887,10 +897,13 @@ const WhyAccordionTab = React.memo(
                                                 </>
                                               )}
                                             </span>
-                                            <QuestionIcon
-                                              attributes={item?.when_matters}
-                                              product={product}
-                                            />
+                                            {item?.when_matters
+                                              ?.description && (
+                                              <QuestionIcon
+                                                attributes={item?.when_matters}
+                                                product={product}
+                                              />
+                                            )}
                                             <small className="d-block tooltip-title">
                                               {item?.hover_phase && (
                                                 <>
