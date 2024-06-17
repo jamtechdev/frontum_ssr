@@ -266,9 +266,12 @@ const WhyAccordionTab = React.memo(
                                             </>
                                           )}
                                         </small>
+                                        {console.log()}
                                         <small>
-                                          {item?.difference_value === "yes" ||
-                                          item?.difference_value === "no" ||
+                                          {item?.difference_value ===
+                                            page_phase?.yes ||
+                                          item?.difference_value ===
+                                            page_phase?.no ||
                                           item?.difference_value === 0 ||
                                           item?.difference_value === null ? (
                                             ""
@@ -322,7 +325,7 @@ const WhyAccordionTab = React.memo(
                                         </>
                                       )}
                                     </span>
-                                   
+
                                     {item?.when_matters?.description && (
                                       <QuestionIcon
                                         attributes={item?.when_matters}
@@ -347,8 +350,10 @@ const WhyAccordionTab = React.memo(
                                       )}
                                     </small>
                                     <small>
-                                      {item?.difference_value === "yes" ||
-                                      item?.difference_value === "no" ||
+                                      {item?.difference_value ===
+                                        page_phase?.yes ||
+                                      item?.difference_value ===
+                                        page_phase?.no ||
                                       item?.difference_value === 0 ||
                                       item?.difference_value === null ? (
                                         ""
@@ -496,9 +501,12 @@ const WhyAccordionTab = React.memo(
                                       </small>
                                     )}
                                     <small>
-                                      {["yes", "no", 0, null].includes(
-                                        item?.difference_value
-                                      ) ? (
+                                      {[
+                                        page_phase?.yes,
+                                        page_phase?.no,
+                                        0,
+                                        null,
+                                      ].includes(item?.difference_value) ? (
                                         ""
                                       ) : (
                                         <span
@@ -740,8 +748,10 @@ const WhyAccordionTab = React.memo(
                                       )}
                                     </small>
                                     <small>
-                                      {item?.difference_value === "yes" ||
-                                      item?.difference_value === "no" ||
+                                      {item?.difference_value ===
+                                        page_phase?.yes ||
+                                      item?.difference_value ===
+                                        page_phase?.no ||
                                       item?.difference_value === 0 ||
                                       item?.difference_value === null ? (
                                         ""
@@ -815,8 +825,10 @@ const WhyAccordionTab = React.memo(
                                           )}
                                         </small>
                                         <small>
-                                          {item?.difference_value === "yes" ||
-                                          item?.difference_value === "no" ||
+                                          {item?.difference_value ===
+                                            page_phase?.yes ||
+                                          item?.difference_value ===
+                                            page_phase?.no ||
                                           item?.difference_value === 0 ||
                                           item?.difference_value === null ? (
                                             ""
@@ -898,8 +910,9 @@ const WhyAccordionTab = React.memo(
                                             </small>
                                             <small>
                                               {item?.difference_value ===
-                                                "yes" ||
-                                              item?.difference_value === "no" ||
+                                                page_phase?.yes ||
+                                              item?.difference_value ===
+                                                page_phase?.no ||
                                               item?.difference_value === 0 ||
                                               item?.difference_value ===
                                                 null ? (

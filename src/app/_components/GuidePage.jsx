@@ -13,13 +13,10 @@ import CompareTable from "@/components/Common/CompareTable/CompareTable";
 import BottomBar from "@/components/Common/BottomBar/BottomBar";
 import { isAreObjectsEqual } from "@/_helpers";
 import GuidePagination from "@/components/Common/Pagination/GuidePagination";
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import ConfirmationModal from "@/components/Common/Modal/ConfirmationModal";
-import OutlineGenerator from "@/components/Common/OutlineGenerator/OutlineGenerator";
+import { useRouter } from "next/navigation";
 import GuidePageTextArea from "@/components/Common/GuidePageOutline/GuidePageTextArea";
 import MobileCompareTable from "@/components/Common/MobileCompareTable/MobileCompareTable";
-import OverlayTrigger from "react-bootstrap/OverlayTrigger";
-import Tooltip from "react-bootstrap/Tooltip";
+
 import useScreenSize from "@/_helpers/useScreenSize";
 
 export default function GuidePage({
@@ -31,27 +28,18 @@ export default function GuidePage({
   filters,
   searchParams,
 }) {
-  // useChart("guide");
-  // (guideData, "Abhay");
   const router = useRouter();
   const currentParams = new URLSearchParams(searchParams.toString());
   const [isShown, setIsShown] = useState(false);
   const [currentHeading, setCurrentHeading] = useState("");
 
   const guide = guideData[0]?.data;
-  // (guideData[1]);
 
   const products = guideData[1]?.data?.products || [];
   const sidebarRef = useRef(null);
 
   //I introduce this new value to map the actial postion of product in guide order_values in backend.
   const productPosition = guideData[1]?.data?.product_names || [];
-  // (productPosition);
-
-  //  const sortedProducts = products.sort(
-  //    (a, b) => b.overall_score - a.overall_score
-  //  );
-
   const productPagination = guideData[1]?.data?.pagination;
   const [isCollapsed, setIsCollapsed] = useState(true);
   const [isFilterActive, setIsFilterActive] = useState(false);
@@ -100,46 +88,9 @@ export default function GuidePage({
     }
   }, [searchParams]);
 
-  // old code for skeleton
-  // useEffect(() => {
-  //   // (searchParams, prevSearcParam,"neetx")
-
-  //   if (isAreObjectsEqual(searchParams, prevSearcParam)) {
-  //     handelSetFilterActive(true);
-  //   }
-  //   setTimeout(() => {
-  //     handelSetFilterActive(false);
-  //   }, 1000);
-  // }, [searchParams]);
-  // (searchParams);
-
-  // const removeFilters = () => {
-  //   window.history.replaceState(null, "", window.location.pathname);
-  //   location.reload();
-  // };
-
-  const removeFilters = () => {
-    const url = new URL(window.location.href);
-    const params = new URLSearchParams(url.search);
-    const keys = Array.from(params.keys());
-    keys.forEach((key) => {
-      if (key !== "sort") {
-        params.delete(key);
-      }
-    });
-    window.history.replaceState(
-      null,
-      "",
-      `${url.pathname}?${params.toString()}`
-    );
-    // Reload the page without removing 'sort'
-    router.replace(`${url.pathname}?${params.toString()}`, { scroll: false });
-    // window.location.reload();
-  };
-
+  // This function removeQueryParamAndNavigate is used to remove a query parameter from the URL
   function removeQueryParamAndNavigate(url, paramToRemove) {
     // delete searchParams[`${paramToRemove}`];
-    // (paramToRemove);
     if (paramToRemove != "sort") {
       setparams(() => {
         return {
@@ -207,33 +158,7 @@ export default function GuidePage({
       delete searchParams.sort;
     }
   };
-  const [showModal, setShowModal] = useState(true);
-  const handleModalClose = () => {
-    setShowModal(false);
-  };
 
-  const handleConfirm = () => {
-    // Handle confirmation logic here
-    if (products.length <= 0 && !currentParams.variant) {
-      const queryString = Object.keys(searchParams)
-        .map((key) => key + "=" + encodeURI(searchParams[key]))
-        .join("&");
-      window.history.pushState(
-        {},
-        "",
-        `?${queryString}&variant=false`
-        // `?${queryString}&variant=no&direct=true`
-      );
-      setHideSmiliar(false);
-      router.push(`?${queryString}&variant=false`, {
-        scroll: false,
-      });
-      // router.push(`?${queryString}&variant=no&direct=true`, {
-      //   scroll: false,
-      // });
-    }
-    setShowModal(false);
-  };
   // (products, "hello");
   // Testing purpose
   const [isChecked, setIsChecked] = useState(
@@ -288,11 +213,11 @@ export default function GuidePage({
     currentParams.delete([key]);
     url.searchParams.delete([key]);
   };
-  const handleChange = (e) => {
-    const checked = e.target.checked;
-    setIsChecked(checked);
-    handelFilterActions("available", "available", checked);
-  };
+  // const handleChange = (e) => {
+  //   const checked = e.target.checked;
+  //   setIsChecked(checked);
+  //   handelFilterActions("available", "available", checked);
+  // };
   const handleHideSmiliar = (e) => {
     const checked = e.target.checked;
     setHideSmiliar(checked);
@@ -333,6 +258,8 @@ export default function GuidePage({
     document.body.classList.remove("filter--sidebar--open");
   };
 
+  // this code for when click outside of sidebar then close sidebar
+
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (sidebarRef.current && !sidebarRef.current.contains(event.target)) {
@@ -349,20 +276,20 @@ export default function GuidePage({
   // (isFilterActive)
   // (isFilterActive, "neetx");
 
-  useEffect(() => {
-    function showTooltip(event, content) {
-      const tooltip = document.getElementById("tooltip");
-      tooltip.style.display = "block";
-      tooltip.style.left = event.pageX + "px";
-      tooltip.style.top = event.pageY + "px";
-      tooltip.innerHTML = content;
-    }
+  // useEffect(() => {
+  //   function showTooltip(event, content) {
+  //     const tooltip = document.getElementById("tooltip");
+  //     tooltip.style.display = "block";
+  //     tooltip.style.left = event.pageX + "px";
+  //     tooltip.style.top = event.pageY + "px";
+  //     tooltip.innerHTML = content;
+  //   }
 
-    function hideTooltip() {
-      const tooltip = document.getElementById("tooltip");
-      tooltip.style.display = "none";
-    }
-  }, []);
+  //   function hideTooltip() {
+  //     const tooltip = document.getElementById("tooltip");
+  //     tooltip.style.display = "none";
+  //   }
+  // }, []);
 
   const { isMobile } = useScreenSize();
 
@@ -548,24 +475,6 @@ export default function GuidePage({
                 </Button>
               </Col>
               <Col sm={6} xs={6}>
-                {/* <span
-                    className="filter-data"
-                    onClick={() =>
-                      handleSort(
-                        JSON.stringify({
-                          algo: "high-low",
-                          rangeAttributes: "ratio_quality_price_points",
-                        })
-                      )
-                    }
-                  >
-                    Ratio Quality Price{" "}
-                    <div>
-                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                        <path d="M18.2073 9.04304 12.0002 2.83594 5.79312 9.04304 7.20733 10.4573 12.0002 5.66436 16.7931 10.4573 18.2073 9.04304ZM5.79297 14.9574 12.0001 21.1646 18.2072 14.9574 16.793 13.5432 12.0001 18.3361 7.20718 13.5432 5.79297 14.9574Z" />
-                      </svg>
-                    </div>
-                  </span> */}
                 <div className="filtered-data-select">
                   {/* <span>{guide && guide?.page_phases?.order_by} :</span> */}
                   <Form.Select
@@ -590,14 +499,6 @@ export default function GuidePage({
                     >
                       {guide && guide?.page_phases?.overall_available}
                     </option>
-                    {/* <option
-                            value={JSON.stringify({
-                              algo: "",
-                              rangeAttributes: "Overall all",
-                            })}
-                          >
-                            Overall (All)
-                          </option> */}
 
                     <option
                       value={JSON.stringify({
@@ -703,6 +604,7 @@ export default function GuidePage({
               <Col md={6}>
                 <div className="filtered-data">
                   {/* {(Object.keys(params)?.length)} */}
+                  {/* This code renders a list of filters that have been applied to the current page. */}
                   <ul>
                     {Object.keys(params)
                       .filter((key) => key !== "direct" && key !== "sort")
@@ -742,15 +644,6 @@ export default function GuidePage({
                         )
                       )}
                   </ul>
-                  {/* {Object.keys(params).filter((key) => key !== "direct" && key !== "sort" ).length > 0 && (
-                          <span
-                            onClick={() => {
-                              removeFilters();
-                            }}
-                          >
-                            Remove all filters
-                          </span>
-                        )} */}
                 </div>
               </Col>
               <Col md={6} className="mobile-hide">
@@ -787,7 +680,6 @@ export default function GuidePage({
                         rangeAttributes: "Overall",
                       })}
                     >
-                      {/* {guide && guide?.page_phases?.overall} */}
                       {guide && guide?.page_phases?.overall_available}
                     </option>
                     <option
@@ -796,17 +688,8 @@ export default function GuidePage({
                         rangeAttributes: "false",
                       })}
                     >
-                      {/* {guide && guide?.page_phases?.overall} */}
                       {guide && guide?.page_phases?.overall_all}
                     </option>
-                    {/* <option
-                            value={JSON.stringify({
-                              algo: "",
-                              rangeAttributes: "Overall all",
-                            })}
-                          >
-                            Overall (All)
-                          </option> */}
 
                     <option
                       value={JSON.stringify({
@@ -1046,6 +929,7 @@ export default function GuidePage({
           </Row>
         </Container>
       </section>
+      {/* here will be bottom bar section were add to comparision product */}
       <BottomBar
         guidePhraseData={guide}
         isCollapsed={isCollapsed}

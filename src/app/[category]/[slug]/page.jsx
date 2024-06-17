@@ -7,13 +7,14 @@ export default async function Page({
 }) {
   try {
     const categoryslugType = await getSlugType(category);
-    // (categoryslugType)
+    // Check the category slug type
     if (categoryslugType.error) {
       return <NotFound />;
     }
+    // Check the slug type
     const slugType = await getSlugType(slug);
-    // (slugType)
     if (slugType.type) {
+      // Fetch data based on page type
       const pageData = await fetchDataBasedOnPageType(
         slug,
         slugType.type,
@@ -22,6 +23,7 @@ export default async function Page({
       );
       // (pageData)
       if (pageData) {
+        // Render the page based on the page type
         return (
           <PageSwitch
             PageType={slugType.type}
@@ -34,12 +36,12 @@ export default async function Page({
       }
     }
   } catch (error) {
+    // Return NotFound component if there's an error
     return <NotFound />;
-    // console.error("Error:", error);
   }
   return <NotFound />;
 }
-
+// Function to fetch metadata for a given slug and category
 async function getSlugMetaData(slug, category) {
   const response = await fetch(
     `${process.env.NEXT_PUBLIC_API_URL}/meta-data/${slug}?category=${category}`,
@@ -58,6 +60,7 @@ async function getSlugMetaData(slug, category) {
   return response.json();
 }
 
+// Function to fetch data for 'Page not found' scenario
 async function getNoDataFound(slug, category) {
   const response = await fetch(
     `${process.env.NEXT_PUBLIC_API_URL}/page-not-found`,
@@ -75,7 +78,7 @@ async function getNoDataFound(slug, category) {
   }
   return response.json();
 }
-
+// Function to fetch  metadata based on slug and category
 export async function generateMetadata({ params: { slug, category } }) {
   const capitalizeFirstLetter = (str) =>
     str.replace(/-/g, " ").replace(/\b(\w)/g, (match) => match.toUpperCase());
@@ -185,6 +188,7 @@ export async function generateMetadata({ params: { slug, category } }) {
     }
   }
 }
+// Function to get the type of a slug
 async function getSlugType(slug) {
   // (slug)
   const response = await fetch(
@@ -204,6 +208,7 @@ async function getSlugType(slug) {
   return response.json();
 }
 
+// Function to fetch data based on page type
 async function fetchDataBasedOnPageType(
   slug,
   pageType,
@@ -229,7 +234,7 @@ async function fetchDataBasedOnPageType(
         `${process.env.NEXT_PUBLIC_API_URL}/guide/${category}/${slug}`,
         productApiUrl,
       ];
-      console.log(apiUrls);
+      // console.log(apiUrls);
 
       break;
     case "Blog":

@@ -33,22 +33,15 @@ export default async function PageSwitch({
 
     return third_text;
   }
-
+  // Switch statement to determine which page component to render based on PageType
   switch (PageType) {
     case "Guide":
+      // Render GuidePage component
       const guide = pageData[0]?.data;
-
-      // (pageData[0],"neetx")
-      // (pageData[1]?.data,"neets");
       const attributes = await getCategoryAttributes(guide?.category_id, slug);
       const productTable = await getProductForTable(guide?.category_url, slug);
       const third_text = pageData[0]?.data?.text_third_part_main;
       const matchShortCode = searchCharts(third_text);
-      // (replaceTextPart(matchShortCode, third_text));
-
-      // (replacedTexts, "hello");
-
-      // (categorySlug)
       PageToRender = (
         <GuidePage
           slug={slug}
@@ -63,22 +56,22 @@ export default async function PageSwitch({
       );
       break;
     case "Blog":
+      // Render BlogPage component
       PageToRender = (
         <BlogPage slug={slug} categorySlug={categorySlug} blogData={pageData} />
       );
       break;
     case "Product":
+      // Render ProductPageSSR component
       const product = pageData[0]?.data;
       const productCatAttribute = await getProductCategroyAttributes(
         product?.category_id
       );
 
-      // (productCatAttribute , "productCatAttribute");
       const getProductCompare = await getCompareProductByCatID(
         product?.category_id,
         slug
       );
-
       const getProConsForAccordion = await getProsConsForAccidion(
         categorySlug,
         slug
@@ -96,20 +89,20 @@ export default async function PageSwitch({
       );
       break;
     case "PrimaryArchiveCategory":
+      // Render CategoryArchive component
       PageToRender = <CategoryArchive slug={slug} ArchiveData={pageData} />;
       break;
     case "ProductCategory":
+      // Render ProductCategoryArchivePage component
+
       // (pageData);
       PageToRender = (
         <ProductCategoryArchivePage slug={slug} categoryData={pageData} />
       );
       break;
     case "Compare":
+      // Render Comparison component
       const compareData = pageData[0]?.data;
-      pageData[0], "compareData";
-      pageData[1], "xxx";
-
-      // (compareData?.category_url)
 
       const graphComparisonProsCons = await getGraphComparisonProsCons(
         pageData,
@@ -125,7 +118,6 @@ export default async function PageSwitch({
         slug
       );
       console.log(getProsConsforVsPage);
-      // console.log(getComparisonPhase?.data?.page_phases)
       PageToRender = (
         <Comparison
           slug={slug}
@@ -139,6 +131,7 @@ export default async function PageSwitch({
       );
       break;
     case "SinglePage":
+      // Render SinglePage component
       PageToRender = (
         <SinglePage
           slug={slug}
@@ -149,6 +142,7 @@ export default async function PageSwitch({
 
       break;
     case "AboutUs":
+      // Render AboutPage component
       PageToRender = (
         <AboutPage
           slug={slug}
@@ -158,6 +152,7 @@ export default async function PageSwitch({
       );
       break;
     default:
+      // Render default component if no matching PageType
       PageToRender = () => <div>No Page Found</div>;
       break;
   }
@@ -182,6 +177,8 @@ async function getCategoryAttributes(category_id, slug) {
   }
   return response.json();
 }
+
+// Calling API's
 
 async function getComparePhaseData(category_id, slug) {
   const response = await fetch(

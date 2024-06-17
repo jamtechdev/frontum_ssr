@@ -159,29 +159,8 @@ const CompareTable = React.memo(
             return obj?.attribute_value;
           }
         });
-        // (stringArray, "hello");
-        // (
-        //   stringArray,
-        //   arrayOfObjects,
-        //   arrayOfObjects[0]?.attribute,
-        //   "neetx"
-        // );
-
         if (arrayOfObjects?.[0]?.algorithm === "absolute_value") {
-          // (stringArray[0], "neetx", "");
-          // const targetString =
-          //   stringArray[0] === "yes"
-          //     ? "yes"
-          //     : "no" || stringArray[0] === "no"
-          //     ? " "
-          //     : starValue[0]?.attribute_value;
-          // // (targetString, "neet");
-          // (targetString);
           numericValues = stringArray;
-          // numericValues = stringArray.filter((value, index) => index === 0);
-          // (numericValues, "neetx");
-
-          // (numericValues, arrayOfObjects[0]?.attribute, "neet");
         }
       }
       const topValue = numericValues[0];
@@ -197,22 +176,6 @@ const CompareTable = React.memo(
           obj.attribute_value !== "-" &&
           (obj.attribute_value = obj?.attribute_value + "⭐");
       });
-      // if (occurrences === 1) {
-      //   arrayOfObjects.forEach((obj) => {
-      //     const numericValue =
-      //       typeof topValue === "string"
-      //         ? obj.attribute_value
-      //         : parseFloat(obj.attribute_value);
-      //     // (numericValue, "neet");
-      //     if (
-      //       numericValue === topValue &&
-      //       !obj.attribute_value?.includes("⭐")
-      //     ) {
-      //       obj.attribute_value += "⭐";
-      //     }
-      //   });
-      // }
-      // (arrayOfObjects,"neet")
 
       // Adjust this function according to your context as I don't have the complete code
       // It would be good to ensure that you have the required variables (finalProducts) in scope.

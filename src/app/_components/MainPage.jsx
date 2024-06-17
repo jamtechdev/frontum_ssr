@@ -22,7 +22,7 @@ export default function MainPage({ bannerCounts, favSlider }) {
   const [search, setsearch] = useState("");
   const [isFocused, setIsFocused] = useState(false);
   const dispatch = useDispatch();
-
+  // Function to handle blur event
   const handleBlur = () => {
     setTimeout(() => {
       setIsFocused(false);
@@ -120,7 +120,7 @@ export default function MainPage({ bannerCounts, favSlider }) {
               <CompareForm
                 favSlider={favSlider && favSlider}
                 location="ON_MAIN_PAGE"
-                handelCloseCompareModel={() => { }}
+                handelCloseCompareModel={() => {}}
               />
             </Col>
           </Row>
@@ -259,8 +259,9 @@ export default function MainPage({ bannerCounts, favSlider }) {
                     >
                       <Tab
                         eventKey="tab-1"
-                        title={`${favSlider && favSlider?.most_popular_guides_text
-                          }`}
+                        title={`${
+                          favSlider && favSlider?.most_popular_guides_text
+                        }`}
                       >
                         <ProductSlider favSlider={data?.popular_guides} />
                       </Tab>
@@ -288,8 +289,9 @@ export default function MainPage({ bannerCounts, favSlider }) {
                     >
                       <Tab
                         eventKey="tab-1"
-                        title={`${favSlider && favSlider?.most_popular_review_text
-                          }`}
+                        title={`${
+                          favSlider && favSlider?.most_popular_review_text
+                        }`}
                       >
                         {data?.popular_reviews.length > 0 ? (
                           <ReviewSlider favSlider={data?.popular_reviews} />
@@ -307,14 +309,7 @@ export default function MainPage({ bannerCounts, favSlider }) {
                             </span>
                           </>
                         )}
-                        {/* <ReviewSlider favSlider={data?.popular_reviews} /> */}
                       </Tab>
-                      {/* <Tab
-                        eventKey="tab-2"
-                        title={`${favSlider && favSlider?.latest_reviews_text}`}
-                      >
-                        <ReviewSlider favSlider={data?.latest_reviews} />
-                      </Tab> */}
                     </Tabs>
                   </Col>
                 </Row>
@@ -324,10 +319,7 @@ export default function MainPage({ bannerCounts, favSlider }) {
                   <Col md={12}>
                     <h3 className="site-main-heading">
                       {favSlider && favSlider?.comparison_heading_homepage}
-                      {/* {favSlider && favSlider?.comparison_heading_homepage} */}
                     </h3>
-                    {/* {(data?.comparison)} */}
-                    {/* { (favSlider?.see)} */}
 
                     <HomeCompareSlider
                       products={data?.comparison}
@@ -355,4 +347,3 @@ export default function MainPage({ bannerCounts, favSlider }) {
     </>
   );
 }
-

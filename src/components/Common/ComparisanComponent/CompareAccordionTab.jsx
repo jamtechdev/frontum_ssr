@@ -193,41 +193,6 @@ const CompareAccordionTab = React.memo(
 
     // (graphData);
 
-    const chartData = {
-      variables: [
-        { key: "a", label: "a" },
-        { key: "b", label: "b" },
-        { key: "c", label: "c" },
-        { key: "d", label: "d" },
-        { key: "e", label: "e" },
-      ],
-      sets: [
-        {
-          key: "served",
-          label: "Those Who Have Served",
-          values: {
-            anxiety: 19.7,
-            illness: 6,
-            sucidal: 10,
-            distress: 2,
-            openness: 8,
-            depression: 10,
-          },
-        },
-        {
-          key: "civilians",
-          label: "Civilians",
-          values: {
-            anxiety: 10,
-            illness: 8,
-            sucidal: 10,
-            distress: 4,
-            openness: 2,
-            depression: 10,
-          },
-        },
-      ],
-    };
     const [highlighted, setHighlighted] = useState(null);
 
     const onHover = (hovered) => {
@@ -727,6 +692,9 @@ const CompareAccordionTab = React.memo(
                                 })}
 
                               {/* SSR code start */}
+                              {/* {console.log(
+                                apiData?.average_pros[tabvalue?.pros]
+                              )} */}
 
                               {apiData?.average_pros[tabvalue?.pros]?.length >
                               0 ? (

@@ -19,6 +19,13 @@ export default function BlogPage({ slug, blogData, categorySlug }) {
   const contentRef = useRef(null);
   const lastHeadingIdRef = useRef(null);
   const dispatch = useDispatch();
+
+  /**
+   * A function that adds unique IDs to headings in the content.
+   *
+   * @param {string} content - The content with headings to add IDs to.
+   * @return {string} The updated content with IDs added to headings.
+   */
   const addIdsToHeadings = (content) => {
     const headings = content?.match(/<h[2-6][^>]*>.*?<\/h[2-6]>/g) || [];
 
@@ -41,6 +48,13 @@ export default function BlogPage({ slug, blogData, categorySlug }) {
   );
 
   useEffect(() => {
+    /**
+     * Replaces shortcodes in elements with the class "addClassData" with a span element containing the shortcode.
+     * The replaced shortcode is stored in the data attribute "data-shortcode" of the span element.
+     * The function adds the class "observed" to the elements it modifies.
+     *
+     * @return {void} This function does not return anything.
+     */
     const replaceShortcodes = () => {
       const elements = document.querySelectorAll(".addClassData");
       elements.forEach((element) => {
@@ -53,7 +67,7 @@ export default function BlogPage({ slug, blogData, categorySlug }) {
           innerHTML = innerHTML.replace(shortCodepatternsRE, (match) => {
             return `<span class="chart-placeholder" data-shortcode="${match}">${match}</span>`;
           });
-          (innerHTML);
+          innerHTML;
 
           element.innerHTML = innerHTML;
           dispatch(storeTextPartShortCode({ content: innerHTML }));
@@ -181,7 +195,7 @@ export default function BlogPage({ slug, blogData, categorySlug }) {
                   dangerouslySetInnerHTML={{ __html: contentWithIds }}
                 />
               )}
-             
+
               {blogData[0]?.data?.author && (
                 <div className="fonzi p-3 my-md-4 my-xs-0">
                   <div className="profile mb-2">

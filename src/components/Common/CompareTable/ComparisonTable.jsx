@@ -104,7 +104,15 @@ export default function ComparisonTable({
   const handleTableShow = () => {
     setFullTable(removeLastObjectFromCategory?.length);
   };
-
+  /**
+   * Adds asterisks to the top value in the given category attribute.
+   *
+   * @param {number} defaultNo - The default number of products to consider.
+   * @param {object} category - The category object.
+   * @param {object} catAttribute - The category attribute object.
+   * @param {boolean} [isHiddenShow=false] - Whether to hide the display.
+   * @return {JSX.Element} The JSX element containing the modified attribute values.
+   */
   const addAsterisksToTopValue = (
     defaultNo,
     category,
@@ -265,7 +273,12 @@ export default function ComparisonTable({
   };
   const productScoreLabelIndex = findProductsScoreLabelIndex(finalProducts);
   // (finalProducts);
-
+  /**
+   * Finds the index of the product with the highest overall score in the given array of products.
+   *
+   * @param {Array} products - An array of product objects with an `overall_score` property.
+   * @return {number} The index of the product with the highest overall score, or -1000 if there are no products.
+   */
   const addStarOnTable = (defaultNo, type, values, starPhase) => {
     if (
       type === "overall_score" ||
@@ -310,7 +323,12 @@ export default function ComparisonTable({
   const [showAllAttributes, setShowAllAttributes] = useState({});
 
   const initialNoOfAttributes = 5; // Number of attributes to display initially
-
+  /**
+   * Toggles the visibility of all attributes for a specific category.
+   *
+   * @param {string} categoryName - The name of the category.
+   * @return {void} This function does not return a value.
+   */
   const handleShowAllAttributes = (categoryName) => {
     setShowAllAttributes((prev) => ({
       ...prev,

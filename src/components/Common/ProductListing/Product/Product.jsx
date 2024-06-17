@@ -108,6 +108,7 @@ export default function Product({
   // filter a value which numeric or string
   const renderValue = (item) => {
     const numericValue = parseFloat(item?.value);
+    console.log(numericValue)
 
     if (!isNaN(numericValue)) {
       return `(${numericValue}${item.unit ? " " + item.unit : ""})`;
@@ -122,8 +123,8 @@ export default function Product({
 
   const getColorAttr = (attributeValues) => {
     if (
-      attributeValues.attribute_value == "yes" ||
-      attributeValues.attribute_value == "no"
+      attributeValues.attribute_value == guidePhraseData?.yes ||
+      attributeValues.attribute_value == guidePhraseData?.no
     ) {
       if (attributeValues?.is_worse_than?.toFixed(1) >= 0.6) {
         return "#ce434b";
@@ -412,6 +413,7 @@ export default function Product({
             <span className="best-tag-product">{product?.assigned_title}</span>
           )}
         </div>
+        {console.log(guidePhraseData?.yes)}
         <Row className="m-0">
           <Col
             md={12}
@@ -1026,6 +1028,7 @@ export default function Product({
                                 }`}
                               >
                                 <span className="pros-crons-text">
+                                  {/* {console.log(data?.name)} */}
                                   {data?.name} {renderValue(data).trim()}
                                 </span>
                                 <ProsConsToolTip
@@ -2354,9 +2357,9 @@ export default function Product({
                                                         </div>
                                                         <div className="spec-col">
                                                           {attributeValues.attribute_value !=
-                                                            "yes" &&
+                                                            guidePhraseData?.yes &&
                                                             attributeValues.attribute_value !=
-                                                              "no" && (
+                                                              guidePhraseData?.no && (
                                                               <>
                                                                 {/* {(attributeValues.hover_phase,"neets")} */}
                                                                 <div
@@ -2498,9 +2501,9 @@ export default function Product({
                                                             )}
                                                           {/* newww */}
                                                           {(attributeValues.attribute_value ==
-                                                            "yes" ||
+                                                            guidePhraseData?.yes ||
                                                             attributeValues.attribute_value ==
-                                                              "no") && (
+                                                              guidePhraseData?.no) && (
                                                             <div
                                                               className={`${
                                                                 attributeValues?.hover_phase !==
@@ -2511,7 +2514,7 @@ export default function Product({
                                                               style={{
                                                                 color:
                                                                   attributeValues.attribute_value ==
-                                                                    "yes" &&
+                                                                    guidePhraseData?.yes &&
                                                                   attributeValues.attribute_is_better_than *
                                                                     100 <
                                                                     40
@@ -2778,9 +2781,9 @@ export default function Product({
                                                         </div>
                                                         <div className="spec-col">
                                                           {attributeValues.attribute_value !=
-                                                            "yes" &&
+                                                            guidePhraseData?.yes &&
                                                             attributeValues.attribute_value !=
-                                                              "no" && (
+                                                              guidePhraseData?.no && (
                                                               <>
                                                                 {/* {(attributeValues.hover_phase,"neets")} */}
                                                                 <div
@@ -2937,9 +2940,9 @@ export default function Product({
                                                             )}
                                                           {/* newww */}
                                                           {(attributeValues.attribute_value ==
-                                                            "yes" ||
+                                                            guidePhraseData?.yes ||
                                                             attributeValues.attribute_value ==
-                                                              "no") && (
+                                                              guidePhraseData?.no) && (
                                                             <div
                                                               className={`${
                                                                 attributeValues?.hover_phase !==
@@ -2950,7 +2953,7 @@ export default function Product({
                                                               style={{
                                                                 color:
                                                                   attributeValues.attribute_value ==
-                                                                    "yes" &&
+                                                                    guidePhraseData?.yes &&
                                                                   attributeValues.attribute_is_better_than *
                                                                     100 <
                                                                     40

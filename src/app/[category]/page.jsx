@@ -1,11 +1,13 @@
 import PageSwitch from "@/app/_components/PageSwitch";
 import NotFound from "../not-found";
 export default async function Page({ params: { category } }) {
+  // Get the type of slug for the category
   const slugType = await getSlugType(category);
-  // (slugType, "hello");
   if (slugType.type) {
+    // Fetch data based on page type
     const pageData = await fetchDataBasedOnPageType(category, slugType.type);
     if (pageData != null) {
+      // Render PageSwitch component with fetched data
       return (
         <PageSwitch
           PageType={slugType.type}
@@ -14,13 +16,15 @@ export default async function Page({ params: { category } }) {
         />
       );
     } else {
+      // Render NotFound component if no data is found
       return <NotFound />;
     }
   } else {
+    // Render NotFound component if slug type does not exist
     return <NotFound />;
   }
 }
-
+// Function to fetch the slug type for a given category
 async function getSlugType(category) {
   const response = await fetch(
     `${process.env.NEXT_PUBLIC_API_URL}/check/${category}`,
@@ -38,7 +42,7 @@ async function getSlugType(category) {
   }
   return response.json();
 }
-
+// Function to fetch metadata for a given category
 async function getSlugMetaData(category) {
   // (category)
   const response = await fetch(
@@ -57,6 +61,7 @@ async function getSlugMetaData(category) {
   }
   return response.json();
 }
+// Function to fetch 'Page not found' data for a given category
 async function getNoDataFound(category) {
   const response = await fetch(
     `${process.env.NEXT_PUBLIC_API_URL}/page-not-found`,
@@ -75,6 +80,7 @@ async function getNoDataFound(category) {
   return response.json();
 }
 
+// Function to generate metadata for a given category
 export async function generateMetadata({ params: { category } }) {
   let meta_data = { data: {} };
   const siteURL = "https://mondopedia.it";
@@ -128,6 +134,7 @@ export async function generateMetadata({ params: { category } }) {
   };
 }
 
+// Function to fetch data based on page type and category
 async function fetchDataBasedOnPageType(slug, pageType) {
   let apiUrls = [];
   switch (pageType) {
