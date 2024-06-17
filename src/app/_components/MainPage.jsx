@@ -314,20 +314,22 @@ export default function MainPage({ bannerCounts, favSlider }) {
                   </Col>
                 </Row>
               </Container>
-              <Container className="mt-3">
-                <Row>
-                  <Col md={12}>
-                    <h3 className="site-main-heading">
-                      {favSlider && favSlider?.comparison_heading_homepage}
-                    </h3>
+              {data?.comparison?.length > 0 && (
+                <Container className="mt-3">
+                  <Row>
+                    <Col md={12}>
+                      <h3 className="site-main-heading">
+                        {favSlider && favSlider?.comparison_heading_productpage}
+                      </h3>
 
-                    <HomeCompareSlider
-                      products={data?.comparison}
-                      page_phase={favSlider}
-                    />
-                  </Col>
-                </Row>
-              </Container>
+                      <HomeCompareSlider
+                        products={data?.comparison}
+                        page_phase={favSlider}
+                      />
+                    </Col>
+                  </Row>
+                </Container>
+              )}
 
               {data?.blog_posts && data?.blog_posts?.length > 0 && (
                 <Container className="my-3">

@@ -56,7 +56,7 @@ export default function CompareRealtedGuide({ favSlider, slug, indexSlider }) {
                   }`}
                 />
                 <div className="product-name-wrapper">
-                  <span>{section?.short_name || section?.guide_name}</span>
+                  <span>{section?.guide_short_name || section?.guide_name}</span>
                 </div>
               </div>
             </a>

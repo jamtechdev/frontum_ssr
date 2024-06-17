@@ -84,7 +84,7 @@ export async function generateMetadata({ params: { slug, category } }) {
     str.replace(/-/g, " ").replace(/\b(\w)/g, (match) => match.toUpperCase());
 
   const generateComparisonMetaData = (extractedUrls, category) => {
-    const siteURL = "https://mondopedia.it";
+    const siteURL = process.env.NEXT_BASE_URL;
     // (category);
     const firstTitle = capitalizeFirstLetter(extractedUrls[0]);
     const secondTitle = capitalizeFirstLetter(extractedUrls[1]);
@@ -115,7 +115,7 @@ export async function generateMetadata({ params: { slug, category } }) {
   if (slug.includes("-vs-")) {
     const meta_data = await getSlugMetaData(slug, category);
     // (meta_data);
-    const siteURL = "https://mondopedia.it";
+    const siteURL = process.env.NEXT_BASE_URL;
     if (meta_data && meta_data.data) {
       return {
         title: meta_data.data.title,
@@ -140,7 +140,7 @@ export async function generateMetadata({ params: { slug, category } }) {
     const slugType = await getSlugType(slug);
     if (slugType.error === "Permalink not found") {
       const meta_data = await getNoDataFound();
-      const siteURL = "https://mondopedia.it";
+      const siteURL = process.env.NEXT_BASE_URL;
       if (meta_data && meta_data.data) {
         return {
           title: meta_data.data.title,
@@ -163,7 +163,7 @@ export async function generateMetadata({ params: { slug, category } }) {
       }
     } else {
       const meta_data = await getSlugMetaData(slug, category);
-      const siteURL = "https://mondopedia.it";
+      const siteURL = process.env.NEXT_BASE_URL;
       if (meta_data && meta_data.data) {
         return {
           title: meta_data.data.title,
