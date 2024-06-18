@@ -369,7 +369,7 @@ export default function ComparisonTable({
                     )} */}
 
                   <p className="device-name">
-                    <span>{index + 1}</span>
+                    {/* <span>{index + 1}</span> */}
                     <a
                       href={`/${product?.category_url}/${product?.permalink}`}
                     ></a>
