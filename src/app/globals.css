@@ -81,7 +81,7 @@ p {
   font-weight: 400 !important;
   font-size: 18px !important;
   color: rgb(39 48 78 / 85%) !important;
-  /* text-align: left !important; */
+  text-align: left;
   line-height: 30px !important;
 }
 

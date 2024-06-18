@@ -2033,6 +2033,7 @@
     z-index: 9999;
     background: #f5f8fb;
     left: 0;
+    border-radius: 0 !important;
   }
   .compare-container.isSticky thead tr th,
   .compare-container.isSticky thead tr th ul.best-list-item li {
