@@ -20,6 +20,14 @@ const CompareTable = React.memo(
     // this for function for Table product sticky (Start)
     const [winPos, setWinPos] = useState(false);
     const [stickyWith, setStickyWidth] = useState(true);
+
+    /**
+     * Creates a custom hook that detects if a given ref is sticky.
+     *
+     * @param {RefObject} ref - The ref to observe for stickiness. If not provided, a new ref will be created.
+     * @param {Object} observerSettings - The settings for the IntersectionObserver. Defaults to { threshold: [1] }.
+     * @return {Array} An array containing the sticky state, the ref, and the setter function for the sticky state.
+     */
     const useDetectSticky = (ref, observerSettings = { threshold: [1] }) => {
       const [isSticky, setIsSticky] = useState(false);
       const newRef = useRef();
@@ -112,7 +120,15 @@ const CompareTable = React.memo(
     const handleTableShow = () => {
       setFullTable(categoryAttributes?.length);
     };
-
+    /**
+     * Generates a table cell with asterisks added to the top value of a given category and attribute.
+     *
+     * @param {number} defaultNo - The number of products to consider for the comparison.
+     * @param {Object} category - The category object containing the name of the category.
+     * @param {Object} catAttribute - The attribute object containing the name of the attribute.
+     * @param {boolean} [isHiddenShow=false] - Indicates whether to show or hide the cell.
+     * @return {JSX.Element} The table cell with asterisks added to the top value.
+     */
     const addAsterisksToTopValue = (
       defaultNo,
       category,
@@ -829,9 +845,7 @@ const CompareTable = React.memo(
                         ?.description && (
                         <p className="mb-2">
                           <b>
-                            {guidePhraseData &&
-                              guidePhraseData?.what_it_is}
-                            :{" "}
+                            {guidePhraseData && guidePhraseData?.what_it_is}:{" "}
                           </b>{" "}
                           {
                             products[0]?.ratio_qulitiy_points_descriptions

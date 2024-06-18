@@ -388,8 +388,7 @@ function CompareDiv({
               </h2>
             </Col>
           </Row>
-        
-         
+
           <CompareAccordionTab
             comparePhaseData={getComparisonPhase?.page_phases}
             sendProductProps={comparisonProductData}
@@ -473,6 +472,7 @@ function CompareDiv({
           </Container>
         </section>
       )}
+      {console.log(getComparisonPhase?.page_phases)}
       {getComparisonPhase &&
         getComparisonPhase?.should_buy_product_one?.length > 0 && (
           <section className="ptb-80 bg-color">

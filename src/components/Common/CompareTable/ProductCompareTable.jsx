@@ -132,7 +132,15 @@ const ProductCompareTable = React.memo(
 
     // These funcation for add  Star on table value which was better than other
     // **start**
-
+    /**
+     * Generates a table cell with asterisks added to the top value of a given category and attribute.
+     *
+     * @param {number} defaultNo - The number of products to consider for the comparison.
+     * @param {Object} category - The category object containing the name of the category.
+     * @param {Object} catAttribute - The attribute object containing the name of the attribute.
+     * @param {boolean} [isHiddenShow=false] - Indicates whether to show or hide the cell.
+     * @return {JSX.Element} The table cell with asterisks added to the top value.
+     */
     const addAsterisksToTopValue = (
       defaultNo,
       category,
@@ -147,78 +155,7 @@ const ProductCompareTable = React.memo(
             (obj) => obj?.attribute === catAttribute.name
           )
         );
-
       const arrayOfObjects = [...filterData];
-      // let numericValues = [];
-
-      // numericValues = arrayOfObjects
-      //   .map((obj) => {
-      //     if (!isNaN(parseFloat(obj?.attribute_value))) {
-      //       return parseFloat(obj?.attribute_value);
-      //     } else {
-      //       return obj?.attribute_value;
-      //     }
-      //   })
-      //   .filter((value) => !isNaN(value));
-
-      // if (arrayOfObjects?.[0]?.algorithm == "highest_to_lowest") {
-      //   numericValues.sort((a, b) => b - a);
-      // } else if (arrayOfObjects?.[0]?.algorithm == "absolute_value") {
-      //   numericValues.sort((a, b) => b - a);
-      // } else {
-      //   numericValues.sort((a, b) => a - b);
-      // }
-
-      // (
-      //   filterData[0]?.absolute_value_data,
-      //   filterData[0]?.attribute,
-      //   "test"
-      // );
-
-      // (numericValues, arrayOfObjects[0]?.attribute, "numericValues");
-
-      // Adding logic for String case
-      // if (numericValues.length === 0) {
-      //   // const stringArray = arrayOfObjects.map((obj) => obj?.attribute_value);
-      //   const starValue = arrayOfObjects.filter((obj) => obj?.star === true);
-
-      //   const stringArray = arrayOfObjects.map((obj) => {
-      //     if (obj?.star && obj?.attribute_value !== "no") {
-      //       return obj?.attribute_value + "*";
-      //     } else {
-      //       return obj?.attribute_value;
-      //     }
-      //   });
-      //   (stringArray);
-
-      // (stringArray, "hello");
-      // (
-      //   stringArray,
-      //   arrayOfObjects,
-      //   arrayOfObjects[0]?.attribute,
-      //   "neetx"
-      // );
-
-      // if (arrayOfObjects?.[0]?.algorithm === "absolute_value") {
-      // (stringArray[0], "neetx", "");
-      // const targetString =
-      //   stringArray[0] === "yes"
-      //     ? "yes"
-      //     : "no" || stringArray[0] === "no"
-      //     ? " "
-      //     : starValue[0]?.attribute_value;
-      // // (targetString, "neet");
-      // (targetString);
-      // numericValues = stringArray;
-      // numericValues = stringArray.filter((value, index) => index === 0);
-      // (numericValues, "neetx");
-
-      // (numericValues, arrayOfObjects[0]?.attribute, "neet");
-      // }
-      // }
-
-      // const topValue = numericValues[0];
-
       arrayOfObjects.forEach((obj) => {
         obj?.star &&
           obj.attribute_value !== "?" &&

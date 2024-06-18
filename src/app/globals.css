@@ -2595,3 +2595,12 @@ tr:first-child th {
 .show-all .conditional-attribute {
   display: table-row;
 }
+
+.best-product-listing
+  .product-listing-inner-content
+  .product-score-container
+  .score-section
+  .score-detail
+  span {
+  line-height: 20px !important;
+}

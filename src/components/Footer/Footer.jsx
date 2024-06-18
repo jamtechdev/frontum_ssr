@@ -78,8 +78,9 @@ export default function Footer({ footerData }) {
         <Row>
           <Col lg={3} md={6}>
             <div className="footer-content">
+              {/* {console.log(footerData)} */}
               <img
-                src={`https://panel.mondopedia.it/logos/app_logo.png`}
+                src={`${footerData?.logo}`}
                 alt="Logo"
                 width={60}
                 height={60}

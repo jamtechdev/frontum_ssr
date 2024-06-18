@@ -37,7 +37,12 @@ export default function BottomBar({
       dispatch(deleteCompareProduct({ key: "productThird" }));
     }
   };
-
+  /**
+   * Function that handles the comparison of products. It checks the Redux store for comparison data, converts it to an array,
+   * filters out invalid items, and prepares the data for a comparison page.
+   *
+   * @returns {void}
+   */
   const handelComparison = () => {
     if (compareGuideData !== undefined) {
       // Here Check redux for  compare Product convert  to object to array
@@ -187,7 +192,7 @@ export default function BottomBar({
                       />
                     </>
                   )}
-                  {(guidePhraseData?.page_phrases)}
+                  {guidePhraseData?.page_phrases}
                   {guidePhraseData &&
                     guidePhraseData?.page_phases?.compare_button}
                 </button>

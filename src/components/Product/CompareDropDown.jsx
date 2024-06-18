@@ -59,14 +59,23 @@ function CompareDropDown({
     //   parentDivs[i].remove();
     // }
   }, [selectedAttribute]);
-
+  /**
+   * Handles the change of selected item.
+   *
+   * @param {Event} e - The event object
+   */
   const handleItemChange = (e) => {
     const selectedItemIndex = e.target.value;
     const selectedItem = attributeDropDown[selectedItemIndex];
     setSelectedItem(selectedItem);
     setSelectedAttribute(selectedItem.attributes[0]);
   };
-
+  /**
+   * Handles the change of the selected attribute based on the index.
+   *
+   * @param {Event} e - The event object containing the target value.
+   * @return {void} This function does not return anything.
+   */
   const handleAttributeChange = (e) => {
     const selectedAttributeIndex = e.target.value;
     const selectedAttribute = selectedItem.attributes[selectedAttributeIndex];

@@ -3,8 +3,15 @@ import React from "react";
 import { Accordion, Col, Nav, Row, Tab } from "react-bootstrap";
 import QuestionIcon from "../Svg/QuestionIcon";
 
-function PronsConsProductPage({ product, tabvalue,handleAccordionChange }) {
+function PronsConsProductPage({ product, tabvalue, handleAccordionChange }) {
   const { isMobile } = useScreenSize();
+
+  /**
+   * Splits the input value by "vs" and formats it with bold parts.
+   *
+   * @param {string} value - The input value to be split and formatted.
+   * @return {string} The formatted output with bold parts.
+   */
   const splitVsValue = (value) => {
     const splitValue = value && value.trim().split("vs");
     // (splitValue[0])

@@ -71,6 +71,13 @@ const TechnicalAccordion = React.memo(
       setTooltipPosition({ ...tooltipPosition, left });
     }
 
+    /**
+     * Returns a color based on the given score.
+     *
+     * @param {number} score - The score to determine the color for.
+     * @return {string} The color corresponding to the score. Possible values are "#093673", "#437ECE", or "#85B2F1".
+     */
+
     const getColorBasedOnScore = (score) => {
       if (score >= 7.5) {
         return "#093673";
@@ -99,6 +106,13 @@ const TechnicalAccordion = React.memo(
       return "Poor"; // Handle other cases as needed
     };
 
+    /**
+     * Extracts the domain name from a given URL.
+     *
+     * @param {string} url - The URL from which to extract the domain name.
+     * @return {string} The extracted domain name.
+     */
+
     const extractDomainName = (url) => {
       const domain = url
         .replace("https://", "")
@@ -112,7 +126,12 @@ const TechnicalAccordion = React.memo(
     const toggleShowFullData = () => {
       setShowFullData(!showFullData);
     };
-
+    /**
+     * A description of the entire function.
+     *
+     * @param {type} attribute - description of parameter
+     * @return {type} description of return value
+     */
     const handleShowMore = (attribute) => {
       setExpandedAttributes((prev) => ({
         ...prev,

@@ -69,6 +69,14 @@ const WhyAccordionTab = React.memo(
         }
       }
     };
+
+    /**
+     * Handles the change in accordion tab values based on the provided value and key.
+     *
+     * @param {string} value - The value to set for the tab.
+     * @param {string} key - The key indicating whether it's "pros" or "cons".
+     */
+
     const handleAccordionChange = (value, key) => {
       if (key == "pros") {
         if (value == "total") {

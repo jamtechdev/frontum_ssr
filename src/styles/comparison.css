@@ -196,7 +196,7 @@
 .add-product .add-product-inner-content p {
   font-weight: 400 !important;
   font-size: 18px;
-  text-transform: capitalize;
+  /* text-transform: capitalize; */
   text-align: center;
   margin: 20px auto 0 !important;
   max-width: 50%;

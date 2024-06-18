@@ -490,7 +490,7 @@
 .table-accordion .accordion-button .show-btn {
   background: #f4f7fb;
   /* padding: 4px 10px; */
-  text-transform: capitalize !important;
+  /* text-transform: capitalize !important; */
   border-radius: 3px;
   font-weight: 400;
   font-size: 14px;
@@ -790,7 +790,7 @@
   /* opacity: 80%; */
   font-weight: 400;
   font-size: 17px;
-  line-height: 45px;
+  line-height: 32px;
   padding: 5px 0;
   position: relative;
   font-family: "Lato", sans-serif !important;
@@ -1120,7 +1120,7 @@
 }
 
 .table-accordion .accordion-button div {
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
   font-weight: 400 !important;
   font-size: 18px;
   line-height: 34px;

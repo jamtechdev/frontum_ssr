@@ -13,6 +13,13 @@ const CompareCard = ({
   const handelRemoveProduct = (index) => {
     handelRemoveProductFormComparison(index);
   };
+
+  /**
+   * Finds the index of the product with the highest overall score in the given array of products.
+   *
+   * @param {Array} products - An array of product objects with overall_score property.
+   * @return {number} The index of the product with the highest overall score, or -1000 if no unique max score.
+   */
   const findProductsScoreLabelIndex = (products) => {
     if (products.length === 0) {
       return "";
@@ -73,8 +80,11 @@ const CompareCard = ({
                 {productPhaseData && productPhaseData?.winner}
               </div>
             )}
+          {/* {console.log(productPhaseData)} */}
           {productScoreLabelIndex === -1000 && productIndex === 0 && (
-            <div className="comparison-tag">draw! No clear winner</div>
+            <div className="comparison-tag">
+              {productPhaseData && productPhaseData?.draw_text}
+            </div>
           )}
 
           <div className="comparison-card">
@@ -142,7 +152,8 @@ const CompareCard = ({
                       >
                         {" "}
                         {/* {console.log(compareProduct?.currency)} */}
-                        {compareProduct?.price_websites[0]?.price} {compareProduct?.currency}{" "}
+                        {compareProduct?.price_websites[0]?.price}{" "}
+                        {compareProduct?.currency}{" "}
                       </a>
                     </span>
                   )}
@@ -170,7 +181,8 @@ const CompareCard = ({
                           style={{ color: "#fff" }}
                         >
                           {" "}
-                          {compareProduct?.price_websites[1]?.price} {compareProduct?.currency}{" "}
+                          {compareProduct?.price_websites[1]?.price}{" "}
+                          {compareProduct?.currency}{" "}
                         </a>
                       </span>
                     )}
@@ -182,7 +194,9 @@ const CompareCard = ({
                 <div className="not-availabel">
                   {/* <span className="txt">NOT AVAILABLE</span> */}
                   <i>N/A</i>
-                  <span className="price">~ {compareProduct?.price} {compareProduct?.currency}</span>
+                  <span className="price">
+                    ~ {compareProduct?.price} {compareProduct?.currency}
+                  </span>
                 </div>
               </>
             )}

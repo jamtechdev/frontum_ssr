@@ -104,6 +104,14 @@ export default function Compare({
     setSearch2(value.name);
     dispatch(addCompareProduct(value));
   };
+
+  /**
+ * Updates the state with the provided value, sets the search3 state with the name of the value,
+ * and dispatches an action to add the value to the compare product list.
+ *
+ * @param {Object} value - The value to be updated in the state.
+ * @return {void} This function does not return anything.
+ */
   const handleChildValue3 = (value) => {
     value["position"] = "third";
     setReceivedValue3(value);
@@ -118,6 +126,8 @@ export default function Compare({
     setReceivedValue(value);
     setSearch(value.name);
   };
+
+  
 
   const handleProduct1Click = (e) => {
     // Logic to fill the 1st product
