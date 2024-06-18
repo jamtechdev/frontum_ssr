@@ -2408,10 +2408,12 @@
   }
 
   #mobile-compare-tabler thead tr th {
-    padding: 0 12px !important;
-    /* testing for mobile */
-    min-width: 186.02px !important;
-    max-width: 186.02px !important;
+    padding: 0 0px !important;
+  }
+
+  #mobile-compare-tabler thead tr th > .device-name{
+    max-width: 95%;
+    margin: auto !important;
   }
 }
 
@@ -2474,3 +2476,8 @@
 }
 }
 
+@media screen and (max-width: 640px) {
+  #mobile-compare-tabler thead tr th > .device-name img{
+    display: none !important;
+  }
+}
