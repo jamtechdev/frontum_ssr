@@ -2411,7 +2411,7 @@
     padding: 0 18px !important;
   }
 
-  #mobile-compare-tabler thead tr th > .device-name{
+  #mobile-compare-tabler thead tr th > .device-name {
     max-width: 95%;
     margin: auto !important;
   }
@@ -2473,7 +2473,7 @@
   }
   :root {
     --SLICE-WIDTH: 100% !important;
-}
+  }
 }
 
 @media screen and (max-width: 640px) {
@@ -2481,7 +2481,7 @@
     padding: 0 18px !important;
   }
 
-  #mobile-compare-tabler thead tr th > .device-name img{
+  #mobile-compare-tabler thead tr th > .device-name img {
     display: none !important;
   }
 }

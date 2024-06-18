@@ -74,6 +74,25 @@ export default function MobileComparisonTool({
 
   const [showLeftArrow, setShowLeftArrow] = useState(false);
   const [showRightArrow, setShowRightArrow] = useState(true);
+
+  const findProductsScoreLabelIndex = (products) => {
+    if (products.length === 0) {
+      return "";
+    }
+    const maxScore = Math.max(...products.map((obj) => obj?.overall_score));
+    const winningProductIndex = products
+      .map((obj, index) =>
+        obj?.overall_score === maxScore ? index : undefined
+      )
+      .filter((index) => index !== undefined);
+    return winningProductIndex.length === 1 ? winningProductIndex[0] : -1000;
+  };
+
+  const productScoreLabelIndex = findProductsScoreLabelIndex(
+    comparisonProductData
+  );
+  console.log(productScoreLabelIndex);
+
   return (
     <>
       <div className="comparison-tool mobile-comparison-tool">
@@ -112,9 +131,21 @@ export default function MobileComparisonTool({
               return (
                 <SwiperSlide key={index}>
                   <div className="comparison-wrapper">
-                    {isWinner && (
+                    {productScoreLabelIndex !== "" &&
+                      productScoreLabelIndex === index && (
+                        <div className="comparison-tag">
+                          {productPhaseData && productPhaseData?.page_phases?.winner}
+                        </div>
+                      )}
+                    {/* {isWinner && (
                       <div className="comparison-tag">
                         {productPhaseData?.page_phases?.winner}
+                      </div>
+                    )} */}
+
+                    {productScoreLabelIndex === -1000 && index === 0 && (
+                      <div className="comparison-tag text-center">
+                        {productPhaseData && productPhaseData?.page_phases?.draw_text}
                       </div>
                     )}
                     {/* {(item)} */}
@@ -209,7 +240,9 @@ export default function MobileComparisonTool({
                         <div className="not-availabel">
                           {/* <span className="txt">NOT AVAILABLE</span> */}
                           <i>N/A</i>
-                          <span className="price">~ {item?.price} {item?.currency}</span>
+                          <span className="price">
+                            ~ {item?.price} {item?.currency}
+                          </span>
                         </div>
                       </>
                     )}
