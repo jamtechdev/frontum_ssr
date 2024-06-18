@@ -2409,6 +2409,9 @@
 
   #mobile-compare-tabler thead tr th {
     padding: 0 12px !important;
+    /* testing for mobile */
+    min-width: 186.02px !important;
+    max-width: 186.02px !important;
   }
 }
 

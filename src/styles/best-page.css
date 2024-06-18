@@ -338,7 +338,9 @@ thead.isSticky {
   overflow: hidden;
   font-weight: 600 !important;
   font-size: 15px !important;
+  min-width: 78px;
 }
+
 
 .compare-container thead tr th:not(:first-child),
 .compare-container tbody tr td {
