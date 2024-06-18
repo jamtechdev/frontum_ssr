@@ -2408,7 +2408,7 @@
   }
 
   #mobile-compare-tabler thead tr th {
-    padding: 0 12px !important;
+    padding: 0 18px !important;
   }
 
   #mobile-compare-tabler thead tr th > .device-name{
@@ -2478,7 +2478,7 @@
 
 @media screen and (max-width: 640px) {
   #mobile-compare-tabler thead tr th {
-    padding: 0 12px !important;
+    padding: 0 18px !important;
   }
 
   #mobile-compare-tabler thead tr th > .device-name img{
