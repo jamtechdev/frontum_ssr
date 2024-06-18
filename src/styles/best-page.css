@@ -1311,14 +1311,16 @@ body .product-listing-inner-content .score-section .score-detail h6 {
   .flex-box .left_box .box_content {
     padding: 4px 7px;
     font-size: 14px;
-    max-width: 180px;
+    /* max-width: 180px; */
+    max-width: 100%;
   }
 }
 @media screen and (max-width: 410px) {
   .flex-box .left_box .box_content {
     padding: 4px 7px;
     font-size: 14px;
-    max-width: 180px;
+    /* max-width: 180px; */
+    max-width: 100%;
   }
   .site_tabs.graph-tab {
     flex-wrap: nowrap !important;
