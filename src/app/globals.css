@@ -2604,3 +2604,6 @@ tr:first-child th {
   span {
   line-height: 20px !important;
 }
+.product-inner-content p {
+  margin: revert !important;
+}
