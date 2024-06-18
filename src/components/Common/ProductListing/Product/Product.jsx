@@ -410,12 +410,12 @@ export default function Product({
               >
                 {splitData?.[0] === "available" ||
                 (product?.price_websites?.length > 0 && KeyIndex !== null) ? (
-                  <p  className="d-none">
+                  <span  className="d-none">
                     {(productPagination?.current_page - 1) *
                       productPagination?.per_page +
                       KeyIndex +
                       1}. 
-                  </p>
+                  </span>
                 ) : null}{" "}
                 {product?.name}
               </a>
