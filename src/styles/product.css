@@ -711,7 +711,7 @@
   justify-content: center;
   min-width: 120px;
   /* border: 1px solid var(--secondary-color); */
-  border: none ;
+  border: none;
   text-transform: capitalize;
 }
 
