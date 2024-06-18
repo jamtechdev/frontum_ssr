@@ -730,7 +730,7 @@ const TechnicalAccordion = React.memo(
                       }}
                     >
                       {formatValue(product.reviews)}
-                      <ProsConsToolTip hover_phrase={product.reviews_phase} />
+                      <ProsConsToolTip hover_phrase={product.ratio_quality_price_points_phase} />
                     </span>
                   </div>
                 </div>

@@ -408,6 +408,15 @@ export default function Product({
                 href={`/${product?.category_url}/${product?.permalink}`}
                 style={{ color: "#27304E" }}
               >
+                {splitData?.[0] === "available" ||
+                (product?.price_websites?.length > 0 && KeyIndex !== null) ? (
+                  <p  className="d-none">
+                    {(productPagination?.current_page - 1) *
+                      productPagination?.per_page +
+                      KeyIndex +
+                      1}. 
+                  </p>
+                ) : null}{" "}
                 {product?.name}
               </a>
             </h2>
@@ -2225,9 +2234,13 @@ export default function Product({
                                           textUnderlineOffset: "5px",
                                         }}
                                       >
-                                        {formatValue(product?.ratio_quality_price_points)}
+                                        {formatValue(
+                                          product?.ratio_quality_price_points
+                                        )}
                                         <ProsConsToolTip
-                                          hover_phrase={product?.ratio_quality_price_points_phase}
+                                          hover_phrase={
+                                            product?.ratio_quality_price_points_phase
+                                          }
                                         />
                                       </span>
                                     </div>
