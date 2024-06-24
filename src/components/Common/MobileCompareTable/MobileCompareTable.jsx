@@ -392,8 +392,23 @@ export default function MobileCompareTable({
                           </span>
                         )}
 
-                        <small className="product-name-small">
+                        <small
+                          className={
+                            type === "product"
+                              ? "product-name-small product_page"
+                              : type === "compare"
+                              ? "product-name-small vs_page"
+                              : "product-name-small guide_page "
+                          }
+                        >
                           <a
+                            className={
+                              type === "product"
+                                ? "product_page_name"
+                                : type === "compare"
+                                ? "vs_page_name"
+                                : "guide_page"
+                            }
                             href={`/${data?.category_url}/${data?.permalink}`}
                             style={{ display: "block" }}
                           >
@@ -618,8 +633,7 @@ export default function MobileCompareTable({
                                     productScoreLabelIndex === currentIndex
                                   )} */}
                                   {productScoreLabelIndex !== "" &&
-                                    productScoreLabelIndex ===
-                                      globalIndex  && (
+                                    productScoreLabelIndex === globalIndex && (
                                       <span className="best-tag-product">
                                         {productPhaseData &&
                                           productPhaseData?.winner}
