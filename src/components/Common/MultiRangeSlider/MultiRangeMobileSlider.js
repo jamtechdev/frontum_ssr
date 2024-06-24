@@ -83,8 +83,7 @@ const MultiRangeMobileSlider = ({
 
   return (
     <div className="multi-range-slider-container">
-
-      {/* <input
+      <input
         type="range"
         min={min}
         max={max}
@@ -96,8 +95,8 @@ const MultiRangeMobileSlider = ({
         id={`thumb thumb--left ${classForSlider}`}
         className={`thumb thumb--left ${classForSlider}`}
         style={{ zIndex: minVal > max - step && "5" }}
-      /> */}
-        <input
+      />
+      {/* <input
         type="range"
         min={min}
         max={max}
@@ -112,7 +111,7 @@ const MultiRangeMobileSlider = ({
         id={`thumb thumb--left ${classForSlider}`}
         className={`thumb thumb--left ${classForSlider}`}
         style={{ zIndex: minVal > max - step && "5" }}
-      />
+      /> */}
       <input
         type="range"
         min={min}
@@ -124,24 +123,24 @@ const MultiRangeMobileSlider = ({
           setMaxVal(Number(value.toFixed(1)));
           maxValRef.current = Number(value.toFixed(1));
         }}
-        onMouseUp={() => onChange({ min: minVal, max: maxVal })}
-        // onTouchStart={(event) => {
-        //   const rect = range.current.getBoundingClientRect();
-        //   const touch = event.touches[0];
-        //   let newValue =
-        //     ((touch.clientX - rect.left) / rect.width) * (max - min) + min;
-        //   newValue = Math.min(Math.max(newValue, min), max);
-        //   setMaxVal(newValue);
-        //   maxValRef.current = newValue;
-        // }}
-        // onTouchMove={(event) => {
-        //   handleTouchMove(event);
-        // }}
-        // onTouchEnd={() => onChange({ min: minVal, max: maxVal })}
+        // onMouseUp={() => onChange({ min: minVal, max: maxVal })}
+        onTouchStart={(event) => {
+          const rect = range.current.getBoundingClientRect();
+          const touch = event.touches[0];
+          let newValue =
+            ((touch.clientX - rect.left) / rect.width) * (max - min) + min;
+          newValue = Math.min(Math.max(newValue, min), max);
+          setMaxVal(newValue);
+          maxValRef.current = newValue;
+        }}
+        onTouchMove={(event) => {
+          handleTouchMove(event);
+        }}
+        onTouchEnd={() => onChange({ min: minVal, max: maxVal })}
         id={`thumb thumb--right ${classForSlider}`}
         className={`thumb thumb--right ${classForSlider}`}
       />
- {/* <input
+      {/* <input
         type="range"
         min={min}
         max={max}

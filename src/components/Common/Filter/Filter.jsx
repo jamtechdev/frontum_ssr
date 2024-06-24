@@ -46,7 +46,7 @@ export default function Filter({
     setPagination({ ...pagination, [categoryName]: updatedPage });
   };
 
-  const { isMobile } = useScreenSize();
+  const { isSmallDevice } = useScreenSize();
 
   const handelFilterActions = (filterName, key, value, isChecked = false) => {
     const currentParams = new URLSearchParams(searchParams.toString());
@@ -409,7 +409,7 @@ export default function Filter({
           {guidePhraseData && guidePhraseData?.price}
           {/* {(guidePhraseData?.price, "price")} */}
 
-          {isMobile
+          {isSmallDevice
             ? price?.min_price != null && (
                 <MultiRangeMobileSlider
                   rangeVal={sliderPriceValues}
@@ -745,7 +745,7 @@ export default function Filter({
                           </Accordion.Header>
                           <Accordion.Body>
                             {/* {(filteredArrayOfAttributeValues,"neext")} */}
-                            {isMobile ? (
+                            {isSmallDevice ? (
                               <MultiRangeMobileSlider
                                 // value={filters[filter.id] ? filters[filter.id].min : filter.min}
                                 rangeVal={sliderValues}
