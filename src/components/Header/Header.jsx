@@ -125,7 +125,7 @@ export default function Header({ headerData, headerPhase, logo }) {
                                                     href={`/${guide?.category_url}/${guide?.permalink}`}
                                                     style={{ color: "#fff" }}
                                                   >
-                                                    {console.log(guide)}
+                                                    {/* {console.log(guide)} */}
                                                     {guide?.short_name}
                                                   </a>
                                                 </li>
