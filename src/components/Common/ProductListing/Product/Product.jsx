@@ -410,11 +410,12 @@ export default function Product({
               >
                 {splitData?.[0] === "available" ||
                 (product?.price_websites?.length > 0 && KeyIndex !== null) ? (
-                  <span  className="d-none">
+                  <span className="d-none">
                     {(productPagination?.current_page - 1) *
                       productPagination?.per_page +
                       KeyIndex +
-                      1}. 
+                      1}
+                    .
                   </span>
                 ) : null}{" "}
                 {product?.name}
@@ -487,9 +488,9 @@ export default function Product({
                           className="tooltip-display-content"
                           style={{
                             left: isMobile ? "50%" : 0,
-                            transform: isMobile
-                              ? "translateX(-40%)"
-                              : "translateX(-10%)",
+                            // transform: isMobile
+                            //   ? "translateX(-40%)"
+                            //   : "translateX(-10%)",
                             width: isMobile ? "250px" : "250px",
                           }}
                         >
@@ -600,9 +601,9 @@ export default function Product({
                           className="tooltip-display-content"
                           style={{
                             left: isMobile ? "50%" : 0,
-                            transform: isMobile
-                              ? "translateX(-40%)"
-                              : "translateX(-10%)",
+                            // transform: isMobile
+                            //   ? "translateX(-40%)"
+                            //   : "translateX(-10%)",
                             width: isMobile ? "250px" : "250px",
                           }}
                         >
@@ -708,9 +709,9 @@ export default function Product({
                           className="tooltip-display-content"
                           style={{
                             left: isMobile ? "50%" : 0,
-                            transform: isMobile
-                              ? "translateX(-40%)"
-                              : "translateX(-10%)",
+                            // transform: isMobile
+                            //   ? "translateX(-40%)"
+                            //   : "translateX(-10%)",
                             width: isMobile ? "250px" : "250px",
                           }}
                         >
@@ -837,9 +838,9 @@ export default function Product({
                           className="tooltip-display-content"
                           style={{
                             left: isMobile ? "50%" : 0,
-                            transform: isMobile
-                              ? "translateX(-40%)"
-                              : "translateX(-10%)",
+                            // transform: isMobile
+                            //   ? "translateX(-40%)"
+                            //   : "translateX(-10%)",
                             width: isMobile ? "250px" : "250px",
                           }}
                         >
