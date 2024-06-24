@@ -782,7 +782,7 @@ export default function MobileCompareTable({
                                 ?.ratio_qulitiy_points_descriptions && (
                                 <div
                                   className="tooltip-display-content"
-                                  style={{ transform: "translateX(-65%)" }}
+                                  style={{ transform: "translateX(-20%)" }}
                                 >
                                   {products[0]?.overall_score_descriptions
                                     ?.description && (
@@ -858,7 +858,7 @@ export default function MobileCompareTable({
                                 ?.ratio_qulitiy_points_descriptions && (
                                 <div
                                   className="tooltip-display-content"
-                                  style={{ transform: "translateX(-65%)" }}
+                                  style={{ transform: "translateX(-20%)" }}
                                 >
                                   {products[0]?.technical_score_descriptions
                                     ?.description && (
@@ -936,7 +936,7 @@ export default function MobileCompareTable({
                                   products[0]?.overall_score_descriptions && (
                                     <div
                                       className="tooltip-display-content"
-                                      style={{ transform: "translateX(-65%)" }}
+                                      style={{ transform: "translateX(-20%)" }}
                                     >
                                       {products[0]?.users_rating_descriptions
                                         ?.description && (
@@ -1012,7 +1012,7 @@ export default function MobileCompareTable({
                                     ?.description && (
                                     <div
                                       className="tooltip-display-content"
-                                      style={{ transform: "translateX(-65%)" }}
+                                      style={{ transform: "translateX(-20%)" }}
                                     >
                                       {products[0]?.users_rating_descriptions
                                         ?.description && (
@@ -1086,7 +1086,7 @@ export default function MobileCompareTable({
                                 ?.ratio_qulitiy_points_descriptions && (
                                 <div
                                   className="tooltip-display-content"
-                                  style={{ transform: "translateX(-65%)" }}
+                                  style={{ transform: "translateX(-20%)" }}
                                 >
                                   {products[0]
                                     ?.ratio_qulitiy_points_descriptions
@@ -1178,7 +1178,7 @@ export default function MobileCompareTable({
                                   <div className="tooltip-title">
                                     <div
                                       className="tooltip-display-content"
-                                      style={{ transform: "translateX(-65%)" }}
+                                      style={{ transform: "translateX(-20%)" }}
                                     >
                                       {
                                         <p className="mb-2">
@@ -1368,7 +1368,7 @@ export default function MobileCompareTable({
                                                     className="tooltip-display-content"
                                                     style={{
                                                       transform:
-                                                        "translateX(-65%)",
+                                                        "translateX(-20%)",
                                                     }}
                                                   >
                                                     {data?.description && (

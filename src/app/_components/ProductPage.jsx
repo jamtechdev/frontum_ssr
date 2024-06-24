@@ -454,7 +454,7 @@ function ProductPage({
                     style={{
                       left: isMobile ? "50%" : 0,
                       transform: isMobile
-                        ? "translateX(-65%)"
+                        ? "translateX(-20%)"
                         : "translateX(-10%)",
                       width: isMobile ? "230px" : "250px",
                     }}
@@ -553,7 +553,7 @@ function ProductPage({
                     style={{
                       left: isMobile ? "50%" : 0,
                       transform: isMobile
-                        ? "translateX(-65%)"
+                        ? "translateX(-20%)"
                         : "translateX(-10%)",
                       width: isMobile ? "230px" : "250px",
                     }}
@@ -648,7 +648,7 @@ function ProductPage({
                     style={{
                       left: isMobile ? "50%" : 0,
                       transform: isMobile
-                        ? "translateX(-65%)"
+                        ? "translateX(-20%)"
                         : "translateX(-10%)",
                       width: isMobile ? "240px" : "250px",
                     }}
