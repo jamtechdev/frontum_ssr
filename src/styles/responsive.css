@@ -2515,4 +2515,11 @@
     small.product-name-small.product_page {
     min-width: 150px !important;
   }
+  #mobile-compare-tabler .device-name a.vs_page_name {
+    position: static !important;
+    display: none;
+    color: rgb(39 48 78 / 90%);
+    max-width: 150px;
+    min-height: 40px;
+  }
 }

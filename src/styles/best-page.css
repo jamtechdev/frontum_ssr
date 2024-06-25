@@ -193,12 +193,7 @@ thead.nonSticky tr th:first-child,
   top: 0;
   bottom: 0;
 }
-#mobile-compare-tabler .device-name a.vs_page_name {
-  position: static !important;
-  display: none;
-  color: rgb(39 48 78 / 90%);
-  max-width: 150px;
-}
+
 #mobile-compare-tabler .device-name a.product_page_name {
   position: static !important;
   display: none;
