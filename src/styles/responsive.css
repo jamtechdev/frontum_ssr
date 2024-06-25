@@ -2116,6 +2116,11 @@
     height: 20px;
     /* margin-left: 6px; */
   }
+  .table-accordion .spec-section .spec-item .spec-col div.question-marker-icon,
+  div.question-marker-icon{
+    width: 20px !important;
+    height: 20px;
+  }
   .table-accordion .spec-section .spec-item .spec-col span svg {
     width: 13px;
     height: 13px;
