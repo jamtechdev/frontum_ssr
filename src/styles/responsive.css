@@ -2490,5 +2490,6 @@
   }
   .tooltip-title:hover .tooltip-display-content {
     left: 50% !important;
+    transform: translateX(50%) !important;
   }
 }
