@@ -2112,7 +2112,7 @@
     margin: 0 0 0px;
   }
   .table-accordion .spec-section .spec-item .spec-col span {
-    width: 20px;
+    width: 20px !important;
     height: 20px;
     /* margin-left: 6px; */
   }
