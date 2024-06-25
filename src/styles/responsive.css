@@ -2507,5 +2507,12 @@
   .product_table:hover .tooltip-display-content {
     transform: translateX(-35%) !important;
   }
-  
+  .compare-container
+    thead
+    tr
+    th
+    .device-name
+    small.product-name-small.product_page {
+    min-width: 150px !important;
+  }
 }
