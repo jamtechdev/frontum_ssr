@@ -309,38 +309,11 @@ export default function Filter({
               1
                 ? filteredArrayOfAttributeValues.maxValue
                 : 100;
-            // alert(min)
 
-            // setSliderValues((prevVal) => {
-            //   return {
-            //     ...prevVal,
-            //     minVal: min,
-            //     maxVal: max,
-            //   };
-            // });
-
-            // setSliderValues((prevValues) => ({
-            //   ...prevValues,
-            //   [removedParam]: { minVal: min, maxVal: max },
-            // }));
-            // const newRangerfilter = {
-            //   ...sliderValues,
-            //   [removedParam]: { minVal: min, maxVal: max },
-            // };
-            // setSliderValues(newRangerfilter);
             const value = `${minn},${maxx}`;
             const newFilters = {
               [removedParam]: value,
             };
-            // setSliderValues(newFilters);
-            // setSliderValues(newFilters);
-
-            // thumb thumb--left ${classForSlider}
-            // (sliderValues);
-            // const { [removedParam]: omit, ...OldFilters } = sliderValues;
-            // (OldFilters, "OldFilters");
-            // setSliderValues(OldFilters);
-            // (sliderValues, min, max, removedParam);
 
             handelFilterActions(
               "range",
@@ -348,23 +321,17 @@ export default function Filter({
               { min: minn, max: maxx },
               false
             );
-            // alert(removedParam);
-            // (sliderValues);
-            // (minn, maxx, removedParam);
+
             const leftThumb = document.getElementById(
               `thumb thumb--left ${removedParam}`
             );
             const rightThumb = document.getElementById(
               `thumb thumb--right ${removedParam}`
             );
-            // alert("hello");
-            // leftThumb.value = min;
 
             if (leftThumb) {
-              leftThumb.value = 0;
-              // (leftThumb,"neetx");
-              // // If you want the slider's position to update immediately,
-              // // you may need to trigger a change event manually
+              // If you want the slider's position to update immediately,
+              //  you may need to trigger a change event manually
               leftThumb.dispatchEvent(new Event("change", { bubbles: true }));
             }
             if (rightThumb) {
@@ -446,36 +413,6 @@ export default function Filter({
         </div>
       </div>
       <Accordion className="filter-accordion">
-        {/* <Accordion.Item eventKey="888880">
-          <Accordion.Header as="div" className="accordion-header">
-            {" "}
-            Show all variants
-            <Form.Check
-              required
-              className="custom-switch"
-              type="switch"
-              id={`variant`}
-              onChange={(e) =>
-                handelFilterActions("variant", "variant", e.target.checked)
-              }
-            />
-          </Accordion.Header>
-        </Accordion.Item>
-        <Accordion.Item eventKey="888888">
-          <Accordion.Header as="div" className="accordion-header">
-            {" "}
-            Available
-            <Form.Check
-              required
-              className="custom-switch"
-              type="switch"
-              id={`available`}
-              onChange={(e) =>
-                handelFilterActions("available", "available", e.target.checked)
-              }
-            />
-          </Accordion.Header>
-        </Accordion.Item> */}
         <Accordion.Item eventKey="777777">
           <Accordion.Header as="div" className="accordion-header">
             {guidePhraseData && guidePhraseData?.brand_label}{" "}
