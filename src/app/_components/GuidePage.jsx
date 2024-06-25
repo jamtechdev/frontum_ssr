@@ -630,7 +630,7 @@ export default function GuidePage({
                             <span
                               className="text0danger"
                               onClick={() => {
-                                setremovedParam(categoryName);
+                                setremovedParam();
                                 removeQueryParamAndNavigate(
                                   window.location.href,
                                   categoryName
