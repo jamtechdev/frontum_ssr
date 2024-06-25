@@ -421,6 +421,7 @@ const TechnicalAccordion = React.memo(
                         <QuestionIcon
                           attributes={product?.expert_reviews_descriptions}
                           productPhaseData={productPhaseData}
+                          type="productPage"
                         />
                       </div>
                     </div>
@@ -556,6 +557,7 @@ const TechnicalAccordion = React.memo(
                       <QuestionIcon
                         attributes={product?.popularity_descriptions}
                         productPhaseData={productPhaseData}
+                        type="productPage"
                       />
                     </div>
                   </div>
@@ -730,7 +732,9 @@ const TechnicalAccordion = React.memo(
                       }}
                     >
                       {formatValue(product.reviews)}
-                      <ProsConsToolTip hover_phrase={product.ratio_quality_price_points_phase} />
+                      <ProsConsToolTip
+                        hover_phrase={product.ratio_quality_price_points_phase}
+                      />
                     </span>
                   </div>
                 </div>
@@ -753,6 +757,7 @@ const TechnicalAccordion = React.memo(
                                 ?.attribute_category
                             }
                             productPhaseData={productPhaseData}
+                            type="productPage"
                           />
                         </div>
                         <span
@@ -810,6 +815,7 @@ const TechnicalAccordion = React.memo(
                                             attributeValues && attributeValues
                                           }
                                           productPhaseData={productPhaseData}
+                                          type="productPage"
                                         />
                                       </div>
                                     </div>
@@ -1104,6 +1110,7 @@ const TechnicalAccordion = React.memo(
                             product.attributes[attribute][0]?.attribute_category
                           }
                           productPhaseData={productPhaseData}
+                          type="productPage"
                         />
                       </div>
                       <span
@@ -1163,6 +1170,7 @@ const TechnicalAccordion = React.memo(
                                           attributeValues && attributeValues
                                         }
                                         productPhaseData={productPhaseData}
+                                        type="productPage"
                                       />
                                     </div>
                                   </div>

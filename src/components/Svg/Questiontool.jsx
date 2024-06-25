@@ -5,7 +5,7 @@ import Product from "../Common/ProductListing/Product/Product";
 import ProductPage from "@/app/_components/ProductPage";
 import CompareDiv from "../Common/ComparisanComponent/CompareDiv";
 
-const Questiontool = ({ productPhaseData, attributes, guidePhraseData }) => {
+const Questiontool = ({ productPhaseData, attributes, guidePhraseData,type }) => {
   const [tooltipPosition, setTooltipPosition] = useState({
     top: 0,
     left: 0,
@@ -35,7 +35,7 @@ const Questiontool = ({ productPhaseData, attributes, guidePhraseData }) => {
   }
   return (
     <div
-      className="question_hover_container question-marker-icon"
+      className={type ==="productPage" ? "question_hover_container question-marker-icon techincalScoreHover":"question_hover_container question-marker-icon"}
       onMouseOver={adjustTooltipPosition}
     >
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">

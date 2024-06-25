@@ -11,6 +11,7 @@ const QuestionIcon = ({
   guidePhraseData,
   comparePhaseData,
   product,
+  type,
 }) => {
   const [tooltipPosition, setTooltipPosition] = useState({
     top: 0,
@@ -40,7 +41,11 @@ const QuestionIcon = ({
   const { isMobile } = useScreenSize();
   return (
     <div
-      className="question_hover_container question-marker-icon"
+      className={
+        type === "productPage"
+          ? "question_hover_container question-marker-icon techincalScoreHover"
+          : "question_hover_container question-marker-icon"
+      }
       onMouseOver={adjustTooltipPosition}
     >
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
