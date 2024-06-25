@@ -57,7 +57,7 @@ const ProsConsToolTip = (props) => {
           className="tooltip-display-content why-tooltip"
           style={{
             left: isMobile ? "50%" : 0,
-            transform: isMobile ? "translateX(20%)" : "translateX(-10%)",
+            transform: isMobile ? "translateX(0%)" : "translateX(-10%)",
             width: isMobile ? "160px" : "250px",
             marginBottom: "3px",
             marginTop: "3px",
