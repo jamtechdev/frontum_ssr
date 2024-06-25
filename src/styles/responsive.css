@@ -2479,7 +2479,7 @@
 
 @media screen and (max-width: 640px) {
   #mobile-compare-tabler thead tr th {
-    padding: 0 22px !important;
+    padding: 0 22px 0px 12px !important;
   }
 
   #mobile-compare-tabler thead tr th > .device-name img {
@@ -2490,6 +2490,6 @@
   }
   .tooltip-title:hover .tooltip-display-content {
     left: 50% !important;
-    transform: translateX(50%) !important;
+    transform: translateX(40px) !important;
   }
 }
