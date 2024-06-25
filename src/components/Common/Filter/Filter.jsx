@@ -108,21 +108,18 @@ export default function Filter({
       case "range":
         if (!isChecked) {
           deleteQueryFormURL(key, updatedParams, currentParams, url);
-          const leftThumb = document.getElementById(
-            `thumb thumb--left ${removedParam}`
-          );
-          const rightThumb = document.getElementById(
-            `thumb thumb--right ${removedParam}`
-          );
+
+          const leftThumbId = `thumb--left ${removedParam}`;
+          const rightThumbId = `thumb--right ${removedParam}`;
+
+          const leftThumb = document.getElementById(leftThumbId);
+          const rightThumb = document.getElementById(rightThumbId);
 
           if (leftThumb) {
             leftThumb.value = 0;
-            // leftThumb.dispatchEvent(new Event("change", { bubbles: true }));
           }
           if (rightThumb) {
             rightThumb.value = 900;
-
-            // rightThumb.dispatchEvent(new Event("change", { bubbles: true }));
           }
 
           // console.log("deleted");

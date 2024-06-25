@@ -2485,4 +2485,10 @@
   #mobile-compare-tabler thead tr th > .device-name img {
     display: none !important;
   }
+  .question_hover_container {
+    position: static !important;
+  }
+  .tooltip-title:hover .tooltip-display-content {
+    left: 50% !important;
+  }
 }

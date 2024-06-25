@@ -225,9 +225,9 @@ const WhyAccordionTab = React.memo(
                                               <div
                                                 className="tooltip-display-content"
                                                 style={{
-                                                  left: isMobile ? "50%" : 0,
+                                                  left: isMobile ? "-27px" : 0,
                                                   transform: isMobile
-                                                    ? "translateX(-20%)"
+                                                    ? "translateX(0%)"
                                                     : "translateX(-10%)",
                                                   width: isMobile
                                                     ? "190px"
