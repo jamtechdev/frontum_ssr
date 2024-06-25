@@ -777,7 +777,7 @@ export default function MobileCompareTable({
                         <div className="table-main-heading">
                           {productPhaseData && productPhaseData?.overall_score}{" "}
                           <span className="question-marker-icon">
-                            <div className="tooltip-title">
+                            <div className="tooltip-title  product_table">
                               {products[0]
                                 ?.ratio_qulitiy_points_descriptions && (
                                 <div
@@ -930,7 +930,7 @@ export default function MobileCompareTable({
                             {productPhaseData &&
                               productPhaseData?.users_ratings}
                             <span className="question-marker-icon">
-                              <div className="tooltip-title">
+                              <div className="tooltip-title product_table">
                                 {products &&
                                   products.length > 0 &&
                                   products[0]?.overall_score_descriptions && (
@@ -1005,7 +1005,7 @@ export default function MobileCompareTable({
                           <div className="table-inner-heading">
                             {productPhaseData && productPhaseData?.popularity}
                             <span className="question-marker-icon">
-                              <div className="tooltip-title">
+                              <div className="tooltip-title product_table">
                                 {products &&
                                   products.length > 0 &&
                                   products[0]?.popularity_descriptions
@@ -1081,7 +1081,7 @@ export default function MobileCompareTable({
                           {productPhaseData &&
                             productPhaseData?.ratio_quality_price_points}{" "}
                           <span className="question-marker-icon">
-                            <div className="tooltip-title">
+                            <div className="tooltip-title product_table">
                               {products[0]
                                 ?.ratio_qulitiy_points_descriptions && (
                                 <div
@@ -1175,7 +1175,7 @@ export default function MobileCompareTable({
                               <div className="table-inner-heading">
                                 {data?.title}
                                 <span className="question-marker-icon">
-                                  <div className="tooltip-title">
+                                  <div className="tooltip-title product_table">
                                     <div
                                       className="tooltip-display-content"
                                       style={{ transform: "translateX(-20%)" }}
@@ -1361,7 +1361,7 @@ export default function MobileCompareTable({
                                           <div className="table-inner-heading">
                                             {data?.name}
                                             <span className="question-marker-icon">
-                                              <div className="tooltip-title">
+                                              <div className="tooltip-title product_table">
                                                 {(data.description ||
                                                   data.when_matters) && (
                                                   <div

@@ -2500,4 +2500,7 @@
     transform: translateX(40px) !important;
     /* width: 160px !important; */
   }
+  .product_table:hover .tooltip-display-content{
+    transform: translateX(-35%) !important;
+  }
 }
