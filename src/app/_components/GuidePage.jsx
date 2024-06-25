@@ -87,10 +87,14 @@ export default function GuidePage({
       }, 1000);
     }
   }, [searchParams]);
+  // console.log(removedParam)
 
   // This function removeQueryParamAndNavigate is used to remove a query parameter from the URL
   function removeQueryParamAndNavigate(url, paramToRemove) {
     // delete searchParams[`${paramToRemove}`];
+
+    console.log(url, paramToRemove);
+
     if (paramToRemove != "sort") {
       setparams(() => {
         return {
@@ -627,14 +631,15 @@ export default function GuidePage({
                                     ? params[categoryName].replace(/,/g, " - ")
                                     : params[categoryName]
                                 }`}
+
                             <span
                               className="text0danger"
                               onClick={() => {
-                                setremovedParam();
                                 removeQueryParamAndNavigate(
                                   window.location.href,
                                   categoryName
                                 );
+                                setremovedParam(categoryName);
                               }}
                             >
                               {" "}

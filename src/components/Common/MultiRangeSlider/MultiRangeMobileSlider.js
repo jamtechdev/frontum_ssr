@@ -79,7 +79,7 @@ const MultiRangeMobileSlider = ({
         id={`thumb thumb--left ${classForSlider}`}
         className={`thumb thumb--left ${classForSlider}`}
         style={{ zIndex: minVal > max - step && "5" }}
-        onTouchEnd={() => onChange({ min: minVal, max: maxVal })}
+        // onTouchEnd={() => onChange({ min: minVal, max: maxVal })}
       />
       <input
         type="range"
@@ -90,7 +90,7 @@ const MultiRangeMobileSlider = ({
         onChange={handleMaxChange}
         id={`thumb thumb--right ${classForSlider}`}
         className={`thumb thumb--right ${classForSlider}`}
-        onTouchEnd={() => onChange({ min: minVal, max: maxVal })}
+        // onTouchEnd={() => onChange({ min: minVal, max: maxVal })}
       />
 
       <div className="slider">

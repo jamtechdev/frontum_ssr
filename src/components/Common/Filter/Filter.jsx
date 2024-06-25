@@ -108,6 +108,25 @@ export default function Filter({
       case "range":
         if (!isChecked) {
           deleteQueryFormURL(key, updatedParams, currentParams, url);
+          const leftThumb = document.getElementById(
+            `thumb thumb--left ${removedParam}`
+          );
+          const rightThumb = document.getElementById(
+            `thumb thumb--right ${removedParam}`
+          );
+
+          if (leftThumb) {
+            leftThumb.value = 0;
+            // leftThumb.dispatchEvent(new Event("change", { bubbles: true }));
+          }
+          if (rightThumb) {
+            rightThumb.value = 900;
+
+            // rightThumb.dispatchEvent(new Event("change", { bubbles: true }));
+          }
+
+          // console.log("deleted");
+          setremovedParam();
         } else {
           updatedParams[key] = value;
         }
@@ -158,9 +177,9 @@ export default function Filter({
   // (sliderValues);
   const deleteQueryFormURL = (key, updatedParams, currentParams, url) => {
     delete updatedParams[key];
-    setremovedParam();
     currentParams.delete([key]);
     url.searchParams.delete([key]);
+    setremovedParam();
   };
 
   useEffect(() => {
@@ -321,30 +340,6 @@ export default function Filter({
               { min: minn, max: maxx },
               false
             );
-
-            const leftThumb = document.getElementById(
-              `thumb thumb--left ${removedParam}`
-            );
-            const rightThumb = document.getElementById(
-              `thumb thumb--right ${removedParam}`
-            );
-
-            if (leftThumb) {
-              // If you want the slider's position to update immediately,
-              //  you may need to trigger a change event manually
-              leftThumb.dispatchEvent(new Event("change", { bubbles: true }));
-            }
-            if (rightThumb) {
-              rightThumb.value = 900;
-              // (rightThumb,"neetx");
-              // // If you want the slider's position to update immediately,
-              // // you may need to trigger a change event manually
-              rightThumb.dispatchEvent(new Event("change", { bubbles: true }));
-            }
-
-            // if (rightThumb) {
-            //   rightThumb.value = max;
-            // }
           }
         }
 
@@ -685,7 +680,19 @@ export default function Filter({
                             {isSmallDevice ? (
                               <MultiRangeMobileSlider
                                 // value={filters[filter.id] ? filters[filter.id].min : filter.min}
-                                rangeVal={sliderValues}
+                                rangeVal={
+                                  sliderValues[attribute.name]
+                                    ? filteredArrayOfAttributeValues.maxValue -
+                                        filteredArrayOfAttributeValues.minValue >=
+                                      1
+                                      ? filteredArrayOfAttributeValues.minValue
+                                      : 0
+                                    : filteredArrayOfAttributeValues.maxValue -
+                                        filteredArrayOfAttributeValues.minValue >=
+                                      1
+                                    ? filteredArrayOfAttributeValues.maxValue
+                                    : 100
+                                }
                                 classForSlider={attribute.name}
                                 min={
                                   filteredArrayOfAttributeValues.maxValue -

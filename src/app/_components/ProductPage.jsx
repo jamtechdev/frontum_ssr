@@ -333,6 +333,8 @@ function ProductPage({
   const getProductTextPartShortcode = useSelector(
     (state) => state.comparePro.text_part_main?.content
   );
+
+
   return (
     <>
       <section className="product-header">

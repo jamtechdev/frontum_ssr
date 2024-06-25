@@ -365,18 +365,18 @@ export default function Product({
   //   ('totally custom!'),
   // );
   // (productData, "neet");
-  useEffect(() => {
-    // (searchParams, "change alert");
-    setProductData(null);
-    document
-      .querySelectorAll(".accordion-button:not(.collapsed)")
-      .forEach((button) => {
-        button.click(); // Simulate a click on non-collapsed buttons to collapse them
-      });
-    // document.querySelectorAll(".accordion-button").forEach((button) => {
-    //   button.classList.add("collapsed");
-    // });
-  }, [searchParams]);
+  // useEffect(() => {
+  //   // (searchParams, "change alert");
+  //   setProductData(null);
+  //   document
+  //     .querySelectorAll(".accordion-button:not(.collapsed)")
+  //     .forEach((button) => {
+  //       button.click(); // Simulate a click on non-collapsed buttons to collapse them
+  //     });
+  //   // document.querySelectorAll(".accordion-button").forEach((button) => {
+  //   //   button.classList.add("collapsed");
+  //   // });
+  // }, [searchParams]);
 
   // (productPhaseData,"check");
   // (productPagination)
