@@ -38,7 +38,7 @@
   padding: 7px;
   font-weight: 600 !important;
   font-size: 15px;
-  line-height: 25px;
+  line-height: 22px;
   color: var(--heading-color);
   /* opacity: 90%; */
   position: relative;
@@ -351,7 +351,7 @@ thead.isSticky {
   font-weight: 600 !important;
   font-size: 15px !important;
   min-width: 78px;
-  /* min-width: 150px; */
+
 }
 
 .compare-container
@@ -367,21 +367,6 @@ thead.isSticky {
   font-weight: 600 !important;
   font-size: 15px !important;
   min-width: 78px;
-}
-.compare-container
-  thead
-  tr
-  th
-  .device-name
-  .product-name-small.product-name-small {
-  display: -webkit-box !important;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  font-weight: 600 !important;
-  font-size: 15px !important;
-  /* min-width: 78px; */
-  min-width: 150px;
 }
 
 .compare-container thead tr th:not(:first-child),
