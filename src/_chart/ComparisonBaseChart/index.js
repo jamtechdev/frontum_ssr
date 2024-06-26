@@ -114,7 +114,7 @@ const ComparisonBaseChart = (drawChart, extraProps) => {
           <svg
             viewBox={`40 50 510 100`}
             ref={svgRef}
-            className={classnames("base__svg-container", svgContainerClass)}
+            className={classnames("base__svg-container bar-container-graph", svgContainerClass)}
           />
           <div
             className={classnames("base__tooltip", tooltipClass)}

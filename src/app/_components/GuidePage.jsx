@@ -480,7 +480,7 @@ export default function GuidePage({
               </Col>
               <Col sm={6} xs={12}>
                 <div className="filtered-data-select">
-                  {/* <span>{guide && guide?.page_phases?.order_by} :</span> */}
+                  <span>{guide && guide?.page_phases?.order_by} :</span>
                   <Form.Select
                     aria-label="Default select example"
                     className="mobile__filter"

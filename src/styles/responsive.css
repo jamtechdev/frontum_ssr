@@ -1576,6 +1576,16 @@
   .filter-accordion .accordion-item button {
     line-height: 24px !important;
   }
+
+  .filtered-data-select span{
+    width: auto !important;
+    white-space: nowrap;
+  }
+
+  .desktop-hide .col-sm-6.col-12:nth-child(2) {
+    order: -1;
+    margin: 0 0 10px;
+}
 }
 
 @media screen and (min-width: 993px) {
@@ -1597,6 +1607,7 @@
   .ranking-section .product-slider {
     display: none;
   }
+
 }
 
 /* responsive-css-start */
@@ -2559,5 +2570,13 @@
       max-width: 150px;
       min-height: 40px;
     }
+  }
+}
+
+
+@media(min-width:1200px){
+  .bar-container-graph{
+    width: 500px !important;
+    height: 180px !important;
   }
 }
