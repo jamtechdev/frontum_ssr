@@ -21,7 +21,9 @@ export default async function RootLayout({ children }) {
       <link rel="icon" href={`${footerData?.favicon}`} sizes="any" />
       <head
         dangerouslySetInnerHTML={{ __html: footerData?.head_tag_code }}
-      ></head>
+      >
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+      </head>
       <body>
         <div dangerouslySetInnerHTML={{ __html: footerData?.body_tag_code }} />
         <Layout footerData={footerData} headerData={headerData}>
