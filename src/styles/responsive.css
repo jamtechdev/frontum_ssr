@@ -2412,12 +2412,12 @@
 
     .compare-container thead tr th:first-child,
     .compare-container tbody tr td:first-child {
-      border-right: 2px solid #ddd !important;
+      border-right: 1px solid #ddd !important;
     }
 
     .compare-container thead tr th:last-child,
     .compare-container tbody tr td:last-child {
-      border-left: 2px solid #ddd !important;
+      border-left: 1px solid #ddd !important;
     }
 
     .table__image__arrow {
