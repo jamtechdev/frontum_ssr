@@ -2495,7 +2495,7 @@
     all: unset !important;
   }
   .mobile-table-section .table-section-desktop .compare-container thead tr th {
-    padding: 12px !important;
+    padding: 4px !important;
     background: #fff;
     border-bottom: 2px solid #ddd !important;
   }
