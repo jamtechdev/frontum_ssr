@@ -2566,14 +2566,14 @@ tr:first-child th {
     width: 100% !important;
     bottom: 0 !important;
   }
-  table#mobile-compare-tabler.isSticky.compare-container
+  /* table#mobile-compare-tabler.isSticky.compare-container
     thead
     tr
     th
     .device-name
     .compare_image {
     display: block !important;
-  }
+  } */
 
   table#mobile-compare-tabler.isSticky.compare-container
     thead
