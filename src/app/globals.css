@@ -2534,8 +2534,11 @@ tr:first-child th {
     float: none;
     padding: 70px 0px 0 75px;
   }
+  .product__page .compare-container thead tr th .device-name > *{
+    width: 100% !important;
+  }
   #mobile-compare-tabler .device-name a {
-    max-width: 250px !important;
+    max-width: 100% !important;
   }
 }
 
