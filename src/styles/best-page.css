@@ -772,7 +772,7 @@ section.comparisons-slider.no-before:before {
 }
 
 .filtered-data-select select {
-  max-width: 220px;
+  max-width: 270px;
   font-size: 16px;
   padding-right: 30px !important;
 }

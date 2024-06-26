@@ -35,7 +35,7 @@ const ComparisonBaseChart = (drawChart, extraProps) => {
       .scaleLinear()
       .domain([xMinValue, xMaxValue])
       .range([0, width]);
-      
+
     // .attr("transform", "rotate(-45)");
 
     if (useScaleBands.x) {
@@ -110,10 +110,7 @@ const ComparisonBaseChart = (drawChart, extraProps) => {
         <span className="chartTitle" style={{ "margin-bottom": "6px" }}>
           {/* {chartTitle} */}
         </span>
-        <div
-          className="base__container"
-          style={{ height: 180 }}
-        >
+        <div className="base__container" style={{ height: "180px" }}>
           <svg
             viewBox={`40 50 510 100`}
             ref={svgRef}

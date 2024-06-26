@@ -1,4 +1,18 @@
 /*Tab Responsive Start */
+
+.compare-container-wrapper{
+  overflow-x: auto;
+}
+
+@media screen and (max-width:575px) {
+  .filtered-data-select{
+    width: 100%;
+    margin-top: 15px;
+  }
+  .filtered-data-select select{
+    max-width: 100% !important;
+  }
+}
 @media screen and (max-width: 992px) {
   section.comparisons-slider.no-before::before {
     display: none;
@@ -2507,7 +2521,7 @@
 
   @media screen and (max-width: 640px) {
     #mobile-compare-tabler thead tr th {
-      padding: 0 22px 0px 12px !important;
+      padding: 0 8px 0px 8px !important;
     }
 
     #mobile-compare-tabler thead tr th > .device-name img {

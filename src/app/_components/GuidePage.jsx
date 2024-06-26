@@ -469,7 +469,7 @@ export default function GuidePage({
           <Col md={12} lg={9} xl={9} className="main-content">
             <Row className="mobile-hide"></Row>
             <Row className="desktop-hide">
-              <Col sm={6} xs={6}>
+              <Col sm={6} xs={12}>
                 <Button
                   className="site_main_btn w-100 d-block btn-icon"
                   onClick={openClick}
@@ -478,7 +478,7 @@ export default function GuidePage({
                   {guide?.page_phases?.filter_text}
                 </Button>
               </Col>
-              <Col sm={6} xs={6}>
+              <Col sm={6} xs={12}>
                 <div className="filtered-data-select">
                   {/* <span>{guide && guide?.page_phases?.order_by} :</span> */}
                   <Form.Select
