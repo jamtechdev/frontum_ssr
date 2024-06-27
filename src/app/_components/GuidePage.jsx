@@ -18,6 +18,7 @@ import GuidePageTextArea from "@/components/Common/GuidePageOutline/GuidePageTex
 import MobileCompareTable from "@/components/Common/MobileCompareTable/MobileCompareTable";
 
 import useScreenSize from "@/_helpers/useScreenSize";
+import MobileCompareGuideTable from "@/components/Common/MobileCompareTable/MobileCompareGuideTable";
 
 export default function GuidePage({
   slug,
@@ -277,23 +278,6 @@ export default function GuidePage({
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
-  // (isFilterActive)
-  // (isFilterActive, "neetx");
-
-  // useEffect(() => {
-  //   function showTooltip(event, content) {
-  //     const tooltip = document.getElementById("tooltip");
-  //     tooltip.style.display = "block";
-  //     tooltip.style.left = event.pageX + "px";
-  //     tooltip.style.top = event.pageY + "px";
-  //     tooltip.innerHTML = content;
-  //   }
-
-  //   function hideTooltip() {
-  //     const tooltip = document.getElementById("tooltip");
-  //     tooltip.style.display = "none";
-  //   }
-  // }, []);
 
   const { isMobile } = useScreenSize();
 
@@ -891,7 +875,7 @@ export default function GuidePage({
             <Col md={12} className="p-0">
               {
                 isMobile ? (
-                  <MobileCompareTable
+                  <MobileCompareGuideTable
                     productPhaseData={guide?.page_phases}
                     products={productForTable}
                     categoryAttributes={

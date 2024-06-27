@@ -126,10 +126,11 @@ export default function MobileCompareGuideTable({
     setPagination({ ...pagination, [categoryName]: updatedPage });
   };
 
-  const handleTableShow = () => {
+  const handleTableShow = useCallback(() => {
+    // alert("hello");
     setFullTable(categoryAttributes?.length);
-  };
-
+  });
+  console.log(fullTable);
   const addAsterisksToTopValue = (defaultNo, category, catAttribute) => {
     const copiedFinalProducts = JSON.parse(JSON.stringify(finalProducts));
     const filterData = copiedFinalProducts
@@ -141,59 +142,7 @@ export default function MobileCompareGuideTable({
       );
 
     const arrayOfObjects = [...filterData];
-    // let numericValues = [];
 
-    // numericValues = arrayOfObjects
-    //   .map((obj) => {
-    //     if (!isNaN(parseFloat(obj?.attribute_value))) {
-    //       return parseFloat(obj?.attribute_value);
-    //     } else {
-    //       return obj?.attribute_value;
-    //     }
-    //   })
-    //   .filter((value) => !isNaN(value));
-
-    // if (arrayOfObjects?.[0]?.algorithm === "highest_to_lowest") {
-    //   numericValues.sort((a, b) => b - a);
-    // } else {
-    //   numericValues.sort((a, b) => a - b);
-    // }
-
-    // // Adding logic for String case
-    // if (numericValues.length === 0) {
-    //   const stringArray = arrayOfObjects.map((obj) => obj?.attribute_value);
-
-    //   if (arrayOfObjects?.[0]?.algorithm === "absolute_value") {
-    //     const targetString =
-    //       stringArray[0] === "yes"
-    //         ? "yes"
-    //         : "no" || stringArray[0] === "no"
-    //         ? "yes"
-    //         : "yes";
-    //     numericValues = stringArray.filter((value) => value === targetString);
-    //   }
-    // }
-
-    // const topValue = numericValues[0];
-    // const occurrences = numericValues?.filter(
-    //   (value) => value === topValue
-    // ).length;
-
-    // if (occurrences === 1) {
-    //   arrayOfObjects.forEach((obj) => {
-    //     const numericValue =
-    //       typeof topValue === "string"
-    //         ? obj.attribute_value
-    //         : parseFloat(obj.attribute_value);
-    //     if (numericValue === topValue && !obj.attribute_value?.includes("⭐")) {
-    //       obj.attribute_value += "⭐";
-    //     }
-    //   });
-    // }
-
-    // const chunkArrayOfObjects = chunk(arrayOfObjects, 2);
-    // Adjust this function according to your context as I don't have the complete code
-    // It would be good to ensure that you have the required variables (finalProducts) in scope.
     arrayOfObjects.forEach((obj) => {
       obj?.star &&
         obj.attribute_value !== "?" &&
@@ -324,13 +273,12 @@ export default function MobileCompareGuideTable({
 
                   return (
                     <>
-                      {type === "guide" && (
-                        <th>
-                          <span class="best-tag-product">
-                            {type === "guide" && data?.assigned_title}
-                          </span>
-                        </th>
-                      )}
+                      <th>
+                        <span class="best-tag-product">
+                          {type === "guide" && data?.assigned_title}
+                        </span>
+                      </th>
+
                       {/* {type === "product" &&
                         tIndex === 0 &&
                         currentIndex === 0 && (
@@ -386,21 +334,11 @@ export default function MobileCompareGuideTable({
                   return (
                     <th key={tIndex}>
                       <p className="device-name">
-                        {type === "guide" && (
-                          <span>
-                            {tIndex + currentIndex + 1 + currentIndex}
-                          </span>
-                        )}
+                        <span>{tIndex + currentIndex + 1 + currentIndex}</span>
 
                         <small className="product-name-small guide_page ">
                           <a
-                            className={
-                              type === "product"
-                                ? "product_page_name"
-                                : type === "compare"
-                                ? "vs_page_name"
-                                : "guide_page"
-                            }
+                            className={"guide_page"}
                             href={`/${data?.category_url}/${data?.permalink}`}
                             style={{ display: "block" }}
                           >
@@ -599,14 +537,13 @@ export default function MobileCompareGuideTable({
                         // console.log(globalIndex, "globalIndex");
                         return (
                           <>
-                            {type === "guide" && (
-                              <th>
-                                <span class="best-tag-product">
-                                  {type === "guide" && data?.assigned_title}
-                                </span>
-                              </th>
-                            )}
-                            {type === "product" &&
+                            <th>
+                              <span class="best-tag-product">
+                                {type === "guide" && data?.assigned_title}
+                              </span>
+                            </th>
+
+                            {/* {type === "product" &&
                               dIndex === 0 &&
                               currentIndex === 0 && (
                                 <th>
@@ -621,15 +558,13 @@ export default function MobileCompareGuideTable({
                             {type === "compare" &&
                               (chunkedData?.length > 1 ? (
                                 <th>
-                                  {/* {console.log(
-                                    productScoreLabelIndex === currentIndex
-                                  )} */}
+                                
                                   {productScoreLabelIndex !== "" &&
                                     productScoreLabelIndex === globalIndex && (
                                       <span className="best-tag-product">
                                         {productPhaseData &&
                                           productPhaseData?.winner}
-                                        {/* {data?.winner} */}
+                                        
                                       </span>
                                     )}
                                 </th>
@@ -640,11 +575,11 @@ export default function MobileCompareGuideTable({
                                       <span className="best-tag-product">
                                         {productPhaseData &&
                                           productPhaseData?.winner}
-                                        {/* {data?.winner} */}
+                                      
                                       </span>
                                     )}
                                 </th>
-                              ))}
+                              ))} */}
                           </>
                         );
                       })}
@@ -658,11 +593,9 @@ export default function MobileCompareGuideTable({
                             {/* {(product)} */}
 
                             <p className="device-name">
-                              {type === "guide" && (
-                                <span>
-                                  {dIndex + currentIndex + 1 + currentIndex}
-                                </span>
-                              )}
+                              <span>
+                                {dIndex + currentIndex + 1 + currentIndex}
+                              </span>
 
                               <a
                                 href={`/${data?.category_url}/${data?.permalink}`}
@@ -1342,8 +1275,8 @@ export default function MobileCompareGuideTable({
                               {product?.attributes
                                 ?.slice(
                                   0,
-                                  pagination[product.name] ||
-                                    initialNoOfCategories
+                                  // pagination[product.name] ||
+                                    5
                                 )
                                 .map((data, index) => {
                                   return (
@@ -1532,8 +1465,8 @@ export default function MobileCompareGuideTable({
 
         {/* {(fullTable)} */}
         {fullTable == 2 && (
-          <div className="text-center" onClick={handleTableShow}>
-            <Button className="see_all_btn_outline">
+          <div className="text-center">
+            <Button className="see_all_btn_outline" onClick={handleTableShow}>
               {/* {(productPhaseData)} */}
               {productPhaseData && productPhaseData?.see_full_table}{" "}
               <i className="ri-arrow-down-s-line"></i>
