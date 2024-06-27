@@ -1184,3 +1184,8 @@ footer .search-icon {
   padding-left: calc(var(--bs-gutter-x) * 0.5);
   margin-top: var(--bs-gutter-y);
 }
+
+#mobile-compare-table .compare-container tbody tr td:last-child .tooltip-title-2{
+  left: 5px !important;
+  right: auto !important;
+}

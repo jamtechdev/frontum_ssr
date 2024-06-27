@@ -2003,9 +2003,36 @@
 
   .compare-container thead tr th:first-child,
   .compare-container tbody tr th {
-    min-width: 120px !important;
-    max-width: 120px !important;
-    width: 120px !important;
+    min-width: 100px !important;
+    max-width: 100px !important;
+    width: 100px !important;
+  }
+
+  .compare-container thead tr th:not(:first-child), .compare-container tbody tr td{
+    min-width: 100px !important;
+    max-width: 100px !important;
+    width: 100px !important;
+  }
+
+  .table-section-mobile .best-price-section:not(.ranking) .best-list-item li:not(.d-flex), .isSticky .best-list-item li:not(.d-flex){
+    grid-template-columns: calc(100% - 0px) !important;
+  }
+
+  .table-section-mobile .compare-container thead.isSticky{
+    width: 100%;
+    right: 12px;
+  }
+
+  .table-section-mobile .compare-container thead.isSticky tr{
+    min-width: 100% !important;
+  }
+
+  .table-section-mobile .compare-container thead.isSticky tr th:first-child{
+    min-width: 115px !important;
+  }
+
+  .table-section-mobile .compare-container thead.isSticky tr th .device-name .compare_image{
+    display: none !important;
   }
 }
 

@@ -406,7 +406,7 @@ export default function MobileCompareTable({
                               type === "product"
                                 ? "product_page_name"
                                 : type === "compare"
-                                ? "vs_page_name"
+                                ? "vs_page_name product_page_name"
                                 : "guide_page"
                             }
                             href={`/${data?.category_url}/${data?.permalink}`}
