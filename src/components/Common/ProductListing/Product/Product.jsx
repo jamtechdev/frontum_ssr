@@ -1341,7 +1341,7 @@ export default function Product({
                           .map((data, key) => {
                             // (data);
                             return (
-                              <>
+                              <React.Fragment key={key}>
                                 {data?.short_name !== null && (
                                   <div className="color-item" key={key}>
                                     <li
@@ -1406,7 +1406,7 @@ export default function Product({
                                     </li>
                                   </div>
                                 )}
-                              </>
+                              </React.Fragment>
                             );
                           })}
                       </div>

@@ -44,18 +44,20 @@ export default React.forwardRef(function ProductListing(
         <i>{text_before_listing}</i>
       </span>
       {products?.map((product, index) => (
-        <Product
-          guidePhraseData={guidePhraseData}
-          incomingProduct={product}
-          KeyIndex={index}
-          position={findProductPosition(product.name)}
-          handleToggleCollapse={handleToggleCollapse}
-          handleManageCollapsedDiv={handleManageCollapsedDiv}
-          slug={slug}
-          order={order}
-          searchParams={searchParams}
-          productPagination={productPagination}
-        />
+        <React.Fragment key={index}>
+          <Product
+            guidePhraseData={guidePhraseData}
+            incomingProduct={product}
+            KeyIndex={index}
+            position={findProductPosition(product.name)}
+            handleToggleCollapse={handleToggleCollapse}
+            handleManageCollapsedDiv={handleManageCollapsedDiv}
+            slug={slug}
+            order={order}
+            searchParams={searchParams}
+            productPagination={productPagination}
+          />
+        </React.Fragment>
       ))}
       <span className="testing__text">
         <i>{text_after_listing}</i>

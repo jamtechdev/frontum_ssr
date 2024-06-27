@@ -677,19 +677,7 @@ export default function Filter({
                             {isSmallDevice ? (
                               <MultiRangeMobileSlider
                                 // value={filters[filter.id] ? filters[filter.id].min : filter.min}
-                                rangeVal={
-                                  sliderValues[attribute.name]
-                                    ? filteredArrayOfAttributeValues.maxValue -
-                                        filteredArrayOfAttributeValues.minValue >=
-                                      1
-                                      ? filteredArrayOfAttributeValues.minValue
-                                      : 0
-                                    : filteredArrayOfAttributeValues.maxValue -
-                                        filteredArrayOfAttributeValues.minValue >=
-                                      1
-                                    ? filteredArrayOfAttributeValues.maxValue
-                                    : 100
-                                }
+                                rangeVal={sliderValues[attribute.name]}
                                 classForSlider={attribute.name}
                                 min={
                                   filteredArrayOfAttributeValues.maxValue -

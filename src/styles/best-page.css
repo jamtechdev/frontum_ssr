@@ -179,7 +179,7 @@ thead.nonSticky tr th:first-child,
   position: relative;
 }
 .product__page .compare-container thead tr th .device-name > * {
-  width: 50%;
+  width: 100%;
 }
 .product__page .compare-container thead tr th .device-name > * a {
   max-width: 100% !important;
