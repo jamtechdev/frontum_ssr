@@ -455,6 +455,42 @@ export default function MobileCompareGuideTable({
           </div>
         </Col>
       </Row> */}
+
+      <div
+        className={
+          winPos == true
+            ? currentIndex === 0
+              ? "slider-controls table__arrow arrow__fixed justify-content-end"
+              : currentIndex === chunkedData.length - 1
+              ? "slider-controls table__arrow arrow__fixed justify-content-start"
+              : "slider-controls table__arrow arrow__fixed justify-content-between"
+            : "slider-controls table__arrow"
+        }
+      >
+        {currentIndex === 0 && chunkedData?.length > 1 ? (
+          <span className="swiper-next" onClick={handleNext}>
+            <i className="ri-arrow-right-s-line"></i>
+          </span>
+        ) : currentIndex === chunkedData.length - 1 &&
+          chunkedData?.length > 1 ? (
+          <span className="swiper-prev" onClick={handlePrevious}>
+            <i className="ri-arrow-left-s-line"></i>
+          </span>
+        ) : (
+          <>
+            {chunkedData?.length > 1 && (
+              <>
+                <span className="swiper-prev" onClick={handlePrevious}>
+                  <i className="ri-arrow-left-s-line"></i>
+                </span>
+                <span className="swiper-next" onClick={handleNext}>
+                  <i className="ri-arrow-right-s-line"></i>
+                </span>
+              </>
+            )}
+          </>
+        )}
+      </div>
       <div
         className={
           fullTable == 2
@@ -463,41 +499,7 @@ export default function MobileCompareGuideTable({
         }
       >
         {/* {(chunkedData?.length, "chunkedData")} */}
-        <div
-          className={
-            winPos == true
-              ? currentIndex === 0
-                ? "slider-controls table__arrow arrow__fixed justify-content-end"
-                : currentIndex === chunkedData.length - 1
-                ? "slider-controls table__arrow arrow__fixed justify-content-start"
-                : "slider-controls table__arrow arrow__fixed justify-content-between"
-              : "slider-controls table__arrow"
-          }
-        >
-          {currentIndex === 0 && chunkedData?.length > 1 ? (
-            <span className="swiper-next" onClick={handleNext}>
-              <i className="ri-arrow-right-s-line"></i>
-            </span>
-          ) : currentIndex === chunkedData.length - 1 &&
-            chunkedData?.length > 1 ? (
-            <span className="swiper-prev" onClick={handlePrevious}>
-              <i className="ri-arrow-left-s-line"></i>
-            </span>
-          ) : (
-            <>
-              {chunkedData?.length > 1 && (
-                <>
-                  <span className="swiper-prev" onClick={handlePrevious}>
-                    <i className="ri-arrow-left-s-line"></i>
-                  </span>
-                  <span className="swiper-next" onClick={handleNext}>
-                    <i className="ri-arrow-right-s-line"></i>
-                  </span>
-                </>
-              )}
-            </>
-          )}
-        </div>
+
         <Swiper
           onSlideChange={handleSlideChange}
           id="mobile-compare-table"
@@ -542,44 +544,6 @@ export default function MobileCompareGuideTable({
                                 {type === "guide" && data?.assigned_title}
                               </span>
                             </th>
-
-                            {/* {type === "product" &&
-                              dIndex === 0 &&
-                              currentIndex === 0 && (
-                                <th>
-                                  <span class="best-tag-product">
-                                    {type === "product" &&
-                                      currentIndex === 0 &&
-                                      productPhaseData?.compared}
-                                  </span>
-                                </th>
-                              )}
-
-                            {type === "compare" &&
-                              (chunkedData?.length > 1 ? (
-                                <th>
-                                
-                                  {productScoreLabelIndex !== "" &&
-                                    productScoreLabelIndex === globalIndex && (
-                                      <span className="best-tag-product">
-                                        {productPhaseData &&
-                                          productPhaseData?.winner}
-                                        
-                                      </span>
-                                    )}
-                                </th>
-                              ) : (
-                                <th>
-                                  {productScoreLabelIndex !== "" &&
-                                    productScoreLabelIndex === dIndex && (
-                                      <span className="best-tag-product">
-                                        {productPhaseData &&
-                                          productPhaseData?.winner}
-                                      
-                                      </span>
-                                    )}
-                                </th>
-                              ))} */}
                           </>
                         );
                       })}
@@ -1276,7 +1240,7 @@ export default function MobileCompareGuideTable({
                                 ?.slice(
                                   0,
                                   // pagination[product.name] ||
-                                    5
+                                  5
                                 )
                                 .map((data, index) => {
                                   return (

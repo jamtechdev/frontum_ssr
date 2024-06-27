@@ -526,14 +526,6 @@ export default function MobileCompareTable({
         </Col>
       </Row> */}
       <div
-        className={
-          fullTable == 2
-            ? "compare-container-wrapper"
-            : "compare-container-wrapper no-before"
-        }
-      >
-        {/* {(chunkedData?.length, "chunkedData")} */}
-        <div
           className={
             winPos == true
               ? currentIndex === 0
@@ -568,6 +560,14 @@ export default function MobileCompareTable({
             </>
           )}
         </div>
+      <div
+        className={
+          fullTable == 2
+            ? "compare-container-wrapper"
+            : "compare-container-wrapper no-before"
+        }
+      >
+        {/* {(chunkedData?.length, "chunkedData")} */}
         <Swiper
           onSlideChange={handleSlideChange}
           id="mobile-compare-table"
