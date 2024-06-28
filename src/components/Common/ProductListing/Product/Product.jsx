@@ -970,7 +970,8 @@ export default function Product({
                                             target="_blank"
                                             href={`/link?p=${btoa(data.url)}`}
                                           >
-                                            {Number(data?.price).toFixed(2)}{" "}
+                                            {/* {console.log(data?.price)} */}
+                                            {data?.price}{" "}
                                             {product?.currency}
                                           </a>
                                         </span>
