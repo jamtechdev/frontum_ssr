@@ -18,7 +18,7 @@ export async function generateMetadata(props) {
   const authorData = await aboutUsService.getAuthorById(params?.author);
   // (authorData)
 
-  const siteURL = "https://mondopedia.it";
+  const siteURL = process.env.NEXT_BASE_URL;
   return {
     title: authorData?.name,
     generator: "Comparison web",

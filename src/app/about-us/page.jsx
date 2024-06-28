@@ -16,7 +16,7 @@ export default async function Page() {
 
 export async function generateMetadata(params) {
   const aboutData = await aboutUsService.aboutUsAPi();
-  const siteURL = "https://mondopedia.it";
+  const siteURL = process.env.NEXT_BASE_URL;
   return {
     title: aboutData?.title || "Comparison web",
     generator: "Comparison web",
