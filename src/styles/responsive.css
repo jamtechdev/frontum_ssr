@@ -1,8 +1,8 @@
 /*Tab Responsive Start */
 
-.compare-container-wrapper {
+/* .compare-container-wrapper {
   overflow-x: auto;
-}
+} */
 
 @media screen and (max-width: 575px) {
   .filtered-data-select {
