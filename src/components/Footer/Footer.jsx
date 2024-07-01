@@ -36,13 +36,6 @@ export default function Footer({ footerData }) {
         <Container>
           <Row className="align-items-center ">
             <Col lg={6} md={12} xs={12}>
-              {/* footer_page_phases: {
-      sign_up_text: 'Sign Up Text',
-      sign_up_label: 'Sign Up Label',
-      sign_up_button: 'Sign Up Label',
-      sign_up_placeholder: 'Sign Up Placeholder',
-      copyright: 'Copyright'
-    }, */}
               <div className={"text-uppercase " + styles.singupNewsletter}>
                 {footerData?.footer_page_phases?.sign_up_text}
               </div>
@@ -101,15 +94,15 @@ export default function Footer({ footerData }) {
                 })}
               </div>
               <div className="location__select">
-                <label for="footer-country-switch-id">
-                  <i class="ri-map-pin-line"></i>
+                <label htmlFor="footer-country-switch-id">
+                  <i className="ri-map-pin-line"></i>
                 </label>
                 <select
                   id="footer-country-switch-id"
                   value={language}
                   onChange={handleOnchangeLanguage}
                 >
-                  <option value={`${footerData?.default_language}`} selected="">
+                  <option value={footerData?.default_language}>
                     {footerData?.default_language}
                   </option>
                   {footerData?.languages?.map((langData, index) => {

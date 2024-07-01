@@ -16,7 +16,7 @@ const ComparisonBaseChart = (drawChart, extraProps) => {
       containerId,
       svgProps,
       tooltipClass,
-      scaleBandPadding,
+      scaleBandPadding = 0.4,
       ...restProps
     } = props;
     const { tick } = axisProps;
@@ -101,20 +101,23 @@ const ComparisonBaseChart = (drawChart, extraProps) => {
       <div
         className="graph__upperdiv"
         style={{
-          "align-items": "center",
+          alignItems: "center",
           // "flex-direction": "column",
           display: "flex",
         }}
       >
         {" "}
-        <span className="chartTitle" style={{ "margin-bottom": "6px" }}>
+        <span className="chartTitle" style={{ marginBottom: "6px" }}>
           {/* {chartTitle} */}
         </span>
         <div className="base__container" style={{ height: "180px" }}>
           <svg
             viewBox={`40 50 510 100`}
             ref={svgRef}
-            className={classnames("base__svg-container bar-container-graph", svgContainerClass)}
+            className={classnames(
+              "base__svg-container bar-container-graph",
+              svgContainerClass
+            )}
           />
           <div
             className={classnames("base__tooltip", tooltipClass)}
@@ -126,9 +129,9 @@ const ComparisonBaseChart = (drawChart, extraProps) => {
     );
   }
 
-  Chart.defaultProps = {
-    scaleBandPadding: 0.4,
-  };
+  // Chart.defaultProps = {
+  //   scaleBandPadding: 0.4,
+  // };
 
   return Chart;
 };

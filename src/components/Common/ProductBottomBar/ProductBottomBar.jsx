@@ -13,7 +13,7 @@ function ProductBottomBar({ favSlider ,productPhase}) {
   return (
     <>
       <div onClick={openCompareModel} className="product-bottom-bar">
-        <i class="ri-add-circle-fill"></i>
+        <i className="ri-add-circle-fill"></i>
         <p>{productPhase?.page_phases?.comparison_on_bottom}</p>
       </div>
       {isOpen && (

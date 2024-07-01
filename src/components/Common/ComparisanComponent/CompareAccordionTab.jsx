@@ -244,7 +244,7 @@ const CompareAccordionTab = React.memo(
             <Accordion defaultActiveKey="1" className="compare-accordion p-0">
               <Accordion.Item eventKey="1">
                 <Accordion.Header as="div">
-                  <h3 class="font-20 h_neet">
+                  <h3 className="font-20 h_neet">
                     {" "}
                     {sendProductProps?.length > 2
                       ? activatab === "tab-3"
@@ -869,7 +869,7 @@ const CompareAccordionTab = React.memo(
               <Accordion.Item eventKey="2">
                 <Accordion.Header as="div">
                   {/* worse than */}
-                  <h3 class="font-20">
+                  <h3 className="font-20">
                     {" "}
                     {sendProductProps?.length > 2
                       ? activatab === "tab-3"

@@ -139,58 +139,7 @@ export default function MobileCompareGuideTable({
           (obj) => obj?.attribute === catAttribute.name
         )
       );
-
     const arrayOfObjects = [...filterData];
-    // let numericValues = [];
-
-    // numericValues = arrayOfObjects
-    //   .map((obj) => {
-    //     if (!isNaN(parseFloat(obj?.attribute_value))) {
-    //       return parseFloat(obj?.attribute_value);
-    //     } else {
-    //       return obj?.attribute_value;
-    //     }
-    //   })
-    //   .filter((value) => !isNaN(value));
-
-    // if (arrayOfObjects?.[0]?.algorithm === "highest_to_lowest") {
-    //   numericValues.sort((a, b) => b - a);
-    // } else {
-    //   numericValues.sort((a, b) => a - b);
-    // }
-
-    // // Adding logic for String case
-    // if (numericValues.length === 0) {
-    //   const stringArray = arrayOfObjects.map((obj) => obj?.attribute_value);
-
-    //   if (arrayOfObjects?.[0]?.algorithm === "absolute_value") {
-    //     const targetString =
-    //       stringArray[0] === "yes"
-    //         ? "yes"
-    //         : "no" || stringArray[0] === "no"
-    //         ? "yes"
-    //         : "yes";
-    //     numericValues = stringArray.filter((value) => value === targetString);
-    //   }
-    // }
-
-    // const topValue = numericValues[0];
-    // const occurrences = numericValues?.filter(
-    //   (value) => value === topValue
-    // ).length;
-
-    // if (occurrences === 1) {
-    //   arrayOfObjects.forEach((obj) => {
-    //     const numericValue =
-    //       typeof topValue === "string"
-    //         ? obj.attribute_value
-    //         : parseFloat(obj.attribute_value);
-    //     if (numericValue === topValue && !obj.attribute_value?.includes("⭐")) {
-    //       obj.attribute_value += "⭐";
-    //     }
-    //   });
-    // }
-
     // const chunkArrayOfObjects = chunk(arrayOfObjects, 2);
     // Adjust this function according to your context as I don't have the complete code
     // It would be good to ensure that you have the required variables (finalProducts) in scope.
@@ -311,16 +260,9 @@ export default function MobileCompareGuideTable({
           <tr class="catchy-title-mobile-view">
             {chunkedData
               ?.slice(currentIndex, currentIndex + 1)
-              .map((product, index) => {
-                // (index, "sticky index");
-                // const productIndex=index+1
-                // (productIndex,"checking product index for images")
-                // return product?.slice( currentIndex).map((data,tIndex) => {
+              .map((product) => {
                 return product?.map((data, tIndex) => {
-                  // (currentIndex, "check currentIndex");
-                  // (product, "check products");
                   const globalIndex = currentIndex * 2 + tIndex;
-                  // console.log(globalIndex)
 
                   return (
                     <>
@@ -375,14 +317,7 @@ export default function MobileCompareGuideTable({
             {chunkedData
               ?.slice(currentIndex, currentIndex + 1)
               .map((product, index) => {
-                // (index, "sticky index");
-                // const productIndex=index+1
-                // (productIndex,"checking product index for images")
-                // return product?.slice( currentIndex).map((data,tIndex) => {
                 return product?.map((data, tIndex) => {
-                  // (currentIndex, "check currentIndex");
-                  // (product, "check products");
-                  // console.log(data?.currency)
                   return (
                     <th key={tIndex}>
                       <p className="device-name">
@@ -508,23 +443,6 @@ export default function MobileCompareGuideTable({
 
       {/* ending below table */}
 
-      {/* <Row className="mt-3 align-items-center">
-        <Col sm="6" xs="9" className="p-0">
-          <p>
-            Showing products: <b>1-2</b>
-          </p>                                                     
-        </Col>
-        <Col sm="6" xs="3" className="p-0">
-          <div className="slider-controls">
-            <span className="swiper-prev" onClick={handlePrevious}>
-              <i className="ri-arrow-left-s-line"></i>
-            </span>
-            <span className="swiper-next" onClick={handleNext}>
-              <i className="ri-arrow-right-s-line"></i>
-            </span>
-          </div>
-        </Col>
-      </Row> */}
       <div
         className={
           winPos == true
@@ -776,7 +694,7 @@ export default function MobileCompareGuideTable({
                       <td colSpan="2">
                         <div className="table-main-heading">
                           {productPhaseData && productPhaseData?.overall_score}{" "}
-                          <span className="question-marker-icon">
+                          <span className="question-marker-icon ">
                             <div className="tooltip-title  product_table">
                               {products[0]
                                 ?.ratio_qulitiy_points_descriptions && (
@@ -1172,9 +1090,9 @@ export default function MobileCompareGuideTable({
                         <>
                           <tr className={index % 2 != 0 ? "tr-bg-color" : ""}>
                             <td colSpan="2">
-                              <div className="table-inner-heading">
+                              <div className="table-inner-heading  neet_x">
                                 {data?.title}
-                                <span className="question-marker-icon">
+                                <span className={`question-marker-icon`}>
                                   <div className="tooltip-title product_table">
                                     <div
                                       className="tooltip-display-content"
@@ -1302,7 +1220,9 @@ export default function MobileCompareGuideTable({
                             <>
                               <tr className="tr-bg-color">
                                 <td colSpan="2">
-                                  <p className="table-main-heading">
+                                  <p
+                                    className={`table-main-heading neet_${ratioIndex}`}
+                                  >
                                     {product?.name}
                                   </p>
                                 </td>
@@ -1346,7 +1266,6 @@ export default function MobileCompareGuideTable({
                                   );
                                 })}
                               </tr>
-
                               {product?.attributes
                                 ?.slice(
                                   0,
@@ -1358,9 +1277,13 @@ export default function MobileCompareGuideTable({
                                     <>
                                       <tr key={index}>
                                         <td colSpan="2">
-                                          <div className="table-inner-heading">
+                                          <div
+                                            className={`table-inner-heading`}
+                                          >
                                             {data?.name}
-                                            <span className="question-marker-icon">
+                                            <span
+                                              className={`question-marker-icon`}
+                                            >
                                               <div className="tooltip-title product_table">
                                                 {(data.description ||
                                                   data.when_matters) && (

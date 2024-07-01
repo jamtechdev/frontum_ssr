@@ -297,6 +297,7 @@ export default function MobileCompareTable({
   };
   const productScoreLabelIndex = findProductsScoreLabelIndex(finalProducts);
 
+  // console.log("ki")
   return (
     <section className="comparisons-slider">
       <Table
@@ -526,40 +527,40 @@ export default function MobileCompareTable({
         </Col>
       </Row> */}
       <div
-          className={
-            winPos == true
-              ? currentIndex === 0
-                ? "slider-controls table__arrow arrow__fixed justify-content-end"
-                : currentIndex === chunkedData.length - 1
-                ? "slider-controls table__arrow arrow__fixed justify-content-start"
-                : "slider-controls table__arrow arrow__fixed justify-content-between"
-              : "slider-controls table__arrow"
-          }
-        >
-          {currentIndex === 0 && chunkedData?.length > 1 ? (
-            <span className="swiper-next" onClick={handleNext}>
-              <i className="ri-arrow-right-s-line"></i>
-            </span>
-          ) : currentIndex === chunkedData.length - 1 &&
-            chunkedData?.length > 1 ? (
-            <span className="swiper-prev" onClick={handlePrevious}>
-              <i className="ri-arrow-left-s-line"></i>
-            </span>
-          ) : (
-            <>
-              {chunkedData?.length > 1 && (
-                <>
-                  <span className="swiper-prev" onClick={handlePrevious}>
-                    <i className="ri-arrow-left-s-line"></i>
-                  </span>
-                  <span className="swiper-next" onClick={handleNext}>
-                    <i className="ri-arrow-right-s-line"></i>
-                  </span>
-                </>
-              )}
-            </>
-          )}
-        </div>
+        className={
+          winPos == true
+            ? currentIndex === 0
+              ? "slider-controls table__arrow arrow__fixed justify-content-end"
+              : currentIndex === chunkedData.length - 1
+              ? "slider-controls table__arrow arrow__fixed justify-content-start"
+              : "slider-controls table__arrow arrow__fixed justify-content-between"
+            : "slider-controls table__arrow"
+        }
+      >
+        {currentIndex === 0 && chunkedData?.length > 1 ? (
+          <span className="swiper-next" onClick={handleNext}>
+            <i className="ri-arrow-right-s-line"></i>
+          </span>
+        ) : currentIndex === chunkedData.length - 1 &&
+          chunkedData?.length > 1 ? (
+          <span className="swiper-prev" onClick={handlePrevious}>
+            <i className="ri-arrow-left-s-line"></i>
+          </span>
+        ) : (
+          <>
+            {chunkedData?.length > 1 && (
+              <>
+                <span className="swiper-prev" onClick={handlePrevious}>
+                  <i className="ri-arrow-left-s-line"></i>
+                </span>
+                <span className="swiper-next" onClick={handleNext}>
+                  <i className="ri-arrow-right-s-line"></i>
+                </span>
+              </>
+            )}
+          </>
+        )}
+      </div>
       <div
         className={
           fullTable == 2
@@ -1360,7 +1361,9 @@ export default function MobileCompareTable({
                                         <td colSpan="2">
                                           <div className="table-inner-heading">
                                             {data?.name}
-                                            <span className="question-marker-icon">
+                                            <span
+                                              className={`question-marker-icon neet_x${index}`}
+                                            >
                                               <div className="tooltip-title product_table">
                                                 {(data.description ||
                                                   data.when_matters) && (

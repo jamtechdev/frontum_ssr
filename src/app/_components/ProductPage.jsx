@@ -11,24 +11,19 @@ import {
   Tab,
   Tabs,
 } from "react-bootstrap";
-import Link from "next/link";
 import BreadCrumb from "@/components/Common/BreadCrumb/breadcrum";
 import ThumbSlider from "@/components/Common/ThumbSlider/ThumbSlider";
-import Image from "next/image";
 import WhyAccordionTab from "@/components/Product/WhyAccordionTab";
 import TechnicalAccordion from "../../components/Product/TechnicalAccordion";
 import CompareDropDown from "@/components/Product/CompareDropDown";
-import ProductSlider from "@/components/Common/ProductSlider/productSlider";
 import ProductTabs from "@/components/Product/ProductTabs";
 import ProductCompareTable from "@/components/Common/CompareTable/ProductCompareTable";
 import ComparisonsSlider from "@/components/Common/ComparisonsSlider/comparisonsSlider";
 import OutlineGenerator from "@/components/Common/OutlineGenerator/OutlineGenerator";
 import CompareForm from "@/components/Common/Comparison/CompareForm";
 import ReviewSlider from "@/components/Common/ReviewSlider/reviewSlider";
-import useChart, { searchForPatternAndReplace } from "@/hooks/useChart";
 import Rating from "@/components/Common/Rating/Rating";
 import ProductBottomBar from "@/components/Common/ProductBottomBar/ProductBottomBar";
-import LineChart from "@/_chart/LineChart/LineChart";
 import DrawChart from "@/_chart/LineChart/LineChart";
 import formatValue from "@/_helpers/formatValue";
 import { getAttributeProductHalf } from "@/_helpers";
@@ -304,7 +299,7 @@ function ProductPage({
             /\[(pie-chart|vertical-chart|horizontal-chart|correlation-chart)-\d+\]/g;
 
           innerHTML = innerHTML.replace(shortCodepatternsRE, (match) => {
-            return `<span class="chart-placeholder" data-shortcode="${match}">${match}</span>`;
+            return `<span className="chart-placeholder" data-shortcode="${match}">${match}</span>`;
           });
           innerHTML;
 
@@ -333,7 +328,6 @@ function ProductPage({
   const getProductTextPartShortcode = useSelector(
     (state) => state.comparePro.text_part_main?.content
   );
-
 
   return (
     <>
@@ -715,7 +709,7 @@ function ProductPage({
                       product?.users_rating_descriptions?.reviews_websites?.map(
                         (data, index) => {
                           return (
-                            <>
+                            <React.Fragment key={index}>
                               <div className="rating__section">
                                 <img src={`${data?.logo}`} alt={data?.alt} />
                                 <div className="rating__content">
@@ -729,7 +723,7 @@ function ProductPage({
                                   </small>
                                 </div>
                               </div>
-                            </>
+                            </React.Fragment>
                           );
                         }
                       )}
@@ -1016,7 +1010,7 @@ function ProductPage({
                       // const isCurrentVersion = data.permalink === slug;
 
                       return (
-                        <>
+                        <React.Fragment key={key}>
                           <div className="color-item" key={key}>
                             <li
                               style={{
@@ -1070,17 +1064,8 @@ function ProductPage({
                                 </a>
                               )}
                             </li>
-
-                            {/* <Form.Check
-                                inline
-                                label={data?.short_name}
-                                name="color"
-                                type="radio"
-                                defaultChecked={key === 0}
-                                id={`inline-${data?.color}-${key}`}
-                              /> */}
                           </div>
-                        </>
+                        </React.Fragment>
                       );
                     })}
                   </div>
@@ -1103,7 +1088,7 @@ function ProductPage({
                         ?.map((data, key) => {
                           const isCurrentVersion = data.permalink === slug;
                           return (
-                            <>
+                            <React.Fragment key={key}>
                               {data?.short_name !== null && (
                                 <div className="color-item" key={key}>
                                   {isCurrentVersion ? (
@@ -1163,18 +1148,9 @@ function ProductPage({
                                       </a>
                                     </li>
                                   )}
-
-                                  {/* <Form.Check
-                                inline
-                                label={data?.short_name}
-                                name="color"
-                                type="radio"
-                                defaultChecked={key === 0}
-                                id={`inline-${data?.color}-${key}`}
-                              /> */}
                                 </div>
                               )}
-                            </>
+                            </React.Fragment>
                           );
                         })}
                     </div>
@@ -1185,7 +1161,7 @@ function ProductPage({
           {product?.vedict_text !== null && (
             <Row className="box__content_padding">
               <div className="box__content__section">
-                <h2 class="site-main-heading">
+                <h2 className="site-main-heading">
                   {product?.page_phases?.verdict_text_heading}
                 </h2>
                 <div
@@ -1201,7 +1177,7 @@ function ProductPage({
               {product?.area_evaluation?.map((data, index) => {
                 return (
                   data?.text_part_output !== "" && (
-                    <Col lg={6} md={12}>
+                    <Col lg={6} md={12} key={index}>
                       <div className="attribute__card">
                         <div className="attribute__card__header">
                           <span
@@ -1997,14 +1973,14 @@ function ProductPage({
                     {product &&
                       product?.top_pros?.slice(0, 10).map((data, key) => {
                         return (
-                          <>
+                          <React.Fragment key={key}>
                             <li
                               key={key}
                               style={{ color: "rgba(39, 48, 78, 0.80)" }}
                             >
                               {data?.name} {renderValue(data)}
                             </li>
-                          </>
+                          </React.Fragment>
                         );
                       })}
                   </ul>
@@ -2019,14 +1995,14 @@ function ProductPage({
                     {product &&
                       product?.top_cons?.map((data, key) => {
                         return (
-                          <>
+                          <React.Fragment key={key}>
                             <li
                               key={key}
                               style={{ color: "rgba(39, 48, 78, 0.80)" }}
                             >
                               {data?.name} {renderValue(data)}
                             </li>
-                          </>
+                          </React.Fragment>
                         );
                       })}
                   </ul>

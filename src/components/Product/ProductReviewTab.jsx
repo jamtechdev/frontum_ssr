@@ -10,7 +10,6 @@ import Rating from "../Common/Rating/Rating";
 import formatValue from "@/_helpers/formatValue";
 
 function ProductReviewTab({ productReview }) {
-  // (productReview);
   return (
     <section>
       {" "}
@@ -45,11 +44,11 @@ function ProductReviewTab({ productReview }) {
         {productReview &&
           productReview?.map((data, index) => {
             return (
-              <>
+              <React.Fragment key={index}>
                 <SwiperSlide key={index}>
                   <a
                     href={`/link?p=${btoa(data.url)}`}
-                  className="user__rating-card"
+                    className="user__rating-card"
                   >
                     <img
                       src={data?.logo ? data?.logo : "/images/nofound.png"}
@@ -65,7 +64,7 @@ function ProductReviewTab({ productReview }) {
                     </small>
                   </a>
                 </SwiperSlide>
-              </>
+              </React.Fragment>
             );
           })}
         {/* {blogPageType == "listPage" &&
@@ -103,20 +102,19 @@ function ProductReviewTab({ productReview }) {
             </SwiperSlide>
           );
         })} */}
-       
       </Swiper>
       {productReview?.length > 4 ? (
-          <>
-            <span className="swiper-prev" style={{left:"5px"}}>
-              <i className="ri-arrow-left-s-line"></i>
-            </span>
-            <span className="swiper-next" style={{right:"5px"}}>
-              <i className="ri-arrow-right-s-line"></i>
-            </span>
-          </>
-        ) : (
-          ""
-        )}
+        <>
+          <span className="swiper-prev" style={{ left: "5px" }}>
+            <i className="ri-arrow-left-s-line"></i>
+          </span>
+          <span className="swiper-next" style={{ right: "5px" }}>
+            <i className="ri-arrow-right-s-line"></i>
+          </span>
+        </>
+      ) : (
+        ""
+      )}
     </section>
   );
 }

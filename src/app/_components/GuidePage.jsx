@@ -279,7 +279,7 @@ export default function GuidePage({
     };
   }, []);
 
-  const { isMobile } = useScreenSize();
+  const { isMobile, isSmallDevice } = useScreenSize();
 
   return (
     <>
@@ -840,13 +840,14 @@ export default function GuidePage({
                 </Row>
               </Container>
             </section> */}
-          <Row className="table-section-mobile">
+          {/* <Row className="table-section-mobile">
             <Col md={12}>
               <h2 className="site-main-heading pt-5">
                 {guideData[0]?.data?.big_table_subtitle
                   ? guideData[0]?.data?.big_table_subtitle
                   : "No title found"}
               </h2>
+              
 
               {guide && productForTable?.length > 1 && (
                 <CompareTable
@@ -857,7 +858,7 @@ export default function GuidePage({
                 />
               )}
             </Col>
-          </Row>
+          </Row> */}
         </Container>
       </section>
       <section className="mobile-table-section">
@@ -870,6 +871,7 @@ export default function GuidePage({
             </h2>
           </Container>
         ) : null}
+        {}
         <Container className="p-0 p-md-4">
           <Row className="table-section-desktop p-0">
             <Col md={12} className="p-0">
@@ -884,11 +886,32 @@ export default function GuidePage({
                     slug={slug}
                     type={"guide"}
                   />
-                ) : null // or any other fallback content for non-mobile
+                ) : null 
               }
             </Col>
           </Row>
         </Container>
+        {/* {isSmallDevice && (
+          <Container className="p-0 p-md-4">
+            <Row className="table-section-desktop p-0">
+              <Col md={12} className="p-0">
+                {
+                  isSmallDevice ? (
+                    <MobileCompareGuideTable
+                      productPhaseData={guide?.page_phases}
+                      products={productForTable}
+                      categoryAttributes={
+                        attributesForTable && attributesForTable
+                      }
+                      slug={slug}
+                      type={"guide"}
+                    />
+                  ) : null // or any other fallback content for non-mobile
+                }
+              </Col>
+            </Row>
+          </Container>
+        )} */}
       </section>
 
       <section>
