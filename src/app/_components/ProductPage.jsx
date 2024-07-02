@@ -30,11 +30,18 @@ import { getAttributeProductHalf } from "@/_helpers";
 import Questiontool from "@/components/Svg/Questiontool";
 import ProductPageOutline from "@/components/Common/OutlineGenerator/ProductPageOutline";
 import MainComparision from "@/components/Common/MainComparision/MainComparision";
-import MobileCompareTable from "@/components/Common/MobileCompareTable/MobileCompareTable";
 import useScreenSize from "@/_helpers/useScreenSize";
 import { storeTextPartShortCode } from "@/redux/features/compareProduct/compareProSlice";
 import { useDispatch, useSelector } from "react-redux";
 import GraphReplacer from "@/_helpers/GraphReplacer";
+import dynamic from "next/dynamic";
+const MobileCompareTable = dynamic(
+  () => import("@/components/Common/MobileCompareTable/MobileCompareTable"),
+  {
+    loading: () => <p>Loading...</p>, // You can customize this loading component
+    ssr: false, // This makes sure the component is only loaded on the client-side
+  }
+);
 
 // import Link from "next/link";
 

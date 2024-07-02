@@ -15,7 +15,6 @@ import { isAreObjectsEqual } from "@/_helpers";
 import GuidePagination from "@/components/Common/Pagination/GuidePagination";
 import { useRouter } from "next/navigation";
 import GuidePageTextArea from "@/components/Common/GuidePageOutline/GuidePageTextArea";
-import MobileCompareTable from "@/components/Common/MobileCompareTable/MobileCompareTable";
 
 import useScreenSize from "@/_helpers/useScreenSize";
 import dynamic from "next/dynamic";

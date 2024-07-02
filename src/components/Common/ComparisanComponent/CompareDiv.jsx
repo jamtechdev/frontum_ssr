@@ -37,10 +37,19 @@ import OutlineGenerator from "../OutlineGenerator/OutlineGenerator";
 import ProductSliderBlog from "../ProductSliderBlog/ProductSliderBlog";
 import ComparisionOutlineGenerator from "../OutlineGenerator/ComparisionOutlineGenerator";
 import MobileComparisonTool from "../MobileComparisonTool/MobileComparisonTool";
-import MobileCompareTable from "../MobileCompareTable/MobileCompareTable";
 import CompareRealtedGuide from "@/components/Product/CompareRealtedGuide";
 import useScreenSize from "@/_helpers/useScreenSize";
 import GraphReplacer from "@/_helpers/GraphReplacer";
+import dynamic from "next/dynamic";
+
+const MobileCompareTable = dynamic(
+  () => import("@/components/Common/MobileCompareTable/MobileCompareTable"),
+  {
+    loading: () => <p>Loading...</p>, // You can customize this loading component
+    ssr: false, // This makes sure the component is only loaded on the client-side
+  }
+);
+
 function CompareDiv({
   slug,
   categorySlug,
