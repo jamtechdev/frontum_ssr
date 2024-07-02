@@ -1395,6 +1395,27 @@ export default function MobileCompareTable({
                                                         {data?.when_matters}
                                                       </p>
                                                     )}
+                                                    {data?.importance && (
+                                                      <p className="mb-2">
+                                                        <b>
+                                                          {productPhaseData &&
+                                                            productPhaseData?.importance_text}
+                                                          :{" "}
+                                                        </b>{" "}
+                                                        {data?.importance}
+                                                      </p>
+                                                    )}
+
+                                                    {data?.good_value && (
+                                                      <p className="mb-2">
+                                                        <b>
+                                                          {productPhaseData &&
+                                                            productPhaseData?.good_value_text}
+                                                          :{" "}
+                                                        </b>{" "}
+                                                        {data?.good_value}
+                                                      </p>
+                                                    )}
                                                   </div>
                                                 )}
                                                 <svg
