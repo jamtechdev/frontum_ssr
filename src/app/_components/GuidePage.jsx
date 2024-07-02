@@ -840,7 +840,7 @@ export default function GuidePage({
                 </Row>
               </Container>
             </section> */}
-          {/* <Row className="table-section-mobile">
+          <Row className="table-section-mobile">
             <Col md={12}>
               <h2 className="site-main-heading pt-5">
                 {guideData[0]?.data?.big_table_subtitle
@@ -858,7 +858,7 @@ export default function GuidePage({
                 />
               )}
             </Col>
-          </Row> */}
+          </Row>
         </Container>
       </section>
       <section className="mobile-table-section">
