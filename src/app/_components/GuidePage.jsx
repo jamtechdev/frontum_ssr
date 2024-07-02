@@ -18,7 +18,15 @@ import GuidePageTextArea from "@/components/Common/GuidePageOutline/GuidePageTex
 import MobileCompareTable from "@/components/Common/MobileCompareTable/MobileCompareTable";
 
 import useScreenSize from "@/_helpers/useScreenSize";
-import MobileCompareGuideTable from "@/components/Common/MobileCompareTable/MobileCompareGuideTable";
+import dynamic from "next/dynamic";
+const MobileCompareGuideTable = dynamic(
+  () =>
+    import("@/components/Common/MobileCompareTable/MobileCompareGuideTable"),
+  {
+    loading: () => <p>Loading...</p>, // You can customize this loading component
+    ssr: false, // This makes sure the component is only loaded on the client-side
+  }
+);
 
 export default function GuidePage({
   slug,
@@ -28,6 +36,7 @@ export default function GuidePage({
   productForTable,
   filters,
   searchParams,
+  category_id,
 }) {
   const router = useRouter();
   const currentParams = new URLSearchParams(searchParams.toString());
@@ -847,7 +856,6 @@ export default function GuidePage({
                   ? guideData[0]?.data?.big_table_subtitle
                   : "No title found"}
               </h2>
-              
 
               {guide && productForTable?.length > 1 && (
                 <CompareTable
@@ -871,23 +879,21 @@ export default function GuidePage({
             </h2>
           </Container>
         ) : null}
-        {}
+        {/* {console.log(categorySlug)} */}
         <Container className="p-0 p-md-4">
           <Row className="table-section-desktop p-0">
             <Col md={12} className="p-0">
-              {
-                isMobile ? (
-                  <MobileCompareGuideTable
-                    productPhaseData={guide?.page_phases}
-                    products={productForTable}
-                    categoryAttributes={
-                      attributesForTable && attributesForTable
-                    }
-                    slug={slug}
-                    type={"guide"}
-                  />
-                ) : null 
-              }
+              {isMobile ? (
+                <MobileCompareGuideTable
+                  productPhaseData={guide?.page_phases}
+                  products={productForTable}
+                  categoryAttributes={attributesForTable && attributesForTable}
+                  slug={slug}
+                  categorySlug={categorySlug}
+                  type={"guide"}
+                  category_id={category_id}
+                />
+              ) : null}
             </Col>
           </Row>
         </Container>

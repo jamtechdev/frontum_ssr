@@ -967,7 +967,7 @@ const CompareTable = React.memo(
                     } `}
                   >
                     <th>
-                      <div className="tooltip-title">
+                      <div className="tooltip-title ">
                         {category.name}
                         {(category.description || category.when_matters) && (
                           <div className="tooltip-display-content">
@@ -1054,7 +1054,7 @@ const CompareTable = React.memo(
                                 : "display_block sub-inner-padding"
                             }
                           >
-                            <div className="tooltip-title">
+                            <div className="tooltip-title neet_xx">
                               {catAttribute.name}
                               {(catAttribute.description ||
                                 catAttribute.when_matters) && (

@@ -38,6 +38,7 @@ export default async function PageSwitch({
     case "Guide":
       // Render GuidePage component
       const guide = pageData[0]?.data;
+      // console.log(guide);
       const attributes = await getCategoryAttributes(guide?.category_id, slug);
       const productTable = await getProductForTable(guide?.category_url, slug);
       const third_text = pageData[0]?.data?.text_third_part_main;
@@ -52,6 +53,7 @@ export default async function PageSwitch({
           productForTable={productTable?.data}
           searchParams={searchParams}
           matchShortCode={matchShortCode}
+          category_id={guide?.category_id}
         />
       );
       break;

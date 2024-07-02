@@ -225,6 +225,7 @@ async function fetchDataBasedOnPageType(
         searchParams
       )}`;  
       // (productApiUrl);
+      console.log("productApiUrl", productApiUrl);
 
       if (searchParams?.page) {
         productApiUrl += `&page=${searchParams.page}`;
