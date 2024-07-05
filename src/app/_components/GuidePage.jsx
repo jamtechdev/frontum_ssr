@@ -18,6 +18,8 @@ import GuidePageTextArea from "@/components/Common/GuidePageOutline/GuidePageTex
 
 import useScreenSize from "@/_helpers/useScreenSize";
 import dynamic from "next/dynamic";
+import Loader from "./Loader";
+import { Hourglass } from "react-loader-spinner";
 const MobileCompareGuideTable = dynamic(
   () =>
     import("@/components/Common/MobileCompareTable/MobileCompareGuideTable"),
@@ -288,506 +290,554 @@ export default function GuidePage({
   }, []);
 
   const { isMobile, isSmallDevice } = useScreenSize();
+  const [isLoading, setIsLoading] = useState(true);
 
+  useEffect(() => {
+    // Simulate a fetch operation
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 3000); // Adjust the timeout duration as needed
+  }, []);
   return (
     <>
-      <section className="product-header">
-        <Container>
-          <Row className="align-items-center">
-            <Col md={12}>
-              <BreadCrumb
-                firstPageName={categorySlug}
-                secondPageName={guide}
-                productPhaseData={guide && guide?.page_phases}
-              />
-            </Col>
-            <Col md={12} lg={12} xl={9}>
-              <h1 className="site-main-heading">{guide?.heading_title}</h1>
-            </Col>
+      {isLoading ? (
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            height: "100vh",
+          }}
+        >
+          <Hourglass
+            visible={true}
+            height="80"
+            width="80"
+            ariaLabel="hourglass-loading"
+            wrapperStyle={{}}
+            wrapperClass=""
+            colors={["#306cce", "#72a1ed"]}
+          />
+        </div>
+      ) : (
+        <>
+          <section className="product-header">
+            <Container>
+              <Row className="align-items-center">
+                <Col md={12}>
+                  <BreadCrumb
+                    firstPageName={categorySlug}
+                    secondPageName={guide}
+                    productPhaseData={guide && guide?.page_phases}
+                  />
+                </Col>
+                <Col md={12} lg={12} xl={9}>
+                  <h1 className="site-main-heading">{guide?.heading_title}</h1>
+                </Col>
 
-            <Col md={12} lg={12} xl={3}>
-              <div className="user-info-section">
-                {guide?.author && (
-                  <div className="user-section">
-                    {guide?.author?.image && (
-                      <img
-                        src={
-                          guide?.author?.image
-                            ? guide?.author?.image
-                            : "/images/user.png"
-                        }
-                        width={0}
-                        height={0}
-                        sizes="100%"
-                        alt="author"
-                      />
+                <Col md={12} lg={12} xl={3}>
+                  <div className="user-info-section">
+                    {guide?.author && (
+                      <div className="user-section">
+                        {guide?.author?.image && (
+                          <img
+                            src={
+                              guide?.author?.image
+                                ? guide?.author?.image
+                                : "/images/user.png"
+                            }
+                            width={0}
+                            height={0}
+                            sizes="100%"
+                            alt="author"
+                          />
+                        )}
+
+                        <div className="user-detail">
+                          {/* {   (guide)} */}
+                          <p>
+                            <a href={`/author/${guide?.author?.id}`}>
+                              {guide?.author?.name}
+                            </a>
+                          </p>
+                        </div>
+                      </div>
                     )}
-
-                    <div className="user-detail">
-                      {/* {   (guide)} */}
-                      <p>
-                        <a href={`/author/${guide?.author?.id}`}>
-                          {guide?.author?.name}
-                        </a>
-                      </p>
-                    </div>
-                  </div>
-                )}
-                <span>
-                  {guide && guide?.page_phases?.updated}
-                  <i> {guide?.updated_at}</i>
-                </span>
-              </div>
-            </Col>
-            <Col md={12}>
-              <div
-                className="product-inner-content"
-                dangerouslySetInnerHTML={{
-                  __html: searchForPatternAndReplace(guide?.text_first_part),
-                }}
-              />
-            </Col>
-          </Row>
-
-          <Row className="pt-3 best-page-card">
-            {/* {(guide)} */}
-            {Object?.values(guide?.top_guide_counts).map(function (
-              item,
-              index
-            ) {
-              return (
-                <Col className="p-2" md={6} lg={3} sm={6} xs={6} key={index}>
-                  <div className="hero-card-content">
-                    <span className="count">{item.count}</span>
-                    <span className="card-heading">{item.heading}</span>
+                    <span>
+                      {guide && guide?.page_phases?.updated}
+                      <i> {guide?.updated_at}</i>
+                    </span>
                   </div>
                 </Col>
-              );
-            })}
-          </Row>
-        </Container>
-      </section>
-      <section className="ptb-25">
-        <Container>
-          {guideData[0]?.data?.show_catchy_titles_in_text === 1 &&
-            guideData[0]?.data?.catchy_titles?.length > 0 && (
-              <Row className="catchy_titles_section mb-3">
-                <Col md={7} className="mx-auto p-0">
-                  <p>
-                    {guideData[0]?.data?.catchy_titles_box_title ||
-                      "No title found"}
-                  </p>
-                  <ul className="text-center">
-                    {guideData[0]?.data?.catchy_titles?.map((item, index) => (
-                      <li key={index}>
-                        <span className="catchy_titles_section_title">
-                          {item.title}:
-                        </span>
-                        <span className="catchy_titles_section_product_name">
-                          {/* {(item)} */}
-                          {item?.product?.url !== null ? (
-                            <a
-                              rel="noopener noreferrer"
-                              target="_blank"
-                              href={`/link?p=${btoa(item?.product.url)}`}
-                            >
-                              {item.product.name}
-                            </a>
-                          ) : (
-                            <span>{item?.product?.name}</span>
-                          )}
-                        </span>
-                      </li>
-                    ))}
-                  </ul>
+                <Col md={12}>
+                  <div
+                    className="product-inner-content"
+                    dangerouslySetInnerHTML={{
+                      __html: searchForPatternAndReplace(
+                        guide?.text_first_part
+                      ),
+                    }}
+                  />
                 </Col>
               </Row>
-            )}
 
-          <Row>
-            <Col md={12}>
-              <div
-                className="para_content_text"
-                dangerouslySetInnerHTML={{
-                  __html: searchForPatternAndReplace(guide?.text_second_part),
-                }}
-              />
-            </Col>
-          </Row>
-        </Container>
-      </section>
-      <Container>
-        <Row>
-          <Col
-            md={12}
-            lg={3}
-            xl={3}
-            className={
-              isShown ? "sidebar-width sidebar--open" : "sidebar-width"
-            }
-            ref={sidebarRef}
-            // style={{ display: isShown ? "block" : "none" }}
-          >
-            <div className="desktop-hide">
-              <div className="header--section">
-                <span style={{ fontSize: "1rem" }}>
-                  {" "}
-                  <i className="ri-equalizer-line"></i>{" "}
-                  {guide?.page_phases?.filter_text}
-                </span>
-                <i class="ri-close-circle-line" onClick={closeClick}></i>
-              </div>
-            </div>
-            <Filter
-              guidePhraseData={guide && guide?.page_phases}
-              categoryAttributes={filters}
-              searchParam={searchParams}
-              removedParam={removedParam}
-              orderBy={order}
-              setremovedParam={setremovedParam}
-            />
-            <div className="desktop-hide">
-              {/* {(Object.keys(searchParams).length)} */}
+              <Row className="pt-3 best-page-card">
+                {/* {(guide)} */}
+                {Object?.values(guide?.top_guide_counts).map(function (
+                  item,
+                  index
+                ) {
+                  return (
+                    <Col
+                      className="p-2"
+                      md={6}
+                      lg={3}
+                      sm={6}
+                      xs={6}
+                      key={index}
+                    >
+                      <div className="hero-card-content">
+                        <span className="count">{item.count}</span>
+                        <span className="card-heading">{item.heading}</span>
+                      </div>
+                    </Col>
+                  );
+                })}
+              </Row>
+            </Container>
+          </section>
+          <section className="ptb-25">
+            <Container>
+              {guideData[0]?.data?.show_catchy_titles_in_text === 1 &&
+                guideData[0]?.data?.catchy_titles?.length > 0 && (
+                  <Row className="catchy_titles_section mb-3">
+                    <Col md={7} className="mx-auto p-0">
+                      <p>
+                        {guideData[0]?.data?.catchy_titles_box_title ||
+                          "No title found"}
+                      </p>
+                      <ul className="text-center">
+                        {guideData[0]?.data?.catchy_titles?.map(
+                          (item, index) => (
+                            <li key={index}>
+                              <span className="catchy_titles_section_title">
+                                {item.title}:
+                              </span>
+                              <span className="catchy_titles_section_product_name">
+                                {/* {(item)} */}
+                                {item?.product?.url !== null ? (
+                                  <a
+                                    rel="noopener noreferrer"
+                                    target="_blank"
+                                    href={`/link?p=${btoa(item?.product.url)}`}
+                                  >
+                                    {item.product.name}
+                                  </a>
+                                ) : (
+                                  <span>{item?.product?.name}</span>
+                                )}
+                              </span>
+                            </li>
+                          )
+                        )}
+                      </ul>
+                    </Col>
+                  </Row>
+                )}
 
-              <Button
-                className="site_main_btn w-100 d-block btn-icon mb-4"
-                onClick={closeClick}
-              >
-                {/* <i className="ri-close-fill"></i> */}
-                {guide?.page_phases?.see_product_text}
-              </Button>
-            </div>
-          </Col>
-          <Col md={12} lg={9} xl={9} className="main-content">
-            <Row className="mobile-hide"></Row>
-            <Row className="desktop-hide">
-              <Col sm={6} xs={12}>
-                <Button
-                  className="site_main_btn w-100 d-block btn-icon"
-                  onClick={openClick}
-                >
-                  <i className="ri-filter-line"></i>
-                  {guide?.page_phases?.filter_text}
-                </Button>
-              </Col>
-              <Col sm={6} xs={12}>
-                <div className="filtered-data-select">
-                  <span>{guide && guide?.page_phases?.order_by}:</span>
-                  <Form.Select
-                    aria-label="Default select example"
-                    className="mobile__filter"
-                    onChange={(e) => handleSort(e.target.value)}
-                  >
-                    {/* <option>Autonomy</option> */}
-                    <option
-                      value={JSON.stringify({
-                        algo: "remove",
-                        rangeAttributes: "Overall",
-                      })}
-                    >
-                      {guide && guide?.page_phases?.overall_available}
-                    </option>
-                    <option
-                      value={JSON.stringify({
-                        algo: "available",
-                        rangeAttributes: "false",
-                      })}
-                    >
-                      {guide && guide?.page_phases?.overall_available}
-                    </option>
-
-                    <option
-                      value={JSON.stringify({
-                        algo: "high-low",
-                        rangeAttributes: "technical_score",
-                      })}
-                    >
-                      {guide && guide?.page_phases?.technical_score}
-                    </option>
-                    <option
-                      value={JSON.stringify({
-                        algo: "low-high",
-                        rangeAttributes: "price",
-                      })}
-                    >
-                      {guide && guide?.page_phases?.price_lowest_to_highest}
-                    </option>
-                    <option
-                      value={JSON.stringify({
-                        algo: "high-low",
-                        rangeAttributes: "price",
-                      })}
-                    >
-                      {guide && guide?.page_phases?.price_highest_to_lowest}
-                    </option>
-                    <option
-                      value={JSON.stringify({
-                        algo: "high-low",
-                        rangeAttributes: "rating",
-                      })}
-                    >
-                      {" "}
-                      {guide && guide?.page_phases?.users_ratings}
-                    </option>
-                    <option
-                      value={JSON.stringify({
-                        algo: "high-low",
-                        rangeAttributes: "ratio_quality_price_points",
-                      })}
-                    >
-                      {guide && guide?.page_phases?.ratio_quality_price_points}
-                    </option>
-                    <option
-                      value={JSON.stringify({
-                        algo: "high-low",
-                        rangeAttributes: "popularity_points",
-                      })}
-                    >
-                      {guide && guide?.page_phases?.popularity}
-                    </option>
-
-                    {
-                      // Technical score --- will be ordered from highest to lowest, based on numbers in "Technical Score Points CONVERTED"
-                      // Price (Lowest to Highest) --- will be ordered from lowest to highest price, based on numbers in "Lowest Price"
-                      // Price (Highest to Lowest) --- will be ordered from highest to lowest price, based on numbers in "Highest Price"
-                      // User's rating --- will be ordered from highest to lowest price, based on numbers in "User's Rating"
-                      // Ratio quality-price ---- will be ordered from highest to lowest, based on numbers in "Ratio Quality Price Points"
-                      // Popularity --- will be ordered from highest to lowest, based on numbers in "Popularity points"
-
-                      sortRangeAttributeArray?.current.map(
-                        (algoAttribute, attrIndex) => {
-                          if (algoAttribute?.rangeAttributes != "Overall")
-                            return (
-                              <option
-                                value={JSON.stringify(algoAttribute)}
-                                key={attrIndex}
-                              >
-                                {algoAttribute?.rangeAttributes}
-                                {algoAttribute?.algo == "lowest_to_highest" &&
-                                  " (Lowest to Highest)" &&
-                                  "available"}
-                              </option>
-                            );
-                        }
-                      )
-                    }
-                  </Form.Select>
-                </div>
-              </Col>
-              <Col sm={12} xs={12}>
-                <div className="sidebar_filter">
-                  <div className="tooltip-title">
-                    {" "}
-                    {guide && guide?.page_phases?.hide_similar}
-                    <div className="tooltip-display-content">
-                      <p>{guide?.page_phases?.hide_similar_hover_phrase}</p>
-                    </div>
-                    <div className="custom-switch form-switch">
-                      <input
-                        required=""
-                        className="form-check-input"
-                        type="checkbox"
-                        id={`variant`}
-                        onChange={handleHideSmiliar}
-                        checked={hideSmiliar}
-                      />
-                    </div>
-                  </div>
-                </div>
-              </Col>
-            </Row>
-            <Row className="m-0">
-              <Col md={6}>
-                <div className="filtered-data">
-                  {/* {(Object.keys(params)?.length)} */}
-                  {/* This code renders a list of filters that have been applied to the current page. */}
-                  <ul>
-                    {Object.keys(params)
-                      .filter((key) => key !== "direct" && key !== "sort")
-                      .map((categoryName, index) =>
-                        categoryName === "variant" ||
-                        categoryName === "available" ||
-                        categoryName === "page" ? (
-                          ""
-                        ) : (
-                          <li key={index}>
-                            {categoryName === "variant"
-                              ? `Show all variants: Yes`
-                              : categoryName === "available"
-                              ? `Available: Yes`
-                              : `${
-                                  categoryName.charAt(0).toUpperCase() +
-                                  categoryName.slice(1)
-                                }: ${
-                                  params[categoryName].includes(",")
-                                    ? params[categoryName].replace(/,/g, " - ")
-                                    : params[categoryName]
-                                }`}
-
-                            <span
-                              className="text0danger"
-                              onClick={() => {
-                                removeQueryParamAndNavigate(
-                                  window.location.href,
-                                  categoryName
-                                );
-                                setremovedParam(categoryName);
-                              }}
-                            >
-                              {" "}
-                              <i className="ri-close-fill"></i>{" "}
-                            </span>
-                          </li>
-                        )
-                      )}
-                  </ul>
-                </div>
-              </Col>
-              <Col md={6} className="mobile-hide">
-                <div className="sidebar_filter">
-                  <div className="tooltip-title">
-                    {" "}
-                    {guide && guide?.page_phases?.hide_similar}
-                    <div className="tooltip-display-content">
-                      <p>{guide?.page_phases?.hide_similar_hover_phrase}</p>
-                    </div>
-                    <div className="custom-switch form-switch">
-                      <input
-                        required=""
-                        className="form-check-input"
-                        type="checkbox"
-                        id={`variant`}
-                        onChange={handleHideSmiliar}
-                        checked={hideSmiliar}
-                      />
-                    </div>
-                  </div>
-                </div>
-
-                <div className="filtered-data-select">
-                  <span>{guide && guide?.page_phases?.order_by}:</span>
-                  <Form.Select
-                    aria-label="Default select example"
-                    onChange={(e) => handleSort(e.target.value)}
-                  >
-                    {/* <option>Autonomy</option> */}
-                    <option
-                      value={JSON.stringify({
-                        algo: "remove",
-                        rangeAttributes: "Overall",
-                      })}
-                    >
-                      {guide && guide?.page_phases?.overall_available}
-                    </option>
-                    <option
-                      value={JSON.stringify({
-                        algo: "available",
-                        rangeAttributes: "false",
-                      })}
-                    >
-                      {guide && guide?.page_phases?.overall_all}
-                    </option>
-
-                    <option
-                      value={JSON.stringify({
-                        algo: "high-low",
-                        rangeAttributes: "technical_score",
-                      })}
-                    >
-                      {guide && guide?.page_phases?.technical_score}
-                    </option>
-                    <option
-                      value={JSON.stringify({
-                        algo: "low-high",
-                        rangeAttributes: "price",
-                      })}
-                    >
-                      {guide && guide?.page_phases?.price_lowest_to_highest}
-                    </option>
-                    <option
-                      value={JSON.stringify({
-                        algo: "high-low",
-                        rangeAttributes: "price",
-                      })}
-                    >
-                      {guide && guide?.page_phases?.price_highest_to_lowest}
-                    </option>
-                    <option
-                      value={JSON.stringify({
-                        algo: "high-low",
-                        rangeAttributes: "rating",
-                      })}
-                    >
-                      {" "}
-                      {guide && guide?.page_phases?.users_ratings}
-                    </option>
-                    <option
-                      value={JSON.stringify({
-                        algo: "high-low",
-                        rangeAttributes: "ratio_quality_price_points",
-                      })}
-                    >
-                      {guide && guide?.page_phases?.ratio_quality_price_points}
-                    </option>
-                    <option
-                      value={JSON.stringify({
-                        algo: "high-low",
-                        rangeAttributes: "popularity_points",
-                      })}
-                    >
-                      {guide && guide?.page_phases?.popularity}
-                    </option>
-
-                    {
-                      // Technical score --- will be ordered from highest to lowest, based on numbers in "Technical Score Points CONVERTED"
-                      // Price (Lowest to Highest) --- will be ordered from lowest to highest price, based on numbers in "Lowest Price"
-                      // Price (Highest to Lowest) --- will be ordered from highest to lowest price, based on numbers in "Highest Price"
-                      // User's rating --- will be ordered from highest to lowest price, based on numbers in "User's Rating"
-                      // Ratio quality-price ---- will be ordered from highest to lowest, based on numbers in "Ratio Quality Price Points"
-                      // Popularity --- will be ordered from highest to lowest, based on numbers in "Popularity points"
-
-                      sortRangeAttributeArray?.current.map(
-                        (algoAttribute, attrIndex) => {
-                          if (algoAttribute?.rangeAttributes != "Overall")
-                            return (
-                              <option
-                                value={JSON.stringify(algoAttribute)}
-                                key={attrIndex}
-                              >
-                                {algoAttribute?.rangeAttributes}
-                                {algoAttribute?.algo == "lowest_to_highest" &&
-                                  " (Lowest to Highest)" &&
-                                  "available"}
-                              </option>
-                            );
-                        }
-                      )
-                    }
-                  </Form.Select>
-                </div>
-              </Col>
-              {isFilterActive && <ProductSkeleton />}
-              {products?.length > 0 ? (
-                products ? (
-                  <ProductListing
-                    guidePhraseData={guide?.page_phases}
-                    text_before_listing={guide?.text_before_listing}
-                    text_after_listing={guide?.text_after_listing}
-                    productPositionArray={productPosition}
-                    products={sortedData && sortedData}
-                    handleToggleCollapse={handleToggleCollapse}
-                    handleManageCollapsedDiv={handleManageCollapsedDiv}
-                    slug={slug}
-                    order={order}
-                    searchParams={searchParams}
-                    productPagination={productPagination}
+              <Row>
+                <Col md={12}>
+                  <div
+                    className="para_content_text"
+                    dangerouslySetInnerHTML={{
+                      __html: searchForPatternAndReplace(
+                        guide?.text_second_part
+                      ),
+                    }}
                   />
-                ) : (
-                  <ProductSkeleton />
-                )
-              ) : (
-                <>
-                  {/* <ConfirmationModal
+                </Col>
+              </Row>
+            </Container>
+          </section>
+          <Container>
+            <Row>
+              <Col
+                md={12}
+                lg={3}
+                xl={3}
+                className={
+                  isShown ? "sidebar-width sidebar--open" : "sidebar-width"
+                }
+                ref={sidebarRef}
+                // style={{ display: isShown ? "block" : "none" }}
+              >
+                <div className="desktop-hide">
+                  <div className="header--section">
+                    <span style={{ fontSize: "1rem" }}>
+                      {" "}
+                      <i className="ri-equalizer-line"></i>{" "}
+                      {guide?.page_phases?.filter_text}
+                    </span>
+                    <i class="ri-close-circle-line" onClick={closeClick}></i>
+                  </div>
+                </div>
+                <Filter
+                  guidePhraseData={guide && guide?.page_phases}
+                  categoryAttributes={filters}
+                  searchParam={searchParams}
+                  removedParam={removedParam}
+                  orderBy={order}
+                  setremovedParam={setremovedParam}
+                />
+                <div className="desktop-hide">
+                  {/* {(Object.keys(searchParams).length)} */}
+
+                  <Button
+                    className="site_main_btn w-100 d-block btn-icon mb-4"
+                    onClick={closeClick}
+                  >
+                    {/* <i className="ri-close-fill"></i> */}
+                    {guide?.page_phases?.see_product_text}
+                  </Button>
+                </div>
+              </Col>
+              <Col md={12} lg={9} xl={9} className="main-content">
+                <Row className="mobile-hide"></Row>
+                <Row className="desktop-hide">
+                  <Col sm={6} xs={12}>
+                    <Button
+                      className="site_main_btn w-100 d-block btn-icon"
+                      onClick={openClick}
+                    >
+                      <i className="ri-filter-line"></i>
+                      {guide?.page_phases?.filter_text}
+                    </Button>
+                  </Col>
+                  <Col sm={6} xs={12}>
+                    <div className="filtered-data-select">
+                      <span>{guide && guide?.page_phases?.order_by}:</span>
+                      <Form.Select
+                        aria-label="Default select example"
+                        className="mobile__filter"
+                        onChange={(e) => handleSort(e.target.value)}
+                      >
+                        {/* <option>Autonomy</option> */}
+                        <option
+                          value={JSON.stringify({
+                            algo: "remove",
+                            rangeAttributes: "Overall",
+                          })}
+                        >
+                          {guide && guide?.page_phases?.overall_available}
+                        </option>
+                        <option
+                          value={JSON.stringify({
+                            algo: "available",
+                            rangeAttributes: "false",
+                          })}
+                        >
+                          {guide && guide?.page_phases?.overall_available}
+                        </option>
+
+                        <option
+                          value={JSON.stringify({
+                            algo: "high-low",
+                            rangeAttributes: "technical_score",
+                          })}
+                        >
+                          {guide && guide?.page_phases?.technical_score}
+                        </option>
+                        <option
+                          value={JSON.stringify({
+                            algo: "low-high",
+                            rangeAttributes: "price",
+                          })}
+                        >
+                          {guide && guide?.page_phases?.price_lowest_to_highest}
+                        </option>
+                        <option
+                          value={JSON.stringify({
+                            algo: "high-low",
+                            rangeAttributes: "price",
+                          })}
+                        >
+                          {guide && guide?.page_phases?.price_highest_to_lowest}
+                        </option>
+                        <option
+                          value={JSON.stringify({
+                            algo: "high-low",
+                            rangeAttributes: "rating",
+                          })}
+                        >
+                          {" "}
+                          {guide && guide?.page_phases?.users_ratings}
+                        </option>
+                        <option
+                          value={JSON.stringify({
+                            algo: "high-low",
+                            rangeAttributes: "ratio_quality_price_points",
+                          })}
+                        >
+                          {guide &&
+                            guide?.page_phases?.ratio_quality_price_points}
+                        </option>
+                        <option
+                          value={JSON.stringify({
+                            algo: "high-low",
+                            rangeAttributes: "popularity_points",
+                          })}
+                        >
+                          {guide && guide?.page_phases?.popularity}
+                        </option>
+
+                        {
+                          // Technical score --- will be ordered from highest to lowest, based on numbers in "Technical Score Points CONVERTED"
+                          // Price (Lowest to Highest) --- will be ordered from lowest to highest price, based on numbers in "Lowest Price"
+                          // Price (Highest to Lowest) --- will be ordered from highest to lowest price, based on numbers in "Highest Price"
+                          // User's rating --- will be ordered from highest to lowest price, based on numbers in "User's Rating"
+                          // Ratio quality-price ---- will be ordered from highest to lowest, based on numbers in "Ratio Quality Price Points"
+                          // Popularity --- will be ordered from highest to lowest, based on numbers in "Popularity points"
+
+                          sortRangeAttributeArray?.current.map(
+                            (algoAttribute, attrIndex) => {
+                              if (algoAttribute?.rangeAttributes != "Overall")
+                                return (
+                                  <option
+                                    value={JSON.stringify(algoAttribute)}
+                                    key={attrIndex}
+                                  >
+                                    {algoAttribute?.rangeAttributes}
+                                    {algoAttribute?.algo ==
+                                      "lowest_to_highest" &&
+                                      " (Lowest to Highest)" &&
+                                      "available"}
+                                  </option>
+                                );
+                            }
+                          )
+                        }
+                      </Form.Select>
+                    </div>
+                  </Col>
+                  <Col sm={12} xs={12}>
+                    <div className="sidebar_filter">
+                      <div className="tooltip-title">
+                        {" "}
+                        {guide && guide?.page_phases?.hide_similar}
+                        <div className="tooltip-display-content">
+                          <p>{guide?.page_phases?.hide_similar_hover_phrase}</p>
+                        </div>
+                        <div className="custom-switch form-switch">
+                          <input
+                            required=""
+                            className="form-check-input"
+                            type="checkbox"
+                            id={`variant`}
+                            onChange={handleHideSmiliar}
+                            checked={hideSmiliar}
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </Col>
+                </Row>
+                <Row className="m-0">
+                  <Col md={6}>
+                    <div className="filtered-data">
+                      {/* {(Object.keys(params)?.length)} */}
+                      {/* This code renders a list of filters that have been applied to the current page. */}
+                      <ul>
+                        {Object.keys(params)
+                          .filter((key) => key !== "direct" && key !== "sort")
+                          .map((categoryName, index) =>
+                            categoryName === "variant" ||
+                            categoryName === "available" ||
+                            categoryName === "page" ? (
+                              ""
+                            ) : (
+                              <li key={index}>
+                                {categoryName === "variant"
+                                  ? `Show all variants: Yes`
+                                  : categoryName === "available"
+                                  ? `Available: Yes`
+                                  : `${
+                                      categoryName.charAt(0).toUpperCase() +
+                                      categoryName.slice(1)
+                                    }: ${
+                                      params[categoryName].includes(",")
+                                        ? params[categoryName].replace(
+                                            /,/g,
+                                            " - "
+                                          )
+                                        : params[categoryName]
+                                    }`}
+
+                                <span
+                                  className="text0danger"
+                                  onClick={() => {
+                                    removeQueryParamAndNavigate(
+                                      window.location.href,
+                                      categoryName
+                                    );
+                                    setremovedParam(categoryName);
+                                  }}
+                                >
+                                  {" "}
+                                  <i className="ri-close-fill"></i>{" "}
+                                </span>
+                              </li>
+                            )
+                          )}
+                      </ul>
+                    </div>
+                  </Col>
+                  <Col md={6} className="mobile-hide">
+                    <div className="sidebar_filter">
+                      <div className="tooltip-title">
+                        {" "}
+                        {guide && guide?.page_phases?.hide_similar}
+                        <div className="tooltip-display-content">
+                          <p>{guide?.page_phases?.hide_similar_hover_phrase}</p>
+                        </div>
+                        <div className="custom-switch form-switch">
+                          <input
+                            required=""
+                            className="form-check-input"
+                            type="checkbox"
+                            id={`variant`}
+                            onChange={handleHideSmiliar}
+                            checked={hideSmiliar}
+                          />
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="filtered-data-select">
+                      <span>{guide && guide?.page_phases?.order_by}:</span>
+                      <Form.Select
+                        aria-label="Default select example"
+                        onChange={(e) => handleSort(e.target.value)}
+                      >
+                        {/* <option>Autonomy</option> */}
+                        <option
+                          value={JSON.stringify({
+                            algo: "remove",
+                            rangeAttributes: "Overall",
+                          })}
+                        >
+                          {guide && guide?.page_phases?.overall_available}
+                        </option>
+                        <option
+                          value={JSON.stringify({
+                            algo: "available",
+                            rangeAttributes: "false",
+                          })}
+                        >
+                          {guide && guide?.page_phases?.overall_all}
+                        </option>
+
+                        <option
+                          value={JSON.stringify({
+                            algo: "high-low",
+                            rangeAttributes: "technical_score",
+                          })}
+                        >
+                          {guide && guide?.page_phases?.technical_score}
+                        </option>
+                        <option
+                          value={JSON.stringify({
+                            algo: "low-high",
+                            rangeAttributes: "price",
+                          })}
+                        >
+                          {guide && guide?.page_phases?.price_lowest_to_highest}
+                        </option>
+                        <option
+                          value={JSON.stringify({
+                            algo: "high-low",
+                            rangeAttributes: "price",
+                          })}
+                        >
+                          {guide && guide?.page_phases?.price_highest_to_lowest}
+                        </option>
+                        <option
+                          value={JSON.stringify({
+                            algo: "high-low",
+                            rangeAttributes: "rating",
+                          })}
+                        >
+                          {" "}
+                          {guide && guide?.page_phases?.users_ratings}
+                        </option>
+                        <option
+                          value={JSON.stringify({
+                            algo: "high-low",
+                            rangeAttributes: "ratio_quality_price_points",
+                          })}
+                        >
+                          {guide &&
+                            guide?.page_phases?.ratio_quality_price_points}
+                        </option>
+                        <option
+                          value={JSON.stringify({
+                            algo: "high-low",
+                            rangeAttributes: "popularity_points",
+                          })}
+                        >
+                          {guide && guide?.page_phases?.popularity}
+                        </option>
+
+                        {
+                          // Technical score --- will be ordered from highest to lowest, based on numbers in "Technical Score Points CONVERTED"
+                          // Price (Lowest to Highest) --- will be ordered from lowest to highest price, based on numbers in "Lowest Price"
+                          // Price (Highest to Lowest) --- will be ordered from highest to lowest price, based on numbers in "Highest Price"
+                          // User's rating --- will be ordered from highest to lowest price, based on numbers in "User's Rating"
+                          // Ratio quality-price ---- will be ordered from highest to lowest, based on numbers in "Ratio Quality Price Points"
+                          // Popularity --- will be ordered from highest to lowest, based on numbers in "Popularity points"
+
+                          sortRangeAttributeArray?.current.map(
+                            (algoAttribute, attrIndex) => {
+                              if (algoAttribute?.rangeAttributes != "Overall")
+                                return (
+                                  <option
+                                    value={JSON.stringify(algoAttribute)}
+                                    key={attrIndex}
+                                  >
+                                    {algoAttribute?.rangeAttributes}
+                                    {algoAttribute?.algo ==
+                                      "lowest_to_highest" &&
+                                      " (Lowest to Highest)" &&
+                                      "available"}
+                                  </option>
+                                );
+                            }
+                          )
+                        }
+                      </Form.Select>
+                    </div>
+                  </Col>
+                  {isFilterActive && <ProductSkeleton />}
+                  {products?.length > 0 ? (
+                    products ? (
+                      <ProductListing
+                        guidePhraseData={guide?.page_phases}
+                        text_before_listing={guide?.text_before_listing}
+                        text_after_listing={guide?.text_after_listing}
+                        productPositionArray={productPosition}
+                        products={sortedData && sortedData}
+                        handleToggleCollapse={handleToggleCollapse}
+                        handleManageCollapsedDiv={handleManageCollapsedDiv}
+                        slug={slug}
+                        order={order}
+                        searchParams={searchParams}
+                        productPagination={productPagination}
+                      />
+                    ) : (
+                      <ProductSkeleton />
+                    )
+                  ) : (
+                    <>
+                      {/* <ConfirmationModal
                           showModal={showModal}
                           handleClose={handleModalClose}
                           handleConfirm={handleConfirm}
@@ -799,47 +849,47 @@ export default function GuidePage({
                         ) : (
                           ""
                         )} */}
-                </>
-              )}
+                    </>
+                  )}
 
-              {productPagination?.total_pages > 1 && (
-                <GuidePagination
-                  pagination={productPagination}
-                  productPhaseData={guide?.page_phases}
-                />
-              )}
+                  {productPagination?.total_pages > 1 && (
+                    <GuidePagination
+                      pagination={productPagination}
+                      productPhaseData={guide?.page_phases}
+                    />
+                  )}
+                </Row>
+              </Col>
             </Row>
-          </Col>
-        </Row>
-      </Container>
-      {/* {console.log(guide?.page_phases?.similar_guides)} */}
+          </Container>
+          {/* {console.log(guide?.page_phases?.similar_guides)} */}
 
-      <section className="ptb-25">
-        <Container>
-          <Row>
-            <Col md={12}>
-              <div className="similar-guides">
-                <p>{guide && guide?.page_phases?.similar_guides}:</p>
-                <ul>
-                  {guide?.recommended_guides &&
-                    guide?.recommended_guides?.map((data, index) => {
-                      return (
-                        <li key={index}>
-                          <a
-                            href={`/${data?.category_url}/${data?.permalink}`}
-                            style={{ color: "#437ece" }}
-                            scroll={false}
-                          >
-                            {data?.short_name}
-                          </a>
-                        </li>
-                      );
-                    })}
-                </ul>
-              </div>
-            </Col>
-          </Row>
-          {/* <section className="mobile-table-section">
+          <section className="ptb-25">
+            <Container>
+              <Row>
+                <Col md={12}>
+                  <div className="similar-guides">
+                    <p>{guide && guide?.page_phases?.similar_guides}:</p>
+                    <ul>
+                      {guide?.recommended_guides &&
+                        guide?.recommended_guides?.map((data, index) => {
+                          return (
+                            <li key={index}>
+                              <a
+                                href={`/${data?.category_url}/${data?.permalink}`}
+                                style={{ color: "#437ece" }}
+                                scroll={false}
+                              >
+                                {data?.short_name}
+                              </a>
+                            </li>
+                          );
+                        })}
+                    </ul>
+                  </div>
+                </Col>
+              </Row>
+              {/* <section className="mobile-table-section">
               <Container>
                 <Row className="table-section-desktop p-0">
                   <Col md={12} className="p-0">
@@ -848,55 +898,59 @@ export default function GuidePage({
                 </Row>
               </Container>
             </section> */}
-          <Row className="table-section-mobile">
-            <Col md={12}>
-              <h2 className="site-main-heading pt-5">
-                {guideData[0]?.data?.big_table_subtitle
-                  ? guideData[0]?.data?.big_table_subtitle
-                  : "No title found"}
-              </h2>
+              <Row className="table-section-mobile">
+                <Col md={12}>
+                  <h2 className="site-main-heading pt-5">
+                    {guideData[0]?.data?.big_table_subtitle
+                      ? guideData[0]?.data?.big_table_subtitle
+                      : "No title found"}
+                  </h2>
 
-              {guide && productForTable?.length > 1 && (
-                <CompareTable
-                  guidePhraseData={guide?.page_phases}
-                  products={productForTable}
-                  categoryAttributes={attributesForTable && attributesForTable}
-                  slug={slug}
-                />
-              )}
-            </Col>
-          </Row>
-        </Container>
-      </section>
-      <section className="mobile-table-section">
-        {isMobile ? (
-          <Container>
-            <h2 className="site-main-heading pt-5 m-3">
-              {guideData[0]?.data?.big_table_subtitle
-                ? guideData[0]?.data?.big_table_subtitle
-                : "No title found"}
-            </h2>
-          </Container>
-        ) : null}
-        {/* {console.log(categorySlug)} */}
-        <Container className="p-0 p-md-4">
-          <Row className="table-section-desktop p-0">
-            <Col md={12} className="p-0">
-              {isMobile ? (
-                <MobileCompareGuideTable
-                  productPhaseData={guide?.page_phases}
-                  products={productForTable}
-                  categoryAttributes={attributesForTable && attributesForTable}
-                  slug={slug}
-                  categorySlug={categorySlug}
-                  type={"guide"}
-                  category_id={category_id}
-                />
-              ) : null}
-            </Col>
-          </Row>
-        </Container>
-        {/* {isSmallDevice && (
+                  {guide && productForTable?.length > 1 && (
+                    <CompareTable
+                      guidePhraseData={guide?.page_phases}
+                      products={productForTable}
+                      categoryAttributes={
+                        attributesForTable && attributesForTable
+                      }
+                      slug={slug}
+                    />
+                  )}
+                </Col>
+              </Row>
+            </Container>
+          </section>
+          <section className="mobile-table-section">
+            {isMobile ? (
+              <Container>
+                <h2 className="site-main-heading pt-5 m-3">
+                  {guideData[0]?.data?.big_table_subtitle
+                    ? guideData[0]?.data?.big_table_subtitle
+                    : "No title found"}
+                </h2>
+              </Container>
+            ) : null}
+            {/* {console.log(categorySlug)} */}
+            <Container className="p-0 p-md-4">
+              <Row className="table-section-desktop p-0">
+                <Col md={12} className="p-0">
+                  {isMobile ? (
+                    <MobileCompareGuideTable
+                      productPhaseData={guide?.page_phases}
+                      products={productForTable}
+                      categoryAttributes={
+                        attributesForTable && attributesForTable
+                      }
+                      slug={slug}
+                      categorySlug={categorySlug}
+                      type={"guide"}
+                      category_id={category_id}
+                    />
+                  ) : null}
+                </Col>
+              </Row>
+            </Container>
+            {/* {isSmallDevice && (
           <Container className="p-0 p-md-4">
             <Row className="table-section-desktop p-0">
               <Col md={12} className="p-0">
@@ -917,43 +971,48 @@ export default function GuidePage({
             </Row>
           </Container>
         )} */}
-      </section>
+          </section>
 
-      <section>
-        <Container>
-          <Row>
-            <Col md={12}>
-              <h2 className="site-main-heading">
-                {guideData[0]?.data?.main_text_subtitle
-                  ? guideData[0]?.data?.main_text_subtitle
-                  : "No title found"}
-              </h2>
-            </Col>
-          </Row>
-          <GuidePageTextArea guide={guide} />
-        </Container>
-        {/* {console.log(guide?.page_phases?.currency)} */}
-      </section>
-      <section className="ptb-25 mobite-mb-20">
-        <Container>
-          <Row>
-            <Col md={12}>
-              <h2 className="site-main-heading">
-                {guide && guide?.page_phases?.see_also_guides}
-              </h2>
-              <ProductSlider favSlider={guide?.see_also_guides} slug={slug} />
-            </Col>
-          </Row>
-        </Container>
-      </section>
-      {/* here will be bottom bar section were add to comparision product */}
-      <BottomBar
-        guidePhraseData={guide}
-        isCollapsed={isCollapsed}
-        handleToggleCollapse={handleToggleCollapse}
-        manageCollapsedDiv={manageCollapsedDiv}
-        handleManageCollapsedDiv={handleManageCollapsedDiv}
-      />
+          <section>
+            <Container>
+              <Row>
+                <Col md={12}>
+                  <h2 className="site-main-heading">
+                    {guideData[0]?.data?.main_text_subtitle
+                      ? guideData[0]?.data?.main_text_subtitle
+                      : "No title found"}
+                  </h2>
+                </Col>
+              </Row>
+              <GuidePageTextArea guide={guide} />
+            </Container>
+            {/* {console.log(guide?.page_phases?.currency)} */}
+          </section>
+          <section className="ptb-25 mobite-mb-20">
+            <Container>
+              <Row>
+                <Col md={12}>
+                  <h2 className="site-main-heading">
+                    {guide && guide?.page_phases?.see_also_guides}
+                  </h2>
+                  <ProductSlider
+                    favSlider={guide?.see_also_guides}
+                    slug={slug}
+                  />
+                </Col>
+              </Row>
+            </Container>
+          </section>
+          {/* here will be bottom bar section were add to comparision product */}
+          <BottomBar
+            guidePhraseData={guide}
+            isCollapsed={isCollapsed}
+            handleToggleCollapse={handleToggleCollapse}
+            manageCollapsedDiv={manageCollapsedDiv}
+            handleManageCollapsedDiv={handleManageCollapsedDiv}
+          />
+        </>
+      )}
     </>
   );
 }
