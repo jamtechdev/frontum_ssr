@@ -919,41 +919,7 @@ export default function GuidePage({
         )} */}
       </section>
 
-      <section>
-        <Container>
-          <Row>
-            <Col md={12}>
-              <h2 className="site-main-heading">
-                {guideData[0]?.data?.main_text_subtitle
-                  ? guideData[0]?.data?.main_text_subtitle
-                  : "No title found"}
-              </h2>
-            </Col>
-          </Row>
-          <GuidePageTextArea guide={guide} />
-        </Container>
-        {/* {console.log(guide?.page_phases?.currency)} */}
-      </section>
-      <section className="ptb-25 mobite-mb-20">
-        <Container>
-          <Row>
-            <Col md={12}>
-              <h2 className="site-main-heading">
-                {guide && guide?.page_phases?.see_also_guides}
-              </h2>
-              <ProductSlider favSlider={guide?.see_also_guides} slug={slug} />
-            </Col>
-          </Row>
-        </Container>
-      </section>
-      {/* here will be bottom bar section were add to comparision product */}
-      <BottomBar
-        guidePhraseData={guide}
-        isCollapsed={isCollapsed}
-        handleToggleCollapse={handleToggleCollapse}
-        manageCollapsedDiv={manageCollapsedDiv}
-        handleManageCollapsedDiv={handleManageCollapsedDiv}
-      />
+    
     </>
   );
 }
