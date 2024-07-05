@@ -296,11 +296,20 @@ export default function GuidePage({
       event.preventDefault();
     };
 
+    // Add the event listener to block clicks after 3 seconds
     const timer = setTimeout(() => {
       document.addEventListener("mousedown", blockClicks);
-    }, 3000); // Blocks clicks after 1 second
 
-    // Cleanup the event listener when the component unmounts
+      // Remove the event listener after 5 seconds
+      const unblockTimer = setTimeout(() => {
+        document.removeEventListener("mousedown", blockClicks);
+      }, 5000);
+
+      // Cleanup unblockTimer when the component unmounts
+      return () => clearTimeout(unblockTimer);
+    }, 3000);
+
+    // Cleanup the timer when the component unmounts
     return () => {
       clearTimeout(timer);
       document.removeEventListener("mousedown", blockClicks);
