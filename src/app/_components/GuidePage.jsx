@@ -273,19 +273,19 @@ export default function GuidePage({
 
   // this code for when click outside of sidebar then close sidebar
 
-  useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (sidebarRef.current && !sidebarRef.current.contains(event.target)) {
-        setIsShown(false);
-        document.body.classList.remove("filter--sidebar--open");
-      }
-    };
+  // useEffect(() => {
+  //   const handleClickOutside = (event) => {
+  //     if (sidebarRef.current && !sidebarRef.current.contains(event.target)) {
+  //       setIsShown(false);
+  //       document.body.classList.remove("filter--sidebar--open");
+  //     }
+  //   };
 
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, []);
+  //   document.addEventListener("mousedown", handleClickOutside);
+  //   return () => {
+  //     document.removeEventListener("mousedown", handleClickOutside);
+  //   };
+  // }, []);
 
   const { isMobile, isSmallDevice } = useScreenSize();
 
