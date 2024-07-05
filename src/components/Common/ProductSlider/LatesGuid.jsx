@@ -30,7 +30,7 @@ export default function LatesGuid({ favSlider }) {
           {favSlider?.length > 0 &&
             favSlider?.map((section, index) => (
               <SwiperSlide key={Math.random(1, 999)} className="product-card">
-                <a
+                <Link
                   href={`/${section?.category_url}/${section?.permalink}`}
                   style={{ color: "#27304e" }}
                 >
@@ -48,32 +48,31 @@ export default function LatesGuid({ favSlider }) {
                   <div className="product-name-wrapper">
                     <span> {section?.short_name}</span>
                   </div>
-                </a>
+                </Link>
               </SwiperSlide>
             ))}
-         
         </Swiper>
         {isMobile
-            ? favSlider?.length > 2 && (
-                <>
-                  <span className="swiper-prev">
-                    <i className="ri-arrow-left-s-line"></i>
-                  </span>
-                  <span className="swiper-next">
-                    <i className="ri-arrow-right-s-line"></i>
-                  </span>
-                </>
-              )
-            : favSlider?.length > 6 && (
-                <>
-                  <span className="swiper-prev">
-                    <i className="ri-arrow-left-s-line"></i>
-                  </span>
-                  <span className="swiper-next">
-                    <i className="ri-arrow-right-s-line"></i>
-                  </span>
-                </>
-              )}
+          ? favSlider?.length > 2 && (
+              <>
+                <span className="swiper-prev">
+                  <i className="ri-arrow-left-s-line"></i>
+                </span>
+                <span className="swiper-next">
+                  <i className="ri-arrow-right-s-line"></i>
+                </span>
+              </>
+            )
+          : favSlider?.length > 6 && (
+              <>
+                <span className="swiper-prev">
+                  <i className="ri-arrow-left-s-line"></i>
+                </span>
+                <span className="swiper-next">
+                  <i className="ri-arrow-right-s-line"></i>
+                </span>
+              </>
+            )}
       </div>
     </>
   );
