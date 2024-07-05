@@ -30,7 +30,7 @@ export default function LatesGuid({ favSlider }) {
           {favSlider?.length > 0 &&
             favSlider?.map((section, index) => (
               <SwiperSlide key={Math.random(1, 999)} className="product-card">
-                <a
+                <Link
                   href={`/${section?.category_url}/${section?.permalink}`}
                   style={{ color: "#27304e" }}
                 >
@@ -48,7 +48,7 @@ export default function LatesGuid({ favSlider }) {
                   <div className="product-name-wrapper">
                     <span> {section?.short_name}</span>
                   </div>
-                </a>
+                </Link>
               </SwiperSlide>
             ))}
         </Swiper>
