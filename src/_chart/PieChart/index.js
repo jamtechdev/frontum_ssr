@@ -70,6 +70,7 @@ function PieChart(props) {
       "transform",
       `translate(${center + margin.left}, ${center + margin.top})`
     );
+    
 
     const arcGeneral = d3
       .arc()
@@ -94,6 +95,7 @@ function PieChart(props) {
       .append("div")
       .attr("class", "tooltip")
       .style("opacity", 0)
+      .style("display", "none")
       .attr("transform", `translate(${svgSize / 2}px, ${svgSize / 2}px)`);
 
     arc
@@ -108,8 +110,9 @@ function PieChart(props) {
         tooltip
           .transition()
           .duration(300)
-          .style("opacity", 1)
-          .style("display", "flex");
+          .style("opacity", 0)
+          .style("display", "flex")
+          
         tooltip
           .html(
             `<div style="height:20px; width:20px;margin-right:6px; border-radius:100%;background-color:${customColorScale(
