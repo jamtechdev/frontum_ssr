@@ -1511,7 +1511,7 @@ export default function Product({
                                         <span>
                                           #{data?.position}{" "}
                                           {data?.second_position &&
-                                            `(# ${data?.second_position})`}
+                                            `(#${data?.second_position})`}
                                         </span>
                                         {data?.guide_short_name}
                                       </p>
