@@ -909,7 +909,7 @@ const TechnicalAccordion = React.memo(
                                                   "?" && (
                                                   <ProsConsToolTip
                                                     comment={
-                                                      attributeValues?.commnet
+                                                      attributeValues?.comment
                                                     }
                                                     hover_phrase={
                                                       attributeValues &&

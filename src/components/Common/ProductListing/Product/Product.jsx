@@ -365,18 +365,21 @@ export default function Product({
   //   ('totally custom!'),
   // );
   // (productData, "neet");
-  // useEffect(() => {
-  //   // (searchParams, "change alert");
-  //   setProductData(null);
-  //   document
-  //     .querySelectorAll(".accordion-button:not(.collapsed)")
-  //     .forEach((button) => {
-  //       button.click(); // Simulate a click on non-collapsed buttons to collapse them
-  //     });
-  //   // document.querySelectorAll(".accordion-button").forEach((button) => {
-  //   //   button.classList.add("collapsed");
-  //   // });
-  // }, [searchParams]);
+  useEffect(() => {
+    setProductData(null);
+
+    // Find all buttons within the specific parent elements that are not collapsed
+    document
+      .querySelectorAll(
+        ".product-listing-inner-content-table-accordion-btn .accordion-button:not(.collapsed)"
+      )
+      .forEach((button) => {
+        // Collapse only the buttons that are not collapsed
+        button.click();
+      });
+
+    // You can add additional logic here if needed
+  }, [searchParams]);
 
   // (productPhaseData,"check");
   // (productPagination)
@@ -971,8 +974,7 @@ export default function Product({
                                             href={`/link?p=${btoa(data.url)}`}
                                           >
                                             {/* {console.log(data?.price)} */}
-                                            {data?.price}{" "}
-                                            {product?.currency}
+                                            {data?.price} {product?.currency}
                                           </a>
                                         </span>
                                       </>
