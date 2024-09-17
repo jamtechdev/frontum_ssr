@@ -959,13 +959,13 @@ function ProductPage({
                               />
 
                               <p>
-                                #{item?.position}{" "}
+                                #{item?.position}{" "} {item?.second_position&&`(#${item?.second_position}) `}
                                 {product?.page_phases &&
                                   product?.page_phases?.in_text}{" "}
                                 <a
                                   href={`/${item?.category_url}/${item?.permalink}`}
                                 >
-                                  <small>{item.guide_short_name}</small>
+                                  <small> {item.guide_short_name}</small>
                                 </a>
                               </p>
                             </div>
