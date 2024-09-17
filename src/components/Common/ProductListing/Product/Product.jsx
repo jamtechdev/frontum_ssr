@@ -1510,8 +1510,8 @@ export default function Product({
                                       <p>
                                         <span>
                                           #{data?.position}{" "}
-                                          {guidePhraseData &&
-                                            guidePhraseData?.in_text}{" "}
+                                          {data?.second_position &&
+                                            `(# ${data?.second_position})`}
                                         </span>
                                         {data?.guide_short_name}
                                       </p>
