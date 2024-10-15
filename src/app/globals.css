@@ -1416,9 +1416,17 @@ a.outlineLink.outline-active {
 }
 
 #shortCodeText img {
-  width: 100%;
+  /* width: 100%; */
   height: auto;
   object-fit: contain;
+}
+
+
+@media screen and (max-width:767px) {
+  #shortCodeText img{
+
+    width: 100%;
+  }
 }
 
 /* .outline-section .ol-child li{
