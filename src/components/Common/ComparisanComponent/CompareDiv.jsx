@@ -158,20 +158,13 @@ function CompareDiv({
   comparisonProductData[0]?.attributes?.forEach((attribute) => {
     // Extract the category name for the attribute
     const categoryName = attribute?.attribute_category?.name;
-    // Check if the category name exists in the productAttributes object
-
     if (!productAttributes[categoryName]) {
-      // If not, create an empty array for the category
       productAttributes[categoryName] = [];
     }
-    // Push the current attribute to the array corresponding to its category
     productAttributes[categoryName]?.push(attribute);
   });
   productCopy["attributes"] = productAttributes;
   // (comparisonTableProductData)
-  // (productAttributes);
-
-  // best alternative api call
   useEffect(() => {
     const config = {
       headers: { Authorization: `Bearer ${process.env.NEXT_PUBLIC_TOKEN}` },
@@ -189,7 +182,6 @@ function CompareDiv({
         err;
       });
   }, []);
-
   const addIdsToHeadings = (content) => {
     const headings = content?.match(/<h[2-6][^>]*>.*?<\/h[2-6]>/g) || [];
 
@@ -205,7 +197,6 @@ function CompareDiv({
 
     return content;
   };
-
   let contentWithIds;
   if (bestAlternative?.text_part) {
     // (bestAlternative,"check alternative")
@@ -215,11 +206,7 @@ function CompareDiv({
     contentWithIds = "";
   }
   // const contentWithIds = addIdsToHeadings(bestAlternative?.text_part);
-
   const { isMobile } = useScreenSize();
-
-  // get graph code
-
   const getGuideTextPartShortcode = useSelector(
     (state) => state.comparePro.text_part_main?.content
   );
@@ -243,24 +230,17 @@ function CompareDiv({
         }
       });
     };
-
-    // Delay the execution of replaceShortcodes to ensure the elements are rendered
     const timeoutId = setTimeout(replaceShortcodes, 100);
-
     const observer = new MutationObserver(replaceShortcodes);
     observer.observe(document.body, {
       childList: true,
       subtree: true,
     });
-
-    // Cleanup function to clear timeout and disconnect observer
     return () => {
       clearTimeout(timeoutId);
       observer.disconnect();
     };
   }, []);
-  // (contentWithIds);
-  // console.log(getComparisonPhase?.text);
   return (
     <>
       <section className="product-header">
@@ -361,7 +341,6 @@ function CompareDiv({
               />
             </Col>
           </Row>
-          {/* {(bestAlternative,"hello mahi")} */}
           {/* {(bestAlternative?.page_phases)} */}
           {getComparisonPhase?.verdict_text &&
             getComparisonPhase?.verdict_text &&
@@ -446,21 +425,6 @@ function CompareDiv({
                     dangerouslySetInnerHTML={{ __html: contentWithIds }}
                   />
                 )}
-
-                {/* <div className="social-icon items-icon">
-                  <div className="twitter">
-                    <i className="ri-twitter-fill"></i>
-                  </div>
-                  <div className="facebook">
-                    <i className="ri-facebook-fill"></i>
-                  </div>
-                  <div className="printerest">
-                    <i className="ri-pinterest-fill"></i>
-                  </div>
-                  <div className="linkedIn">
-                    <i className="ri-linkedin-fill"></i>
-                  </div>
-                </div> */}
               </div>
 
               <div className="mobile-hide right-side-bar productSlider-Container">
@@ -591,36 +555,15 @@ function CompareDiv({
                 productAttributes={productAttributes}
                 compareTableData={compareTableData}
               />
-            </Col>
-            {/* <Col md={12} className="table-section-desktop">
-              <MobileCompareTable
-                productPhaseData={
-                  bestAlternative && bestAlternative?.page_phases
-                }
-                products={comparisonProductData}
-                categoryAttributes={categroyAttributes}
-                slug={slug}
-              />
-            </Col> */}
+            </Col> 
           </Row>
         </Container>
       </section>
 
       <section className="mobile-table-section">
-        {/* {isMobile ? (
-          <Container>
-            <h2 className="site-main-heading pt-5 m-3">
-            {bestAlternative &&
-            {/* <h2 className="site-main-heading pt-5 m-3">
-              {bestAlternative &&
-                bestAlternative?.page_phases?.table_compare_title}
-            </h2>
-          </Container>
-        ) : null} */}
         <Container className="p-0">
           <Row className="table-section-desktop p-0 m-0">
             <Col md={12} className="p-0">
-              {/* {(compareByCatID?.data?.length)} */}
               {
                 isMobile ? (
                   <MobileCompareTable
@@ -632,7 +575,7 @@ function CompareDiv({
                     slug={slug}
                     type="compare"
                   />
-                ) : null // or any other fallback content for non-mobile
+                ) : null 
               }
             </Col>
           </Row>
@@ -646,7 +589,6 @@ function CompareDiv({
                 {bestAlternative &&
                   bestAlternative?.page_phases?.compare_with_other_products}
               </h2>
-              {/* {(bestAlternative?.page_phases)} */}
               <CompareForm
                 favSlider={bestAlternative && bestAlternative?.page_phases}
                 location="ON_MAIN_PAGE"
