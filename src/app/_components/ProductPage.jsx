@@ -146,7 +146,7 @@ function ProductPage({
 
   //   // return ""; // Return null for strings
   // };
-  console.log("hello");
+  // console.log("hello");
 
   const renderValue = (item) => {
     const numericValue = parseFloat(item?.value);
