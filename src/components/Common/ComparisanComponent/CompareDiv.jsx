@@ -58,6 +58,7 @@ function CompareDiv({
   graphComparisonProsCons,
   getComparisonPhase,
   getProsConsforVsPage,
+  compareTableData
 }) {
   // const router = useRouter();
   const dispatch = useDispatch();
@@ -259,7 +260,7 @@ function CompareDiv({
     };
   }, []);
   // (contentWithIds);
-  console.log(getComparisonPhase?.text);
+  // console.log(getComparisonPhase?.text);
   return (
     <>
       <section className="product-header">
@@ -481,7 +482,7 @@ function CompareDiv({
           </Container>
         </section>
       )}
-      {console.log(getComparisonPhase?.page_phases)}
+      {/* {console.log(getComparisonPhase?.page_phases)} */}
       {getComparisonPhase &&
         getComparisonPhase?.should_buy_product_one?.length > 0 && (
           <section className="ptb-80 bg-color">
@@ -588,6 +589,7 @@ function CompareDiv({
                 products={comparisonProductData}
                 categoryAttributes={categroyAttributes}
                 productAttributes={productAttributes}
+                compareTableData={compareTableData}
               />
             </Col>
             {/* <Col md={12} className="table-section-desktop">

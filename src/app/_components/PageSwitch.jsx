@@ -120,7 +120,12 @@ export default async function PageSwitch({
         categorySlug,
         slug
       );
-      // console.log(getProsConsforVsPage);
+
+      const compareTableData = await getCompareProductByCatID(
+        compareData?.category_id,
+        slug
+      );
+      // console.log(compareTableData);
       PageToRender = (
         <Comparison
           slug={slug}
@@ -130,6 +135,7 @@ export default async function PageSwitch({
           graphComparisonProsCons={graphComparisonProsCons}
           getComparisonPhase={getComparisonPhase}
           getProsConsforVsPage={getProsConsforVsPage}
+          compareTableData={compareTableData}
         />
       );
       break;
@@ -256,7 +262,6 @@ async function getProsConsForVsPage(categorySlug, slug) {
         Authorization: `Bearer ${process.env.NEXT_PUBLIC_TOKEN}`,
       },
     };
-
     try {
       const [apiFirst, apiSecond, apiThird] = await Promise.all([
         fetch(apiFirstUrl, options),
@@ -267,11 +272,9 @@ async function getProsConsForVsPage(categorySlug, slug) {
       if (!apiFirst.ok || !apiSecond.ok || !apiThird.ok) {
         throw new Error("Failed to fetch datas");
       }
-
       const apiFirstJson = await apiFirst.json();
       const apiSecondJson = await apiSecond.json();
       const apiThirdJson = await apiThird.json();
-
       return {
         apiFirst: apiFirstJson,
         apiSecond: apiSecondJson,

@@ -162,10 +162,6 @@ const ProductCompareTable = React.memo(
           obj.attribute_value !== "-" &&
           (obj.attribute_value = obj?.attribute_value + "⭐");
       });
-
-      // Adjust this function according to your context as I don't have the complete code
-      // It would be good to ensure that you have the required variables (finalProducts) in scope.
-      // const value__data = [];
       return (
         <>
           {arrayOfObjects.map((item, attrIndex) => (

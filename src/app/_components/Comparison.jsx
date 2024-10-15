@@ -9,7 +9,8 @@ function Comparison({
   categroyAttributes,
   graphComparisonProsCons,
   getComparisonPhase,
-  getProsConsforVsPage
+  getProsConsforVsPage,
+  compareTableData={compareTableData}
 }) {
   return (
     <>
@@ -22,6 +23,7 @@ function Comparison({
         graphComparisonProsCons={graphComparisonProsCons?.data}
         getComparisonPhase={getComparisonPhase?.data}
         getProsConsforVsPage={getProsConsforVsPage}
+        compareTableData={compareTableData?.data}
       />
       
     </>
