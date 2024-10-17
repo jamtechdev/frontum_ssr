@@ -1416,6 +1416,7 @@ const TechnicalAccordion = React.memo(
                                           }
                                           {/* here we use attributeValues.is_better_than and  attributeValues.is_worse_than  */}
                                           <ProsConsToolTip
+                                            comment={attributeValues?.comment}
                                             hover_phrase={
                                               attributeValues &&
                                               attributeValues.hover_phase
