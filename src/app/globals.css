@@ -1416,15 +1416,13 @@ a.outlineLink.outline-active {
 }
 
 #shortCodeText img {
-  max-width:100%;
+  max-width: 100%;
   height: auto;
   object-fit: contain;
 }
 
-
-@media screen and (max-width:767px) {
-  #shortCodeText img{
-
+@media screen and (max-width: 767px) {
+  #shortCodeText img {
     width: 100%;
   }
 }
@@ -2543,7 +2541,7 @@ tr:first-child th {
     float: none;
     padding: 70px 0px 0 75px;
   }
-  .product__page .compare-container thead tr th .device-name > *{
+  .product__page .compare-container thead tr th .device-name > * {
     width: 100% !important;
   }
   #mobile-compare-tabler .device-name a {
@@ -2623,4 +2621,8 @@ tr:first-child th {
 }
 .product-inner-content p {
   margin: revert !important;
+}
+.content-para img {
+  max-width: 100%;
+  height: auto;
 }

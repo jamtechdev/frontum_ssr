@@ -274,18 +274,7 @@ export default function Product({
 
   let result = width - 250;
   let finalvalue = result / 2 - 250;
-  // (finalvalue, "test")
 
-  // useEffect(() => {
-  //   const currentUrl = new URL(window.location.href);
-  //   const searchParam = new URLSearchParams(currentUrl.search);
-  //   const variantValue = searchParam.get("variant");
-  //   const sortValue = searchParam.get("sort");
-
-  //   // (splitData);
-  // });
-  // (splitData);
-  // (text_before_listing, "neet");
   const extractDomainName = (url) => {
     const domain = url
       .replace("https://", "")
@@ -1007,7 +996,6 @@ export default function Product({
                                   data?.hover_phrase !== "" && "tooltip-title"
                                 }`}
                               >
-                                {/* {(data?.comment)} */}
                                 <span className="pros-crons-text">
                                   {data?.name} {renderValue(data)}
                                 </span>
@@ -1048,6 +1036,7 @@ export default function Product({
                                   {/* {console.log(data?.name)} */}
                                   {data?.name} {renderValue(data).trim()}
                                 </span>
+                                {/* {console.log(data)} */}
                                 <ProsConsToolTip
                                   comment={data.comment}
                                   hover_phrase={data.hover_phrase}
@@ -1511,7 +1500,8 @@ export default function Product({
                                         <span>
                                           #{data?.position}{" "}
                                           {data?.second_position &&
-                                            `(#${data?.second_position}) `} {""}
+                                            `(#${data?.second_position}) `}{" "}
+                                          {""}
                                           {guidePhraseData &&
                                             guidePhraseData?.in_text}{" "}
                                         </span>
@@ -3036,6 +3026,9 @@ export default function Product({
                                                               }
                                                               {/* here we use attributeValues.is_better_than and  attributeValues.is_worse_than  */}
                                                               <ProsConsToolTip
+                                                                comment={
+                                                                  attributeValues?.comment
+                                                                }
                                                                 hover_phrase={
                                                                   attributeValues &&
                                                                   attributeValues.hover_phase
@@ -3130,4 +3123,4 @@ export default function Product({
     </Fragment>
   );
 }
-("");
+

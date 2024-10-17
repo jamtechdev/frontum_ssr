@@ -948,18 +948,17 @@ export default function GuidePage({
 
       <section>
         <Container>
-          <Row>
+          {/* <Row>
             <Col md={12}>
               <h2 className="site-main-heading">
                 {guideData[0]?.data?.main_text_subtitle
                   ? guideData[0]?.data?.main_text_subtitle
                   : "No title found"}
               </h2>
-            </Col>
-          </Row>
+            </Col>A
+          </Row> */}
           <GuidePageTextArea guide={guide} />
         </Container>
-        {/* {console.log(guide?.page_phases?.currency)} */}
       </section>
       <section className="ptb-25 mobite-mb-20">
         <Container>
@@ -973,7 +972,6 @@ export default function GuidePage({
           </Row>
         </Container>
       </section>
-      {/* here will be bottom bar section were add to comparision product */}
       <BottomBar
         guidePhraseData={guide}
         isCollapsed={isCollapsed}

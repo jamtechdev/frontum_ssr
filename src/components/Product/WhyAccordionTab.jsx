@@ -201,7 +201,7 @@ const WhyAccordionTab = React.memo(
                                   ?.map((item, index) => {
                                     return (
                                       <li key={index}>
-                                        {/* {console.log(item?.hover_phase)} */}
+                                        {console.log(item)}
                                         <span
                                           className={`${
                                             item?.hover_phase !== null
@@ -242,6 +242,11 @@ const WhyAccordionTab = React.memo(
                                                 >
                                                   {/* {item?.hover_phase} */}
                                                 </span>
+                                                {item?.comment && (
+                                                  <div className="test__phrase__content ">
+                                                    {item?.comment}
+                                                  </div>
+                                                )}
                                               </div>
                                             </>
                                           )}
@@ -329,6 +334,11 @@ const WhyAccordionTab = React.memo(
                                                 __html: item?.hover_phase,
                                               }}
                                             ></span>
+                                            {item?.comment && (
+                                              <div className="test__phrase__content ">
+                                                {item?.comment}
+                                              </div>
+                                            )}
                                           </div>
                                         </>
                                       )}
@@ -418,6 +428,12 @@ const WhyAccordionTab = React.memo(
                                                 __html: itemx?.hover_phase,
                                               }}
                                             />
+
+                                            {item?.comment && (
+                                              <div className="test__phrase__content ">
+                                                {item?.comment}
+                                              </div>
+                                            )}
                                           </div>
                                         )}
                                       </span>
@@ -494,6 +510,11 @@ const WhyAccordionTab = React.memo(
                                               __html: item?.hover_phase,
                                             }}
                                           />
+                                          {item?.comment && (
+                                            <div className="test__phrase__content ">
+                                              {item?.comment}
+                                            </div>
+                                          )}
                                         </div>
                                       )}
                                     </span>
@@ -641,6 +662,7 @@ const WhyAccordionTab = React.memo(
                                             : "none",
                                       }}
                                     >
+                                      {/* {console.log(itemx)} */}
                                       <span
                                         className={`${
                                           itemx?.hover_phase !== null
@@ -666,6 +688,11 @@ const WhyAccordionTab = React.memo(
                                                 __html: itemx?.hover_phase,
                                               }}
                                             />
+                                            {
+                                              <div className="test__phrase__content ">
+                                                {itemx?.comment}
+                                              </div>
+                                            }
                                           </div>
                                         )}
                                       </span>
@@ -735,6 +762,11 @@ const WhyAccordionTab = React.memo(
                                                 __html: item?.hover_phase,
                                               }}
                                             ></span>
+                                            {item?.comment && (
+                                              <div className="test__phrase__content ">
+                                                {item?.comment}
+                                              </div>
+                                            )}
                                           </div>
                                         </>
                                       )}
@@ -815,6 +847,11 @@ const WhyAccordionTab = React.memo(
                                                     __html: item?.hover_phase,
                                                   }}
                                                 ></span>
+                                                {item?.comment && (
+                                                  <div className="test__phrase__content ">
+                                                    {item?.comment}
+                                                  </div>
+                                                )}
                                               </div>
                                             </>
                                           )}
@@ -901,6 +938,11 @@ const WhyAccordionTab = React.memo(
                                                     >
                                                       {/* {item?.hover_phase} */}
                                                     </span>
+                                                    {item?.comment && (
+                                                      <div className="test__phrase__content ">
+                                                        {item?.comment}
+                                                      </div>
+                                                    )}
                                                   </div>
                                                 </>
                                               )}
