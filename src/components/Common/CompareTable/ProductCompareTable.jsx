@@ -497,7 +497,7 @@ const ProductCompareTable = React.memo(
                         {products[0]?.overall_score_descriptions
                           ?.when_matters && (
                           <p className="mb-2">
-                            <b>When it matters: </b>{" "}
+                            <b>{productPhaseData?.when_it_matters}: </b>{" "}
                             {
                               products[0]?.overall_score_descriptions
                                 ?.when_matters
@@ -552,7 +552,7 @@ const ProductCompareTable = React.memo(
                         {products[0]?.technical_score_descriptions
                           ?.when_matters && (
                           <p className="mb-2">
-                            <b>When it matters: </b>{" "}
+                            <b>{productPhaseData?.when_it_matters}: </b>{" "}
                             {
                               products[0]?.technical_score_descriptions
                                 ?.when_matters
@@ -646,7 +646,7 @@ const ProductCompareTable = React.memo(
                       )}
 
                       <p className="mb-2">
-                        <b>When it matters: </b>{" "}
+                        <b>{productPhaseData?.when_it_matters}: </b>{" "}
                         {products[0]?.expert_reviews_descriptions?.when_matters}
                         {products[0]?.expert_reviews_websites?.map(
                           (data, index) => {
@@ -790,7 +790,7 @@ const ProductCompareTable = React.memo(
                       )}
 
                       <p className="mb-2">
-                        <b>When it matters: </b>{" "}
+                        <b>{productPhaseData?.when_it_matters}: </b>{" "}
                         {
                           products[0]?.ratio_qulitiy_points_descriptions
                             ?.when_matters
