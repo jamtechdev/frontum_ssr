@@ -1,4 +1,94 @@
 //Updated
+
+// Get a  dropdownFIlter
+export const getDropdownFilter = (obj) => {
+  let uniq = [];
+  const uniqueValues = obj.values.reduce((acc, currentValue) => {
+    if (!acc.some(item => item.name === currentValue.name)) {
+      acc.push(currentValue);
+    }
+    return acc;
+  }, []);
+
+  if (obj?.algorithm == "absolute_value") {
+    for (let i = 0; i < uniqueValues.length; i++) {
+      let value = obj.values[i].name;
+      let productCount = obj.values[i].product_count;
+
+      if (
+        !uniq.some(item => item.name === value) &&
+        value != "" &&
+        value != "-" &&
+        value != "?"
+      ) {
+        uniq.push({ name: value, product_count: productCount });
+      }
+    }
+
+    // if uniq contains yes or no, keep only "yes"
+    if (uniq.some(item => item.name === "no") || uniq.some(item => item.name === "yes")) {
+      uniq = [{ name: "yes", product_count: null }];
+    }
+
+    if (uniq.length > 0) {
+      return {
+        type: "dropdown",
+        values: uniq,
+        unit: obj.unit,
+      };
+    }
+  } else if (
+    obj.algorithm == "highest_to_lowest" ||
+    obj.algorithm == "lowest_to_highest"
+  ) {
+    let uniq = [];
+
+    for (let i = 0; i < obj.values.length; i++) {
+      let value = obj.values[i].name;
+      let productCount = obj.values[i].product_count;
+
+      if (
+        !uniq.some(item => item.name === value) &&
+        value != "" &&
+        value != "-"
+      ) {
+        uniq.push({ name: value, product_count: productCount });
+      }
+    }
+
+    // Sort the values numerically
+    let numberedUniq = uniq
+      .map(item => ({
+        name: Number(item.name),
+        product_count: item.product_count
+      }))
+      .filter(item => !isNaN(item.name));
+
+    let sortedArray = numberedUniq.sort((a, b) => a.name - b.name);
+
+    if (sortedArray.length <= 4) {
+      if (sortedArray.length > 0) {
+        return {
+          type: "dropdown",
+          values: sortedArray,
+          unit: obj.unit,
+        };
+      }
+    } else {
+      return {
+        type: "range",
+        values: sortedArray,
+        minValue: Math.min(...sortedArray.map(item => item.name)),
+        maxValue: Math.max(...sortedArray.map(item => item.name)),
+        unit: obj.unit || "",
+      };
+    }
+  }
+};
+
+
+
+
 export const getFilteredAttributeValues = (obj) => {
   let uniq = [];
   // (obj)

@@ -2,7 +2,10 @@
 /* eslint-disable react/display-name */
 import React, { useState, useRef, useEffect, useCallback } from "react";
 import { Accordion, Form } from "react-bootstrap";
-import { getFilteredAttributeValues } from "../../../_helpers";
+import {
+  getDropdownFilter,
+  getFilteredAttributeValues,
+} from "../../../_helpers";
 import MultiRangeSlider from "../MultiRangeSlider/MultiRangeSlider.js";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import useScreenSize from "@/_helpers/useScreenSize";
@@ -540,10 +543,11 @@ export default function Filter({
                   ) {
                     let filteredArrayOfAttributeValues =
                       getFilteredAttributeValues(attribute);
-                    // (filteredArrayOfAttributeValues, "Checking");
-                    // const uniqueValuesSet = new Set(filteredArrayOfAttributeValues?.values);
-                    // const uniqueValues = Array.from(uniqueValuesSet);
-                    // (uniqueValues,"uniqueValues")
+
+                    const filterDropdownAttributeValues =
+                      getDropdownFilter(attribute);
+
+                    console.log(filterDropdownAttributeValues, "neexty");
 
                     if (filteredArrayOfAttributeValues?.type == "dropdown") {
                       countAttribute++;
@@ -593,7 +597,7 @@ export default function Filter({
                               <i className="ri-arrow-down-s-fill"></i>
                             </Accordion.Header>
                             <Accordion.Body>
-                              {filteredArrayOfAttributeValues?.values
+                              {filterDropdownAttributeValues?.values
                                 ?.slice()
                                 .sort((a, b) =>
                                   a[0]
@@ -602,12 +606,8 @@ export default function Filter({
                                 )
                                 ?.map((value, valIndex) => {
                                   const groupName = `${category.attribute}-${attribute.values[0]}`;
-                                  const uniqueValues = Array.isArray(value)
-                                    ? [...new Set(value.flat())]
-                                    : [value];
-                                  // (value, "next");
-
                                   return (
+                                    // console.log(value)
                                     <div
                                       key={valIndex}
                                       className="d-flex flex-row justify-content-between"
@@ -617,7 +617,7 @@ export default function Filter({
                                           required
                                           label={
                                             <span style={{ cursor: "pointer" }}>
-                                              {value.toString()}{" "}
+                                              {value?.name.toString()}{" "}
                                               {filteredArrayOfAttributeValues?.unit ==
                                                 "-" ||
                                               filteredArrayOfAttributeValues?.unit ==
@@ -627,12 +627,12 @@ export default function Filter({
                                             </span>
                                           }
                                           key={valIndex}
-                                          id={`${attribute.name}${value}`}
+                                          id={`${attribute.name}${value?.name}`}
                                           onChange={(e) =>
                                             handelFilterActions(
                                               "dropdown",
                                               attribute.name,
-                                              { key: value },
+                                              { key: value?.name },
                                               e.target.checked
                                             )
                                           }
@@ -646,8 +646,7 @@ export default function Filter({
                                             filteredArrayOfAttributeValues
                                               .product_count[valIndex] !==
                                               undefined
-                                              ? filteredArrayOfAttributeValues
-                                                  .product_count[valIndex]
+                                              ? value?.product_count
                                               : "0"
                                           })</p>`,
                                         }}
