@@ -409,10 +409,10 @@ export default function Filter({
       </div>
       <Accordion className="filter-accordion">
         <Accordion.Item eventKey="777777">
-          <Accordion.Header as="div" className="accordion-header">
-            {guidePhraseData && guidePhraseData?.brand_label}{" "}
+          {/* <Accordion.Header as="div" className="accordion-header">
+            {guidePhraseData && guidePhraseData?.brand_label}  bhtfy{" "}
             <i className="ri-arrow-down-s-fill"></i>
-          </Accordion.Header>
+          </Accordion.Header> */}
           <Accordion.Body className="brand-list-section">
             {brands
               ?.sort((a, b) => a.brands?.brand.localeCompare(b.brands?.brand))

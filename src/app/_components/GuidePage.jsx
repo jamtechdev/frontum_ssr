@@ -104,8 +104,6 @@ export default function GuidePage({
   function removeQueryParamAndNavigate(url, paramToRemove) {
     // delete searchParams[`${paramToRemove}`];
 
-    console.log(url, paramToRemove);
-
     if (paramToRemove != "sort") {
       setparams(() => {
         return {
@@ -316,6 +314,10 @@ export default function GuidePage({
     };
   }, []);
 
+
+  
+  
+
   return (
     <>
       <section className="product-header">
@@ -401,6 +403,9 @@ export default function GuidePage({
               <Row className="catchy_titles_section mb-3">
                 <Col md={7} className="mx-auto p-0">
                   <p>
+
+ 
+
                     {guideData[0]?.data?.catchy_titles_box_title ||
                       "No title found"}
                   </p>
@@ -878,6 +883,7 @@ export default function GuidePage({
           <Row className="table-section-mobile">
             <Col md={12}>
               <h2 className="site-main-heading pt-5">
+                ahgfkdrgj
                 {guideData[0]?.data?.big_table_subtitle
                   ? guideData[0]?.data?.big_table_subtitle
                   : "No title found"}
@@ -965,9 +971,14 @@ export default function GuidePage({
           <Row>
             <Col md={12}>
               <h2 className="site-main-heading">
-                {guide && guide?.page_phases?.see_also_guides}
+                 
+
+
+                {guide && guide?.see_also_guides && guide?.page_phases?.see_also_guides
+                  && guide?.page_phases?.see_also_guides
+                  }
               </h2>
-              <ProductSlider favSlider={guide?.see_also_guides} slug={slug} />
+             {guide?.see_also_guides &&  <ProductSlider favSlider={guide?.see_also_guides} slug={slug} />}
             </Col>
           </Row>
         </Container>

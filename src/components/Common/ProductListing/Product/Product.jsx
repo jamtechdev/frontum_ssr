@@ -793,9 +793,10 @@ export default function Product({
 
                                         <small>
                                           {" "}
-                                          <a href={`/link?p=${btoa(data.url)}`}>
-                                            ({data?.reviews})
-                                          </a>{" "}
+                                          <a href={`/link?p=${btoa(data.url)}`} target="_blank">
+  ({data?.reviews})
+</a>
+
                                         </small>
                                       </div>
                                     </div>

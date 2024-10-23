@@ -709,6 +709,7 @@ function ProductPage({
                                     <a href={`/link?p=${btoa(data.url)}`}>
                                       ({data?.reviews})
                                     </a>{" "}
+                                 
                                   </small>
                                 </div>
                               </div>

@@ -185,6 +185,10 @@ footer .search-icon {
   margin: 0 0 20px;
 }
 
+.address-section .inner-item img{
+  margin: 3px 0 0;
+}
+
 .copy-right {
   background: #f4f7fb;
   padding: 8px 0;
