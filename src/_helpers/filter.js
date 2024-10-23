@@ -85,10 +85,6 @@ export const getDropdownFilter = (obj) => {
     }
   }
 };
-
-
-
-
 export const getFilteredAttributeValues = (obj) => {
   let uniq = [];
   // (obj)
@@ -197,7 +193,6 @@ export const getFilteredAttributeValues = (obj) => {
     }
   }
 };
-
 export const removeDecimalAboveNine = (value) => {
   if (value > 9) {
     return Math.floor(value);
@@ -205,7 +200,6 @@ export const removeDecimalAboveNine = (value) => {
     return value.toFixed(1);
   }
 };
-
 export const capitalize = (string) => {
   return string.charAt(0).toUpperCase() + string.slice(1);
 };
@@ -222,7 +216,6 @@ export const isAreObjectsEqual = (obj1, obj2) => {
   }
   return false;
 };
-
 export const getAttributeHalf = (product, half) => {
   if (!product?.attributes) {
     return null;
@@ -249,7 +242,6 @@ export const getAttributeHalf = (product, half) => {
     throw new Error("Invalid 'half' argument. Use 'first' or 'second'.");
   }
 };
-
 // this funcation designed to extract and return half of the attributes from a given product object.
 export const getAttributeProductHalf = (product, half) => {
  
@@ -282,7 +274,6 @@ export const getAttributeProductHalf = (product, half) => {
     throw new Error("Invalid 'half' argument. Use 'first' or 'second'.");
   }
 };
-
 export const handleFilterValueChange = (
   filterObj,
   setFilterObj,
@@ -330,7 +321,6 @@ export const handleFilterValueChange = (
   setFilterObj({ ...obj });
   // (obj);
 };
-
 export const isCheckboxChecked = (filterObj, category, attribute, value) => {
   const categoryFilter = filterObj[category];
   if (categoryFilter && categoryFilter[attribute]) {
@@ -338,7 +328,6 @@ export const isCheckboxChecked = (filterObj, category, attribute, value) => {
   }
   return false;
 };
-
 export const filterProducts = (
   filterObject,
   products,
@@ -456,7 +445,6 @@ export const filterProducts = (
     return sortedProducts;
   }
 };
-
 export const arrangeProducts = (apiGuideData) => {
   let topCounts;
   let priceRangeAndBrandsArray;
@@ -484,10 +472,8 @@ export const arrangeProducts = (apiGuideData) => {
     brands: [...apiGuideData.brands],
   };
   topCounts = { ...newApiGuideData.top_guide_counts };
-
   return { guides, priceRangeAndBrandsArray, topCounts };
 };
-
 export const arrangeCategories = (apiCategoryData, setCategoryAttributes) => {
   const sortedCategoryData = [...apiCategoryData].sort(
     (a, b) => a.position - b.position
@@ -495,7 +481,6 @@ export const arrangeCategories = (apiCategoryData, setCategoryAttributes) => {
   // (sortedCategoryData)
   setCategoryAttributes(sortedCategoryData);
 };
-
 export const productsLastFilter = (
   filterObjPriceBrand,
   products,
@@ -519,13 +504,11 @@ export const productsLastFilter = (
         (product) => product.price_websites.length > 0
       );
     }
-
     if (filterObjPriceBrand.brand && filterObjPriceBrand.brand.length > 0) {
       finalProducts = finalProducts.filter((product) =>
         filterObjPriceBrand.brand.includes(product.brand)
       );
     }
-
     return finalProducts;
   }
 };
