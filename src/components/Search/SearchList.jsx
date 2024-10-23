@@ -15,7 +15,7 @@ const SearchList = ({ search, isFocused,noDataFoundPhase }) => {
         });
     }
   }, [search]);
-  console.log(filteredData && filteredData , '<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<')
+  // console.log(filteredData && filteredData , '<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<')
   const capitalizeFirstLetter = (str) => {
     return str.charAt(0).toUpperCase() + str.slice(1);
   };
