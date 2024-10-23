@@ -49,6 +49,7 @@ function ProductReviewTab({ productReview }) {
                   <a
                     href={`/link?p=${btoa(data.url)}`}
                     className="user__rating-card"
+                  target="_blank"
                   >
                     <img
                       src={data?.logo ? data?.logo : "/images/nofound.png"}
