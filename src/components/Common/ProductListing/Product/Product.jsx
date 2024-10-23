@@ -242,7 +242,7 @@ export default function Product({
   };
   // (product)
   const filteredTech_data = incomingProduct?.tech_data?.filter(
-    (item) => item?.permalink === slug
+    (item) => item?.permalink.toLowerCase() === slug.toLowerCase()
   );
 
   //
@@ -1197,7 +1197,7 @@ export default function Product({
                 </div>
               </Col>
             </Row>
-
+{/* {JSON.stringify(incomingProduct?.tech_data)} */}
             {filteredTech_data?.[0]?.data !== undefined && (
               <Row className="w-100 m-0 alternatives-border-top">
                 <Col md={12}>
@@ -1212,9 +1212,11 @@ export default function Product({
                     {/* {(filteredTech_data[0]?.data)} */}
 
                     <ul>
-                      {filteredTech_data[0]?.data.map((data, key) => {
+                      {filteredTech_data[0]?.data?.map((data, key) => {
                         return (
                           <li key={key}>
+
+                        
                             {/* {(data[0])} */}
                             {data && data?.name}:
                             <i>
@@ -1454,7 +1456,7 @@ export default function Product({
                         handleShowAllClick(product?.id, product?.category_id)
                       }
                     >
-                      {guidePhraseData?.show_all}{" "}
+                      {guidePhraseData?.show_all}{" "} 
                       <i className="ri-arrow-down-s-line"></i>
                     </div>
                     <div className="hide-btn">
