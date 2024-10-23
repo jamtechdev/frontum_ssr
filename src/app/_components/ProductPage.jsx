@@ -705,9 +705,10 @@ function ProductPage({
                                   <b>{formatValue(data?.rating)}</b>
                                   <Rating value={data?.rating} />
                                   <small>
-                                  <a href={`/link?p=${btoa(data.url)}`} target="_blank" rel="noopener noreferrer">
-    ({data?.reviews})
-</a>
+                                    {" "}
+                                    <a href={`/link?p=${btoa(data.url)}`} target="_blank">
+                                      ({data?.reviews})
+                                    </a>{" "}
                                  
                                   </small>
                                 </div>
