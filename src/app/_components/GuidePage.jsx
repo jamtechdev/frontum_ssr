@@ -883,7 +883,7 @@ export default function GuidePage({
           <Row className="table-section-mobile">
             <Col md={12}>
               <h2 className="site-main-heading pt-5">
-                ahgfkdrgj
+             
                 {guideData[0]?.data?.big_table_subtitle
                   ? guideData[0]?.data?.big_table_subtitle
                   : "No title found"}
