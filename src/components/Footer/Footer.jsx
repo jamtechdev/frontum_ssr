@@ -87,7 +87,7 @@ export default function Footer({ footerData }) {
 
                   return (
                     link && (
-                      <a key={platform} href={link}>
+                      <a key={platform} href={link} target="_blank">
                         <i className={iconClass}></i>
                       </a>
                     )
