@@ -61,6 +61,7 @@ export default function Footer({ footerData }) {
                   setShow={setShow}
                   handleClose={handleClose}
                   handleShow={handleShow}
+                  footerData={footerData}
                 />
               </Form>
             </Col>
