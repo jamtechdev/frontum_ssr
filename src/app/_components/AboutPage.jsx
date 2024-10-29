@@ -18,11 +18,11 @@ function AboutPage({ slug, aboutData }) {
                   <BreadCrumb
                     productPhaseData={aboutData?.page_phases}
                     firstPageName={""}
-                    secondPageName={{ name: "About us" }}
+                    secondPageName={{ name: aboutData?.title }}
                   />
                 </Col>
                 <Col md={12}>
-                  <h1 className="heading-primary">About us</h1>
+                  <h1 className="heading-primary">{aboutData?.title}</h1>
                 </Col>
               </Row>
             </Col>
@@ -76,9 +76,10 @@ function AboutPage({ slug, aboutData }) {
                   </Row>
                 </Col>
               </Row>
+           
               <Row>
                 <Col md={12}>
-                  <h2 className="site-main-heading mt-3">Our team</h2>
+                  <h2 className="site-main-heading mt-3">{aboutData?.page_phases?.our_team_title}</h2>
                 </Col>
                 {aboutData &&
                   aboutData?.authors?.map((item, index) => {

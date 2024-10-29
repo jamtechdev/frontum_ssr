@@ -88,7 +88,7 @@ p {
 }
 
 .content-para a {
-  color: rgb(39 48 78 / 85%) !important;
+  color: #437ece !important;
 }
 
 .content-para ul,
@@ -2435,9 +2435,20 @@ a.product_link:hover {
   color: #3363a4 !important;
 }
 
-.content-para h2 {
+/* .content-para h2 {
   line-height: 42px !important;
   padding-top: 12px !important;
+} */
+
+.content-para h2 {
+  line-height: 1.2 !important;
+  padding-top: 12px !important;
+}
+
+@media screen and (max-width: 767px) {
+  .content-para h2{
+    font-size: 30px !important;
+  }
 }
 
 .box__content__section__textarea ul,

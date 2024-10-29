@@ -24,8 +24,8 @@ const MobileCompareGuideTable = dynamic(
   () =>
     import("@/components/Common/MobileCompareTable/MobileCompareGuideTable"),
   {
-    loading: () => <p>Loading...</p>, // You can customize this loading component
-    ssr: false, // This makes sure the component is only loaded on the client-side
+    loading: () => <p>Loading...</p>,
+    ssr: false,
   }
 );
 
@@ -314,10 +314,6 @@ export default function GuidePage({
     };
   }, []);
 
-
-  
-  
-
   return (
     <>
       <section className="product-header">
@@ -403,9 +399,6 @@ export default function GuidePage({
               <Row className="catchy_titles_section mb-3">
                 <Col md={7} className="mx-auto p-0">
                   <p>
-
- 
-
                     {guideData[0]?.data?.catchy_titles_box_title ||
                       "No title found"}
                   </p>
@@ -844,8 +837,7 @@ export default function GuidePage({
           </Col>
         </Row>
       </Container>
-      {/* {console.log(guide?.page_phases?.similar_guides)} */}
-
+      {/* {console.log(guide?.page_phases0?.similar_guides)} */}
       <section className="ptb-25">
         <Container>
           <Row>
@@ -883,7 +875,6 @@ export default function GuidePage({
           <Row className="table-section-mobile">
             <Col md={12}>
               <h2 className="site-main-heading pt-5">
-             
                 {guideData[0]?.data?.big_table_subtitle
                   ? guideData[0]?.data?.big_table_subtitle
                   : "No title found"}
@@ -971,14 +962,14 @@ export default function GuidePage({
           <Row>
             <Col md={12}>
               <h2 className="site-main-heading">
-                 
-
-
-                {guide && guide?.see_also_guides && guide?.page_phases?.see_also_guides
-                  && guide?.page_phases?.see_also_guides
-                  }
+                {guide &&
+                  guide?.see_also_guides &&
+                  guide?.page_phases?.see_also_guides &&
+                  guide?.page_phases?.see_also_guides}
               </h2>
-             {guide?.see_also_guides &&  <ProductSlider favSlider={guide?.see_also_guides} slug={slug} />}
+              {guide?.see_also_guides && (
+                <ProductSlider favSlider={guide?.see_also_guides} slug={slug} />
+              )}
             </Col>
           </Row>
         </Container>

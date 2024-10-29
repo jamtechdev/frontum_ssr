@@ -61,7 +61,7 @@ export default function MainPage({ bannerCounts, favSlider }) {
                 {/* {(favSlider?.no_data_found, "favSlider")} */}
                 <SearchList
                   search={search}
-                  isFocused={isFocused}
+                  isFocused={true}
                   noDataFoundPhase={favSlider?.no_results_found}
                 />
               </Form>

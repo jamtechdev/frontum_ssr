@@ -317,7 +317,6 @@ const ProductCompareTable = React.memo(
                                   (data) => data.price === null
                                 ) && (
                                   <div className="not-availabel n-lable p-1">
-                                    {/* <span className="txt">NOT AVAILABLE</span> */}
                                     <i>N/A</i>
                                     <span className="price font__16__inline">
                                       ~ {product?.price} {product?.currency}
@@ -475,7 +474,6 @@ const ProductCompareTable = React.memo(
                 );
               })}
             </tr>
-
             <tr className="tr-bg-color">
               <th className="sub-inner-padding">
                 <div className="tooltip-title">
@@ -627,7 +625,6 @@ const ProductCompareTable = React.memo(
                 );
               })}
             </tr>
-            {/* {(products,"xxx")} */}
             {products[0]?.expert_reviews_rating > 0 && (
               <tr className="">
                 <th className="sub-inner-padding">
@@ -731,7 +728,6 @@ const ProductCompareTable = React.memo(
                   })}
               </tr>
             )}
-
             <tr className="">
               <th className="sub-inner-padding">
                 <div className="tooltip-title">
@@ -1066,7 +1062,6 @@ const ProductCompareTable = React.memo(
             })}
           </tbody>
         </Table>
-
         {fullTable == 2 && (
           <div className="text-center">
             <Button className="see_all_btn_outline" onClick={handleTableShow}>
@@ -1076,7 +1071,6 @@ const ProductCompareTable = React.memo(
             </Button>
           </div>
         )}
-
         <span id="h2"></span>
       </div>
     );

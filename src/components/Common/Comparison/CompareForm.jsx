@@ -189,7 +189,6 @@ export default function CompareForm({
       ...reduxData,
     }));
   }, [reduxData]);
-  // (formFields.productFirst)
   // remove select product from searhList
   const removeSelectedProduct = (product, fieldName) => {
     dispatch(deleteCompareProduct({ key: product }));
@@ -246,8 +245,6 @@ export default function CompareForm({
                 onSendValue={handleChildValue}
                 searchedKeyWord={formFields.productFirst}
                 inputPostion={"productFirst"}
-            
-                // category_id={product_name?.category_id}
                 handelCategoryUpdate={handelCategoryUpdate}
                 page_phase={favSlider}
               />

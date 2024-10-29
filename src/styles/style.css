@@ -361,13 +361,16 @@ footer .search-icon {
 }
 
 .search-dropdown-list .search-data-list ul li span {
-  flex: 1;
   color: #27304e;
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
   text-align: left;
+}
+
+.search-dropdown-list .search-data-list ul li span:first-child {
+  flex: 1;
 }
 
 .search-dropdown-list .search-data-list ul li img {

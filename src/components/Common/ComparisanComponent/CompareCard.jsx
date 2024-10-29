@@ -80,13 +80,11 @@ const CompareCard = ({
                 {productPhaseData && productPhaseData?.winner}
               </div>
             )}
-          {/* {console.log(productPhaseData)} */}
           {productScoreLabelIndex === -1000 && productIndex === 0 && (
             <div className="comparison-tag">
               {productPhaseData && productPhaseData?.draw_text}
             </div>
           )}
-
           <div className="comparison-card">
             <img
               src={
@@ -143,14 +141,13 @@ const CompareCard = ({
                   />
                   {compareProduct?.price_websites[0]?.price != null && (
                     <span>
-                      {" "}
                       <a
+                        target="_blank"
                         href={`/link?p=${btoa(
                           compareProduct?.price_websites[0]?.url
                         )}`}
                         style={{ color: "#fff" }}
                       >
-                        {" "}
                         {/* {console.log(compareProduct?.currency)} */}
                         {compareProduct?.price_websites[0]?.price}{" "}
                         {compareProduct?.currency}{" "}
