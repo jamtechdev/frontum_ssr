@@ -13,16 +13,16 @@ export async function generateMetadata({ params }) {
     };
   }
 
-  const siteURL = process.env.NEXT_PUBLIC_SITE_URL; // Ensure this environment variable is set
+  const siteURL = process.env.NEXT_BASE_URL; 
   return {
-    title: authorData.name || "Author Page",
+    title: `${authorData.name} | Frontum` || "Author Page",
     description: authorData.summary || "Comparison web",
     alternates: {
       canonical: `${siteURL}/author/${params.author}`,
     },
     openGraph: {
       type: "profile",
-      url: `${siteURL}/author/${params.author}`,
+      // url: `${siteURL}/author/${params.author}`,
       title: authorData.name || "Author Page",
       description: authorData.summary || "Comparison web",
     },
