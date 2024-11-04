@@ -126,7 +126,7 @@ export default function MainPage({ bannerCounts, favSlider }) {
           </Row>
         </Container>
       </section>
-      {favSlider && favSlider?.as_seen_on.length > 0 && (
+      {favSlider && favSlider?.as_seen_on?.length > 0 && (
         <section className="ptb-80">
           <Container>
             <Row>

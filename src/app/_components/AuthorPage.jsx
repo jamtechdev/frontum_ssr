@@ -44,7 +44,7 @@ function AuthorPage({ slug, authorData }) {
                 </div>
 
                 <br />
-                {authorData?.summary}
+                {/* {authorData?.summary} */}
                 <br />
                 <br />
                 <div dangerouslySetInnerHTML={{ __html: authorData?.about }} />

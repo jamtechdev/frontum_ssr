@@ -2880,10 +2880,6 @@ export default function Product({
                                                                           : "")}
                                                                     </span>
                                                                   }
-                                                                  {/* {(
-                                                                    attributeValues?.comment
-                                                                  )} */}
-
                                                                   {attributeValues.attribute_value !==
                                                                     "?" && (
                                                                     <ProsConsToolTip
@@ -3039,6 +3035,52 @@ export default function Product({
                                                               />
                                                             </div>
                                                           )}
+                                                           {attributeValues?.info_not_verified && (
+                                                                  <div
+                                                                    className="tooltip-title"
+                                                                    style={{
+                                                                      textDecoration:
+                                                                        "none",
+                                                                      textDecorationLine:
+                                                                        "none",
+                                                                      textDecorationStyle:
+                                                                        "none",
+                                                                    }}
+                                                                  >
+                                                                    {" "}
+                                                                    <i
+                                                                      style={{
+                                                                        opacity:
+                                                                          "70%",
+                                                                      }}
+                                                                    >
+                                                                      {" "}
+                                                                      (?){" "}
+                                                                    </i>
+                                                                    <div
+                                                                      className="tooltip-display-content"
+                                                                      style={{
+                                                                        left: isMobile
+                                                                          ? "50%"
+                                                                          : 0,
+                                                                        transform:
+                                                                          isMobile
+                                                                            ? "translateX(-20%)"
+                                                                            : "translateX(-10%)",
+                                                                        width:
+                                                                          isMobile
+                                                                            ? "200px"
+                                                                            : "250px",
+                                                                        opacity:
+                                                                          "100%",
+                                                                      }}
+                                                                    >
+                                                                      {
+                                                                        attributeValues?.info_not_verified_text
+                                                                      }
+                                                                    </div>
+                                                                  </div>
+                                                                )}
                                                         </div>
                                                       </div>
                                                     </div>
