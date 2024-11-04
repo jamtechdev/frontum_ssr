@@ -83,7 +83,12 @@ export default function Footer({ footerData }) {
               <div className="social-icon">
                 {Object.keys(footerData?.column_one || {}).map((platform) => {
                   const link = footerData.column_one[platform];
-                  const iconClass = `ri-${platform.replace("_link", "")}-fill`;
+                  const iconClass = `${
+                    platform === "twitter_x"
+                      ? "ri-twitter-x-fill"
+                      : `ri-${platform.replace("_link", "")}-fill`
+                  }`;
+                  // console.log(link);
 
                   return (
                     link && (
