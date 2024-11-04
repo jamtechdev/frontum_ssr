@@ -2,7 +2,7 @@ import axios from "axios";
 export const aboutUsService = {
   aboutUsAPi,
   getAuthorById,
-  notDataFound
+  notDataFound,
 };
 
 async function aboutUsAPi() {
@@ -33,9 +33,12 @@ async function getAuthorById(authorId) {
     }
   );
   if (!response.ok) {
-    throw new Error("Failed to fetch data", response);
+    // throw new Error("Failed to fetch data", response);
   }
   let result = await response.json();
+  if (result.code === 404) {
+  return result.code
+  }
   return result.data;
 }
 

@@ -9,7 +9,13 @@ export default async function Page({ params: { category } }) {
 
     const pageData = await fetchDataBasedOnPageType(category, slugType.type);
     if (pageData) {
-      return <PageSwitch PageType={slugType.type} slug={category} pageData={pageData} />;
+      return (
+        <PageSwitch
+          PageType={slugType.type}
+          slug={category}
+          pageData={pageData}
+        />
+      );
     }
   } catch (error) {
     console.error("Error loading page:", error);
@@ -20,15 +26,20 @@ export default async function Page({ params: { category } }) {
 // Function to Get the Type of a Slug
 async function getSlugType(category) {
   try {
-    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/check/${category}`, {
-      next: { revalidate: 10 },
-      cache: "no-cache",
-      method: "GET",
-      headers: {
-        "Content-type": "application/json",
-        Authorization: `Bearer ${process.env.NEXT_PUBLIC_TOKEN}`,
-      },
-    });
+    const response = await fetch(
+      `${process.env.NEXT_PUBLIC_API_URL}/check/${category}`,
+      {
+        method: "GET",
+        headers: {
+          "Content-type": "application/json",
+          Authorization: `Bearer ${process.env.NEXT_PUBLIC_TOKEN}`,
+          "Cache-Control":
+            "no-store, no-cache, must-revalidate, proxy-revalidate",
+          Pragma: "no-cache",
+          Expires: "0",
+        },
+      }
+    );
     if (!response.ok) throw new Error("Failed to fetch slug type");
     return await response.json();
   } catch (error) {
@@ -40,15 +51,18 @@ async function getSlugType(category) {
 // Function to Fetch Metadata for a Given Category
 async function getSlugMetaData(category) {
   try {
-    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/meta-data/${category}`, {
-      next: { revalidate: 10 },
-      cache: "no-cache",
-      method: "GET",
-      headers: {
-        "Content-type": "application/json",
-        Authorization: `Bearer ${process.env.NEXT_PUBLIC_TOKEN}`,
-      },
-    });
+    const response = await fetch(
+      `${process.env.NEXT_PUBLIC_API_URL}/meta-data/${category}`,
+      {
+        next: { revalidate: 10 },
+        cache: "no-cache",
+        method: "GET",
+        headers: {
+          "Content-type": "application/json",
+          Authorization: `Bearer ${process.env.NEXT_PUBLIC_TOKEN}`,
+        },
+      }
+    );
     if (!response.ok) throw new Error("Failed to fetch metadata");
     return await response.json();
   } catch (error) {
@@ -60,15 +74,18 @@ async function getSlugMetaData(category) {
 // Function to Fetch 'Page Not Found' Data
 async function getNoDataFound() {
   try {
-    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/page-not-found`, {
-      next: { revalidate: 10 },
-      cache: "no-cache",
-      method: "GET",
-      headers: {
-        "Content-type": "application/json",
-        Authorization: `Bearer ${process.env.NEXT_PUBLIC_TOKEN}`,
-      },
-    });
+    const response = await fetch(
+      `${process.env.NEXT_PUBLIC_API_URL}/page-not-found`,
+      {
+        next: { revalidate: 10 },
+        cache: "no-cache",
+        method: "GET",
+        headers: {
+          "Content-type": "application/json",
+          Authorization: `Bearer ${process.env.NEXT_PUBLIC_TOKEN}`,
+        },
+      }
+    );
     if (!response.ok) throw new Error("Failed to fetch 'Page Not Found' data");
     return await response.json();
   } catch (error) {
@@ -80,16 +97,17 @@ async function getNoDataFound() {
 // Generate Metadata for a Given Category
 export async function generateMetadata({ params: { category } }) {
   const siteURL = process.env.NEXT_BASE_URL;
-  let metaData = await getSlugMetaData(category) || {};
+  let metaData = (await getSlugMetaData(category)) || {};
 
   const slugType = await getSlugType(category);
   if (slugType.error === "Permalink not found") {
-    metaData = await getNoDataFound() || {};
+    metaData = (await getNoDataFound()) || {};
   }
 
   return {
     title: metaData.data?.title || "Comparison Web",
-    description: metaData.data?.meta_description || "Comparison web description",
+    description:
+      metaData.data?.meta_description || "Comparison web description",
     generator: "Comparison web",
     applicationName: "Comparison web",
     referrer: "origin-when-cross-origin",
@@ -136,7 +154,9 @@ function getApiUrls(pageType, slug) {
     case "PrimaryArchiveCategory":
       return [`${process.env.NEXT_PUBLIC_API_URL}/guide/archive-page/${slug}`];
     case "ProductCategory":
-      return [`${process.env.NEXT_PUBLIC_API_URL}/category/archive-page/${slug}`];
+      return [
+        `${process.env.NEXT_PUBLIC_API_URL}/category/archive-page/${slug}`,
+      ];
     case "SinglePage":
       return [`${process.env.NEXT_PUBLIC_API_URL}/single-page/${slug}`];
     case "AboutUs":

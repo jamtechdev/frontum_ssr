@@ -1328,101 +1328,146 @@ const TechnicalAccordion = React.memo(
                                         productPhaseData?.yes ||
                                         attributeValues.attribute_value ==
                                           productPhaseData?.no) && (
-                                        <div
-                                          className={`${
-                                            attributeValues?.hover_phase !== ""
-                                              ? "tooltip-title"
-                                              : ""
-                                          }`}
-                                          style={{
-                                            color:
-                                              attributeValues.attribute_value ==
-                                                productPhaseData?.yes &&
-                                              attributeValues.attribute_is_same_as *
-                                                100 <
-                                                40
-                                                ? "#0066b2"
-                                                : attributeValues.attribute_value ==
-                                                    productPhaseData?.no &&
-                                                  attributeValues.attribute_is_worse_than *
-                                                    100 >
-                                                    60
-                                                ? "red"
-                                                : "#27304e",
-                                            fontSize: "15px",
-                                            textDecoration:
-                                              attributeValues?.hover_phase !==
-                                              ""
-                                                ? "underline"
-                                                : "",
-                                            textDecorationStyle:
-                                              attributeValues?.hover_phase !==
-                                              ""
-                                                ? "dotted"
-                                                : "",
-                                            textDecorationThickness: "1.5px",
-                                            textDecorationColor:
-                                              attributeValues.attribute_value ==
-                                                productPhaseData?.yes &&
-                                              // here I change attribute_is_better_than to attribute_is_same_as
-                                              attributeValues.attribute_is_same_as *
-                                                100 <
-                                                40
-                                                ? "#0066b2"
-                                                : attributeValues.attribute_value ==
-                                                    productPhaseData?.no &&
-                                                  attributeValues.attribute_is_worse_than *
-                                                    100 >
-                                                    60
-                                                ? "red"
-                                                : "#27304e",
-                                            textUnderlineOffset: "5px",
-                                          }}
-                                        >
-                                          {/* here we use attribute_is_same_as and attribute_is_worse_than  */}
-                                          {
-                                            <span
+                                        <>
+                                          <div
+                                            className={`${
+                                              attributeValues.attribute_value !==
+                                                "?" &&
+                                              !attributeValues.attribute_value.includes(
+                                                "-"
+                                              ) &&
+                                              attributeValues.hover_phase !==
+                                                "" &&
+                                              "tooltip-title"
+                                            }`}
+                                            style={{
+                                              color:
+                                                attributeValues.is_better_than *
+                                                  100 >=
+                                                70
+                                                  ? "#437ece"
+                                                  : attributeValues.is_worse_than *
+                                                      100 >
+                                                    70
+                                                  ? "#ce434b"
+                                                  : "#27304e",
+                                              fontSize: "15px",
+                                              textDecoration:
+                                                attributeValues.attribute_value !==
+                                                  "?" &&
+                                                attributeValues?.hover_phase !==
+                                                  ""
+                                                  ? "underline"
+                                                  : "",
+                                              textDecorationStyle:
+                                                attributeValues.attribute_value !==
+                                                  "?" &&
+                                                attributeValues?.hover_phase !==
+                                                  ""
+                                                  ? "dotted"
+                                                  : "",
+                                              textDecorationThickness: "1.5px",
+                                              textDecorationColor:
+                                                attributeValues.is_better_than *
+                                                  100 >=
+                                                70
+                                                  ? "#437ece"
+                                                  : attributeValues.is_worse_than *
+                                                      100 >
+                                                    70
+                                                  ? "#ce434b"
+                                                  : "#27304e",
+                                              textUnderlineOffset: "5px",
+                                            }}
+                                          >
+                                            {
+                                              <span
+                                                style={{
+                                                  color:
+                                                    attributeValues.is_better_than *
+                                                      100 >=
+                                                    70
+                                                      ? "#437ece"
+                                                      : attributeValues.is_worse_than *
+                                                          100 >
+                                                        70
+                                                      ? "#ce434b"
+                                                      : "#27304e",
+                                                  fontSize: "15px",
+                                                }}
+                                              >
+                                                {(attributeValues.attribute_value !=
+                                                null
+                                                  ? attributeValues.attribute_value
+                                                  : "") +
+                                                  " " +
+                                                  (attributeValues.attribute_value ===
+                                                    "?" ||
+                                                  attributeValues.attribute_value ===
+                                                    "-"
+                                                    ? ""
+                                                    : attributeValues.unit !=
+                                                      null
+                                                    ? attributeValues.unit
+                                                    : "")}
+                                              </span>
+                                            }
+
+                                            {attributeValues.attribute_value !==
+                                              "?" && (
+                                              <ProsConsToolTip
+                                                comment={
+                                                  attributeValues?.comment
+                                                }
+                                                hover_phrase={
+                                                  attributeValues &&
+                                                  attributeValues.hover_phase
+                                                }
+                                                info_not_verified={
+                                                  attributeValues &&
+                                                  attributeValues?.info_not_verified
+                                                }
+                                                info_not_verified_text={
+                                                  attributeValues &&
+                                                  attributeValues?.info_not_verified_text
+                                                }
+                                              />
+                                            )}
+                                          </div>{" "}
+                                          {attributeValues?.info_not_verified && (
+                                            <div
+                                              className="tooltip-title"
                                               style={{
-                                                color:
-                                                  attributeValues.attribute_value ==
-                                                    productPhaseData?.yes &&
-                                                  attributeValues.attribute_is_same_as *
-                                                    100 <
-                                                    40
-                                                    ? "#0066b2"
-                                                    : attributeValues.attribute_value ==
-                                                        productPhaseData?.no &&
-                                                      attributeValues.attribute_is_worse_than *
-                                                        100 >
-                                                        60
-                                                    ? "red"
-                                                    : "#27304e",
+                                                textDecoration: "none",
+                                                textDecorationLine: "none",
+                                                textDecorationStyle: "none",
                                               }}
                                             >
-                                              {(attributeValues.attribute_value !=
-                                              null
-                                                ? attributeValues.attribute_value
-                                                : "") +
-                                                " " +
-                                                (attributeValues.attribute_value ===
-                                                  "?" ||
-                                                attributeValues.attribute_value ===
-                                                  "-"
-                                                  ? ""
-                                                  : attributeValues.unit != null
-                                                  ? attributeValues.unit
-                                                  : "")}
-                                            </span>
-                                          }
-                                          {/* here we use attributeValues.is_better_than and  attributeValues.is_worse_than  */}
-                                          <ProsConsToolTip
-                                            comment={attributeValues?.comment}
-                                            hover_phrase={
-                                              attributeValues &&
-                                              attributeValues.hover_phase
-                                            }
-                                          />
-                                        </div>
+                                              {" "}
+                                              <i style={{ opacity: "70%" }}>
+                                                {" "}
+                                                (?){" "}
+                                              </i>
+                                              <div
+                                                className="tooltip-display-content"
+                                                style={{
+                                                  left: isMobile ? "50%" : 0,
+                                                  transform: isMobile
+                                                    ? "translateX(-20%)"
+                                                    : "translateX(-10%)",
+                                                  width: isMobile
+                                                    ? "200px"
+                                                    : "250px",
+                                                  opacity: "100%",
+                                                }}
+                                              >
+                                                {
+                                                  attributeValues?.info_not_verified_text
+                                                }
+                                              </div>
+                                            </div>
+                                          )}
+                                        </>
                                       )}
                                     </div>
                                   </div>

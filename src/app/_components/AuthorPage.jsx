@@ -16,7 +16,7 @@ function AuthorPage({ slug, authorData }) {
               <BreadCrumb firstPageName="author" secondPageName={""} />
             </Col> */}
             <Col md={12}>
-              <h1 className="heading-primary">{authorData.name}</h1>
+              <h1 className="heading-primary">{authorData?.name}</h1>
             </Col>
           </Row>
         </Container>
@@ -29,14 +29,14 @@ function AuthorPage({ slug, authorData }) {
                 <div className="author-page-section">
                   <img
                     src={
-                      authorData.image
-                        ? authorData.image
+                      authorData?.image
+                        ? authorData?.image
                         : "/images/nofound.png"
                     }
                     width={0}
                     height={0}
                     sizes="100%"
-                    alt=""
+                    alt=""  
                   />
                   <div className="author-page-section-footer">
                     <span>{authorData?.name}</span>
@@ -45,6 +45,10 @@ function AuthorPage({ slug, authorData }) {
 
                 <br />
                 {authorData?.summary}
+                <br />
+                <br />
+                <div dangerouslySetInnerHTML={{ __html: authorData?.about }} />
+
                 <br />
                 <br />
               </div>
@@ -58,7 +62,8 @@ function AuthorPage({ slug, authorData }) {
             {authorData?.latest_guides?.length > 0 && (
               <Col md={12}>
                 <h2 className="heading-primary secondary related-guides">
-                  {authorData && authorData?.page_phases?.latest_guide_text || 'Latest Guides' }
+                  {(authorData && authorData?.page_phases?.latest_guide_text) ||
+                    "Latest Guides"}
                 </h2>
               </Col>
             )}
@@ -99,7 +104,9 @@ function AuthorPage({ slug, authorData }) {
               <>
                 <Col md={12}>
                   <h2 className="heading-primary secondary blog-post">
-                  {authorData && authorData?.page_phases?.related_blog_posts_text || 'Related Blog Posts'}
+                    {(authorData &&
+                      authorData?.page_phases?.related_blog_posts_text) ||
+                      "Related Blog Posts"}
                   </h2>
                 </Col>
                 <Col md={12}>

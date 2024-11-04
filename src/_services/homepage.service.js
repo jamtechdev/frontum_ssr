@@ -63,19 +63,22 @@ async function getMainPageBannerCounts() {
   let result = await response.json();
   return result.data;
 }
-
 async function getFavouriteGuides() {
   const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/homepage`, {
-    next: { revalidate: 10 },
+    method: "GET",
     headers: {
       Authorization: `Bearer ${process.env.NEXT_PUBLIC_TOKEN}`,
       "Content-type": "application/json",
+      "Cache-Control": "no-store, no-cache, must-revalidate, proxy-revalidate",
+      Pragma: "no-cache",
+      Expires: "0",
     },
   });
 
   if (!response.ok) {
     throw new Error("Failed to fetch data", response);
   }
-  let result = await response.json();
+  
+  const result = await response.json();
   return result.data;
 }
