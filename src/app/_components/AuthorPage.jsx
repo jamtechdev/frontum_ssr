@@ -36,18 +36,18 @@ function AuthorPage({ slug, authorData }) {
                     width={0}
                     height={0}
                     sizes="100%"
-                    alt=""  
+                    alt=""
                   />
                   <div className="author-page-section-footer">
                     <span>{authorData?.name}</span>
                   </div>
                 </div>
-
-                <br />
-                {/* {authorData?.summary} */}
                 <br />
                 <br />
-                <div dangerouslySetInnerHTML={{ __html: authorData?.about }} />
+                <div
+                className="author-page-para"
+                  dangerouslySetInnerHTML={{ __html: authorData?.about }}
+                />
 
                 <br />
                 <br />

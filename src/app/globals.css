@@ -2446,7 +2446,7 @@ a.product_link:hover {
 }
 
 @media screen and (max-width: 767px) {
-  .content-para h2{
+  .content-para h2 {
     font-size: 30px !important;
   }
 }
@@ -2636,4 +2636,13 @@ tr:first-child th {
 .content-para img {
   max-width: 100%;
   height: auto;
+}
+
+.author-page-para p {
+  padding: 0 0 12px !important;
+  font-weight: 400 !important;
+  font-size: 18px !important;
+  color: rgb(39 48 78 / 85%) !important;
+  text-align: left;
+  line-height: 30px !important;
 }
